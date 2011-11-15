@@ -223,7 +223,7 @@ function recipe_show_box() {
 						</tr></thead>',
 						'<tbody>';
 				$i = 0;
-				$image = THD_PLUGIN_URL.'img/image.png';
+				$image = RECIPRESS_URL.'img/image.png';
 				if($meta != '') {
 					foreach($meta as $row) {
 						echo '<tr id="insutrction_row-'.$i.'">',
@@ -311,7 +311,7 @@ function recipe_show_box() {
 			// image
 			// ----------------
 			case 'image':
-				$image = THD_PLUGIN_URL.'img/image.png';	
+				$image = RECIPRESS_URL.'img/image.png';	
 				if($meta)  { $image = wp_get_attachment_image_src($meta, 'medium');	$image = $image[0]; }				
 				echo	'<input name="', $field['id'], '" type="hidden" class="upload_image" value="', $meta, '" />',
 							'<img src="'.$image.'" class="preview_image" alt="" />
