@@ -177,7 +177,7 @@ function recipe_show_box() {
 					foreach($meta as $row) {
 						echo '<tr>',
 							'<td><span class="sort"></span></td>', // sort
-							'<td><input type="text" class="text-small" step="0.25" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="', $row['amount'],'" size="3" /></td>', //amount
+							'<td><input type="text" class="text-small" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="', $row['amount'],'" size="3" /></td>', //amount
 							'<td><select name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'">';
 							foreach($measurements as $measurement) {
 								$measurement = trim($measurement);
@@ -195,7 +195,7 @@ function recipe_show_box() {
 				} else {
 						echo '<tr>',
 							'<td><span class="sort"></span></td>', // sort
-							'<td><input type="number" step="1" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="" size="3" /></td>', //amount
+							'<td><input type="text" class="text-small" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="" size="3" /></td>', //amount
 							'<td><select name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'">';
 							foreach($measurements as $measurement) {
 								echo '<option value="',$measurement,'">',$measurement,'</option>';
