@@ -27,25 +27,25 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */  
 
 // The full path to the plugin directory
-define( 'THD_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . basename( dirname( __FILE__ ) ) . '/' );
-define( 'THD_PLUGIN_URL', WP_PLUGIN_URL . '/' . basename( dirname( __FILE__ ) ) . '/' );
+define( 'RECIPRESS_DIR', WP_PLUGIN_DIR . '/' . basename( dirname( __FILE__ ) ) . '/' );
+define( 'RECIPRESS_URL', WP_PLUGIN_URL . '/' . basename( dirname( __FILE__ ) ) . '/' );
 
 // Load plugin files
-include_once(THD_PLUGIN_DIR.'php/functions.php');
-include_once(THD_PLUGIN_DIR.'php/options.php');
-include_once(THD_PLUGIN_DIR.'php/meta_box.php');
-include_once(THD_PLUGIN_DIR.'php/taxonomies.php');
-include_once(THD_PLUGIN_DIR.'php/output.php');
+include_once(RECIPRESS_DIR.'php/functions.php');
+include_once(RECIPRESS_DIR.'php/options.php');
+include_once(RECIPRESS_DIR.'php/meta_box.php');
+include_once(RECIPRESS_DIR.'php/taxonomies.php');
+include_once(RECIPRESS_DIR.'php/output.php');
 
 // Styles and Scripts
 if (is_admin()) {
 	wp_enqueue_script('jquery-ui-sortable');
 	wp_enqueue_script( 'suggest' );
-	wp_enqueue_script('recipress_back', THD_PLUGIN_URL.'js/back.js');
-	wp_enqueue_style('recipress_back', THD_PLUGIN_URL.'css/back.css');
+	wp_enqueue_script('recipress_back', RECIPRESS_URL.'js/back.js');
+	wp_enqueue_style('recipress_back', RECIPRESS_URL.'css/back.css');
 }
 else {
-	wp_enqueue_style('recipress_front', THD_PLUGIN_URL.'css/front.css');
+	wp_enqueue_style('recipress_front', RECIPRESS_URL.'css/front.css');
 }
 
 // Admin Head Script
@@ -57,7 +57,7 @@ function add_script_config() {
     function setSuggest(id) {
         jQuery('#' + id).suggest("<?= get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?action=ajax-tag-search&tax=ingredient");
     }
-	var pluginDir = '<? echo THD_PLUGIN_URL ?>';
+	var pluginDir = '<? echo RECIPRESS_URL ?>';
     </script>
 <?
 }
