@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.2.1
-Stable tag: 1.0
+Stable tag: 1.1
 
 
 == Description ==
@@ -63,5 +63,12 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 
 == Changelog ==
 
+= 1.1 (November 16, 2011) =
+* Fixed the autoadd filter conditional
+
 = 1.0 (November 14, 2011) =
 * First release.
+
+== Upgrade Notice ==
+
+The initial release wasn't auto adding the recipe unless you saved the ReciPress Options. This has been fixed.
