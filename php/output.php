@@ -45,7 +45,7 @@ add_shortcode('recipe', 'the_recipe');
 
 // auto add?
 function _add_my_filter() {
-	if ( recipress_options('autoadd') == 'yes' ) {
+	if ( !recipress_options('autoadd') || recipress_options('autoadd') == 'Yes' ) {
 		add_filter('the_content', 'the_recipe');
 	}
 }
