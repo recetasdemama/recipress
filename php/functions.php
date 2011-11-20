@@ -38,6 +38,7 @@ function recipress_theme() {
 function recipress_gen_summary() {
    $excerpt = get_the_content();
    $excerpt = strip_tags(trim($excerpt));
+   $new_excerpt = '';
    $charlength = 140;
    if(strlen($excerpt)>$charlength) {
        $subex = substr($excerpt,0,$charlength-5);
