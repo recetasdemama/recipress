@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 /* Add Meta Box
@@ -89,9 +89,25 @@ $meta_fields = array(
 	)
 );
 	
-$measurements = recipress_options('measurements');
-if ($measurements == '')
-	$measurements = array(
+$measurements_singular = recipress_options('measurements-singular');
+if (!isset($measurements_singular))
+	$measurements_singular = array(
+		'',
+		'teaspoon',
+		'tablespoon',
+		'ounce',
+		'pound',
+		'cup',
+		'can',
+		'jar',
+		'box',
+		'package'
+	);
+else { $measurements_singular = explode("\n", $measurements_singular); array_unshift($measurements_singular,''); }
+	
+$measurements_plural = recipress_options('measurements-plural');
+if (!isset($measurements_plural))
+	$measurements_plural = array(
 		'',
 		'teaspoons',
 		'tablespoons',
@@ -103,13 +119,13 @@ if ($measurements == '')
 		'boxes',
 		'packages'
 	);
-else { $measurements = explode("\n", $measurements); array_unshift($measurements,''); }
+else { $measurements_plural = explode("\n", $measurements_plural); array_unshift($measurements_plural,''); }
 
 
 /* The Callback
 ------------------------------------------------------------------------- */
 function recipe_show_box() {
-    global $meta_fields, $post, $measurements;
+    global $meta_fields, $post, $measurements_singular, $measurements_plural;
 	// if post-thumbnails aren't supported, add a recipe photo
 	if(!current_theme_supports('post-thumbnails')) 
 		array_unshift($meta_fields,
@@ -162,97 +178,87 @@ function recipe_show_box() {
 			// ingredient
 			// ----------------
             case 'ingredient':
-                echo '<table id="ingredients_table" cellpadding="0" cellspacing="0">',
-						'<thead><tr>
-							<th class="left_corner"><span class="sort_label"></span></th>
-							<th>Amount</th>
-							<th>Measurement</th>
-							<th>Ingredient</th>
-							<th>Notes</th>
-							<th class="right_corner"><a class="ingredient_add" href="#"></a></th>
-						</tr></thead>',
-						'<tbody>';
+                echo '<ul class="table" id="ingredients_table">',
+						'<li class="thead"><ul class="tr">
+							<li class="th left_corner"><span class="sort_label"></span></li>
+							<li class="th cell-amount">Amount</li>
+							<li class="th cell-measurement">Measurement</li>
+							<li class="th cell-ingredient">Ingredient</li>
+							<li class="th cell-notes">Notes</li>
+							<li class="th right_corner"><a class="ingredient_add" href="#"></a></li>
+						</ul></li>',
+						'<li class="tbody">';
 				$i = 0;
 				if($meta != '') {
 					foreach($meta as $row) {
-						echo '<tr>',
-							'<td><span class="sort"></span></td>', // sort
-							'<td><input type="text" class="text-small" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="', $row['amount'],'" size="3" /></td>', //amount
-							'<td><select name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'">';
-							foreach($measurements as $measurement) {
-								$measurement = trim($measurement);
-								$selected = '';
-								if($row['measurement'] == $measurement) $selected = ' selected="selected"';
-								echo '<option', $selected , ' value="',$measurement,'">',$measurement,'</option>';
-							}
-							echo '</select></td>', //measurement
-							'<td><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="', $row['ingredient'],'" size="30" class="ingredient" placeholder="start typing an ingredient" /></td>', // ingredient
-							'<td><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="', $row['notes'],'" size="30" class=" " placeholder="e.g., chopped, sifted, fresh" /></td>', // notes
-							'<td><a class="ingredient_remove" href="#"></a></td>', // remove
-						'</tr>';
+						echo '<ul class="tr">',
+							'<li class="td"><span class="sort"></span></li>', // sort
+							'<li class="td cell-amount"><input type="text" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="', $row['amount'],'" size="3" /></li>', //amount
+							'<li class="td cell-measurement"><input type="text" name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'" value="', $row['measurement'],'" size="30" /></li>', //measurement
+							'<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="', $row['ingredient'],'" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>', // ingredient
+							'<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="', $row['notes'],'" size="30" placeholder="e.g., chopped, sifted, fresh" /></li>', // notes
+							'<li class="td"><a class="ingredient_remove" href="#"></a></li>', // remove
+							'<li class="clear"></clear>', // clear
+						'</ul>';
 						$i++;
 					}
 				} else {
-						echo '<tr>',
-							'<td><span class="sort"></span></td>', // sort
-							'<td><input type="text" class="text-small" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="" size="3" /></td>', //amount
-							'<td><select name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'">';
-							foreach($measurements as $measurement) {
-								echo '<option value="',$measurement,'">',$measurement,'</option>';
-							}
-							echo '</select></td>', //measurement
-							'<td><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="" size="30" class="ingredient" placeholder="start typing an ingredient" /></td>', // ingredient
-							'<td><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="" size="30" class=" " placeholder="e.g., chopped, fresh, etc." /></td>', // notes
-							'<td><a class="ingredient_remove" href="#"></a></td>', // remove
-						'</tr>';
+						echo '<ul class="tr">',
+							'<li class="td"><span class="sort"></span></li>', // sort
+							'<li class="td cell-amount"><input type="text" class="text-small" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="" size="3" /></li>', //amount
+							'<li class="td cell-measurement"><input type="text" name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'" value="" size="30" /></li>', //measurement
+							'<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>', // ingredient
+							'<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="" size="30" class=" " placeholder="e.g., chopped, fresh, etc." /></li>', // notes
+							'<li class="td"><a class="ingredient_remove" href="#"></a></li>', // remove
+							'<li class="clear"></clear>', // clear
+						'</ul>';
 				}
-				echo '</tbody></table>',
+				echo '</li></ul>',
 					'<span class="description">', $field['desc'], '</span>';
             break;
 			// ----------------
 			// instruction
 			// ----------------
             case 'instruction':
-                echo '<table id="instructions_table" cellpadding="0" cellspacing="0">',
-						'<thead><tr>',
-							'<th class="left_corner"><span class="sort_label"></span></th>',
-							'<th class="textcenter">Step</th>
-							<th>Description</th>',
+                echo '<ul class="table" id="instructions_table">',
+						'<li class="thead"><ul class="tr">',
+							'<li class="th left_corner"><span class="sort_label"></span></li>',
+							'<li class="th cell-description">Description</li>',
 							//<th>Image</th>
-							'<th class="right_corner"><a class="instruction_add" href="#"></a></th>
-						</tr></thead>',
-						'<tbody>';
+							'<li class="th right_corner"><a class="instruction_add" href="#"></a></li>
+						</ul></li>',
+						'<li class="tbody">';
 				$i = 0;
 				$image = RECIPRESS_URL.'img/image.png';
 				if($meta != '') {
 					foreach($meta as $row) {
-						echo '<tr id="insutrction_row-'.$i.'">',
-							'<td><span class="sort"></span></td>', // sort
-							'<td class="step"><span>',$i+1,'</span></td>', // step
-							'<td><textarea placeholder="Describe this step in the recipe" class="instruction" name="instruction['.$i.'][description]" cols="50" rows="4" id="ingredient_description_'.$i.'">'. $row['description'].'</textarea></td>', // description
+						echo '<ul class="tr" id="insutrction_row-'.$i.'">',
+							'<li class="td"><span class="sort"></span></li>', // sort
+							'<li class="td cell-description"><textarea placeholder="Describe this step in the recipe" class="instruction" name="instruction['.$i.'][description]" cols="40" rows="4" id="ingredient_description_'.$i.'">'. $row['description'].'</textarea></li>', // description
 							/*'<td><input name="instruction['.$i.'][image]" type="hidden" class="upload_image instruction" value="'.$row['image'].'" /><img src="';
 					if($row['image']) echo $row['image']; else echo $image;
 						echo '" class="preview_image" width="170" alt="" />
 								<input class="upload_image_button" type="button" value="Upload Image" />
 							</td>', // image*/
-							'<td><a class="instruction_remove" href="#"></a></td>', //remove
-						'</tr>';
+							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
+							'<li class="clear"></clear>', // clear
+						'</ul>';
 						$i++;
 					}
 				} else {
-						echo '<tr id="instruction_row-'.$i.'">',
-							'<td><span class="sort"></span></td>', // sort
-							'<td class="step"><span>',$i+1,'</span></td>', //step
-							'<td><textarea placeholder="Describe this step in the recipe" class="instruction" type="text" name="instruction['.$i.'][description]" cols="77" rows="4" id="ingredient_description_'.$i.'"></textarea></td>', // description
+						echo '<ul class="tr" id="insutrction_row-'.$i.'">',
+							'<li class="td"><span class="sort"></span></li>', // sort
+							'<li class="td cell-description"><textarea placeholder="Describe this step in the recipe" class="instruction" type="text" name="instruction['.$i.'][description]" cols="77" rows="4" id="ingredient_description_'.$i.'"></textarea></li>', // description
 							/*'<td><input name="instruction['.$i.'][image]" type="hidden" class="upload_image instruction" value="" />',
 							'<img src="'.$image.'" class="preview_image" width="170" alt="" />
 								<input class="upload_image_button" type="button" value="Upload Image" />
 							</td>', // image*/
-							'<td><a class="instruction_remove" href="#"></a></td>', //remove
-						'</tr>';
+							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
+							'<li class="clear"></clear>', // clear
+						'</ul>';
 				}
-				echo '</tbody></table>',
-					'<span class="description">', $field['desc'], '</span>';
+				echo '</li></ul>',
+					'<div class="clear"></div><span class="description">', $field['desc'], '</span>';
             break;
 			// ----------------
 			// text
@@ -315,8 +321,8 @@ function recipe_show_box() {
 				if($meta)  { $image = wp_get_attachment_image_src($meta, 'medium');	$image = $image[0]; }				
 				echo	'<input name="', $field['id'], '" type="hidden" class="upload_image" value="', $meta, '" />',
 							'<img src="'.$image.'" class="preview_image" alt="" />
-								<input class="upload_image_button" type="button" value="Upload Image" /><br />
-								<input class="clear_image_button" type="button" value="Remove Image" />
+								<input class="upload_image_button button-primary" type="button" value="Upload Image" /><br />
+								<input class="clear_image_button button-secondary" type="button" value="Remove Image" />
 								<br clear="all" /><span class="description">', $field['desc'], '</span>';
 			break;
         }
@@ -368,6 +374,8 @@ function recipe_save_data($post_id) {
 			$old = get_post_meta($post_id, $field['id'], true);
 			$new = $_POST[$field['id']];
 			if ($new && $new != $old) {
+				if ('ingredient' == $field['id']) 
+					foreach ($new as &$ingredient) $ingredient['measurement'] = rtrim($ingredient['measurement']);
 				update_post_meta($post_id, $field['id'], $new);
 			} elseif ('' == $new && $old) {
 				delete_post_meta($post_id, $field['id'], $old);

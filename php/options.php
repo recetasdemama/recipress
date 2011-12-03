@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 /* Load up the menu page
@@ -64,7 +64,7 @@ $fields = array(
 			'no'	=> array(
 				'label'	=> 'No',
 				'value'	=> 'no',
-				'desc'	=> 'Use the <code>[recipe]</code> shortcut to output the recipe'
+				'desc'	=> 'Use the <code>[recipe]</code> shortcode to output the recipe'
 			),
 		)
 	),
@@ -95,41 +95,44 @@ $fields = array(
 	array(
 		'label' => 'Recipe Theme',
 		'id' 	=> 'theme',
-		'type' 	=> 'select',
+		'type' 	=> 'image_radio',
 		'options'=> array(
 			'recipress-light'	=> array(
 				'label'	=> 'Light',
 				'value'	=> 'recipress-light',
+				'image'	=> 'theme-light.jpg',
+				'desc'	=> 'For use with light themes'
 			),
 			'recipress-dark'	=> array(
 				'label'	=> 'Dark',
-				'value'	=> 'recipress-dark'
+				'value'	=> 'recipress-dark',
+				'image'	=> 'theme-dark.jpg',
+				'desc'	=> 'For use with dark themes'
 			),
 			'recipress-recipress'	=> array(
 				'label'	=> 'ReciPress',
-				'value'	=> 'recipress-recipress'
+				'value'	=> 'recipress-recipress',
+				'image'	=> 'theme-recipress.jpg',
+				'desc'	=> 'Custom textured design (light or dark themes)'
 			)
 		)
 	),
 	array(
-		'label' => 'Other',
+		'label' => 'Say Thanks',
 		'type' 	=> 'section'
 	),
 	array(
-		'label' => 'Measurements',
-		'id' 	=> 'measurements',
-		'type' 	=> 'textarea',
-		'desc' 	=> 'List measurement options each on a separate line.',
-		'value'	=> 'teaspoons
-tablespoons
-ounces
-pounds
-cups
-cans
-jars
-boxes
-packages'
+		'label'	=> 'Plugin Credit',
+		'type'	=> 'checkbox',
+		'id'	=> 'credit',
+		'desc'	=> 'Add a credit link to the recipe box.',
+		'checked' => ' checked="checked"'
+	),
+	array(
+		'label'	=> 'Buy me a latte!',
+		'type'	=> 'paypal'
 	)
+		
 );
 
 
@@ -152,13 +155,17 @@ function recipress_do_page() {
 			settings_fields( 'thd_options' );
 			// get the settings
 			$options = get_option( 'recipress_options' );
-			// start a table
-			echo '<table id="options" class="form-table">';
 			// start a loop through the fields
+			$sections = 0;
 			foreach ($fields as $field) {
 			// section titles
 			if ($field['type'] == 'section') {
-				echo '<tr><td colspan="2"><h3 class="title">', $field['label'], '</h3></td></tr>';
+				$sections++;
+				if ($sections > 1)
+					echo '</table></div></div>';
+				echo '<div class="postbox metabox-holder"><h3>', $field['label'], '</h3>';
+				// start a table
+				echo '<div class="inside"><table class="form-table">';
 			}
 			
 			else {
@@ -167,15 +174,24 @@ function recipress_do_page() {
 						'<td>';
 						
 					switch ($field['type']) {
+						// ----------------
 						// text
+						// ----------------
 						case 'text':
 							echo '<input type="text" class="regular-text" name="recipress_options[', $field['id'], ']" id="', $field['id'], '" value="', $options[$field['id']] ? $options[$field['id']] : $field['value'], '" size="30" /> <span class="description">', $field['desc'], '</span>';
 						break;
+						// ----------------
 						// checkbox
+						// ----------------
 						case 'checkbox':
-							echo '<input id="', $field['id'], '" name="recipress_options[', $field['id'], ']" type="checkbox" value="1" ', 1 == $options[$field['id']] ? ' checked="checked"' : '', ' /> <label for="', $field['id'], '">', $field['desc'], '</label>';
+							$checked = $field['checked'];
+							if (isset($options[$field['id']]) && $options[$field['id']] != 1) $checked = '';
+								else $checked = ' checked="checked"';
+							echo '<input id="', $field['id'], '" name="recipress_options[', $field['id'], ']" type="checkbox" value="1" ', $checked, ' /> <label for="', $field['id'], '">', $field['desc'], '</label>';
 						break;
+						// ----------------
 						// checkbox_group
+						// ----------------
 						case 'checkbox_group':
 							foreach ($field['options'] as $option) {
 								$checked = '';
@@ -188,7 +204,9 @@ function recipress_do_page() {
 							}
 							echo '<span class="description">', $field['desc'], '</span>';
 						break;
+						// ----------------
 						// select
+						// ----------------
 						case 'select':
 							echo '<select name="recipress_options[', $field['id'], ']">';
 		
@@ -208,7 +226,9 @@ function recipress_do_page() {
 							echo '</select>',
 								'<span class="description">', $field['desc'], '</span>';
 						break;
+						// ----------------
 						// radio
+						// ----------------
 						case 'radio':
 							echo '<fieldset><legend class="screen-reader-text"><span>', $field['label'], '</span></legend>';
 								foreach ( $field['options'] as $option ) {
@@ -223,10 +243,41 @@ function recipress_do_page() {
 								}
 								echo '</fieldset>';
 						break;
+						// ----------------
+						// image_radio
+						// ----------------
+						case 'image_radio':
+							echo '<fieldset class="image_radio"><legend class="screen-reader-text"><span>', $field['label'], '</span></legend>';
+								foreach ( $field['options'] as $option ) {
+								$checked = '';
+								$active = '';
+								$the_option = $options[$field['id']];
+								$the_value = $option['value'];
+								if ((!$the_option && $option['default'] == true) || ($the_option == $the_value)) {
+									$checked = ' checked="checked"';
+									$active = ' class="active"';
+								}
+									echo '<label', $active,'>',
+											'<input type="radio" name="recipress_options[', $field['id'], ']" value="', $option['value'], '"', $checked, ' />',
+											'<img src="', RECIPRESS_URL ,'img/', $option['image'] ,'" alt="', $option['label'], '" />', 
+										 '<strong>', $option['label'], '</strong><br />',
+										 '<span class="description">', $option['desc'], '</span></label>';
+								}
+								echo '</fieldset>';
+						break;
+						// ----------------
 						// textarea
+						// ----------------
 						case 'textarea':
 							echo '<textarea id="recipress_options[', $field['id'], ']" name="recipress_options[', $field['id'], ']" class="small-text" style="resize:none" cols="40" rows="4">', $options[$field['id']] ? $options[$field['id']] : $field['value'], '</textarea>',
 									'<br /><span class="description" for="recipress_options[', $field['id'], ']">', $field['desc'], '</span>';
+						break;
+						// ----------------
+						// paypal
+						// ----------------
+						case 'paypal':
+							echo '<p>Do you find this plugin useful and want to say thanks? </p>',
+									'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammyhartdesigns%40gmail%2ecom&item_name=Recipe%20Box%20Plugin%20Latte%20Fund&no_shipping=0&no_note=1&tax=0&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8" target="_blank" class="button">Donate</a>';
 						break;
 					} // end switch
 					
@@ -234,7 +285,7 @@ function recipress_do_page() {
 					'</tr>';
 			} // end if section else
 		}  // end foreach
-		echo '</table>';
+		echo '</table></div></div>';
 		// close out the container
 		echo '<p class="submit"><input type="submit" class="button-primary" value="Save Options" /></p>',
 			'</form></div>';
