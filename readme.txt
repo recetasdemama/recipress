@@ -4,14 +4,12 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.2.1
-Stable tag: 1.1
+Stable tag: 1.2
 
 
 == Description ==
 
 Create recipes in your posts with a clean interface and layout that are easy to organize.
-
-**Warning:** This an initial release and while the core functionality should work, I am still working on a few additional features, and testing it in multiple environments. Please see the FAQ tab for more information.
 
 = Features Include: =
 * Custom meta box to create a recipe with the following fields: photo, title, summary, cuisine, course, skill level, yield, servings, prep time, cook time, ingredients, and instructions.
@@ -20,19 +18,16 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 * Sortable, numbered instructions
 * Custom taxonomies for Ingredients, Cuisines, Courses, and Skill Levels
 * Output automatically or with a shortcode
-* Three basic recipe themes to choose from
+* Three basic recipe output designs to choose from
 * Supports themes with or without post-thumbnails for a recipe photo selection
 * hRecipe optimized for Search Engine Optimization
 
 = Coming Soon: =
 
-This is an initial release and there a few more things I'll be adding very soon.
-
-* Polishing up the ReciPress Options page
-* Plural and singular measurement options
-* Contextual help
 * Localization
+* Contextual Help and Pointers
 * Sidebar widgets for listing Recipes, Cuisines, Courses, Skill Levels, and an Ingredient Cloud
+* ReciPress Pro! [Sign up](http://www.recipress.com) for updates!
 
 I'll also be opening a support area and releasing a "Pro" version soon at [ReciPress.com](http://www.recipress.com). Be sure to visit the site and like us, follow us, or subscribe to email updates for more news on that. 
 
@@ -63,6 +58,13 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 
 == Changelog ==
 
+= 1.2 (December 2, 2011) =
+* Replaced PHP short tags with full PHP tags
+* Polished up the ReciPress Options page
+* Changed ingredient and instruction tables to unordered lists
+* Changed ingredient and instruction tables to percentage widths for better flexibility
+* Changed ingredient measurements to text field for simplicity's sake
+
 = 1.1 (November 16, 2011) =
 * Fixed the autoadd filter conditional
 
@@ -71,4 +73,4 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 
 == Upgrade Notice ==
 
-The initial release wasn't auto adding the recipe unless you saved the ReciPress Options. This has been fixed.
+Lots of code and UI cleanups have been made.
