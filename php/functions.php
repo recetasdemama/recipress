@@ -1,4 +1,4 @@
-<?
+<?php
 
 // hasRecipe
 function has_recipress_recipe() {
@@ -89,7 +89,7 @@ function recipress_recipe($field, $attr = null) {
 	$meta = get_post_custom($post->ID);
 	
 	switch($field) {
-		// recipress_title
+		// title
 		case 'title':
 			$title = get_the_title().' Recipe';
 			$recipe_title = $meta['title'][0];
@@ -97,7 +97,7 @@ function recipress_recipe($field, $attr = null) {
 			return $title;
 		break;
 		
-		// recipress_photo
+		// photo
 		case 'photo':
 			if(current_theme_supports('post-thumbnails')) $photo = get_the_post_thumbnail($post->ID, 'thumbnail', array('class' => 'alignright'));
 			else {
@@ -107,7 +107,7 @@ function recipress_recipe($field, $attr = null) {
 			return $photo;
 		break;
 		
-		// recipress_summary
+		// summary
 		case 'summary':
 			$summary = $meta['summary'][0];
 			if(!$summary) $summary = '<p class="summary seo_only">'.recipress_gen_summary().'</p>';
@@ -116,39 +116,39 @@ function recipress_recipe($field, $attr = null) {
 		break;
 			
 		
-		// recipress_cuisine
+		// cuisine
 		case 'cuisine':
 			$cuisine = get_the_term_list( $post->ID, 'cuisine', '<b>Cuisine:</b> ', ', ', '');
 			return $cuisine;
 		break;
 		
-		// recipress_course
+		// course
 		case 'course':
 			$course = get_the_term_list( $post->ID, 'course', '<b>Course:</b> ', ', ', '');
 			return $course;
 		break;
 		
-		// recipress_skill_level
+		// skill_level
 		case 'skill_level':
 			$skill_level = get_the_term_list( $post->ID, 'skill_level', '<b>Skill Level:</b> ', ', ', '');
 			return $skill_level;
 		break;
 		
-		// recipress_prep_time
+		// prep_time
 		case 'prep_time':
 			$prep_time = $meta['prep_time'][0];
 			$prep_time = recipress_time($prep_time, $attr);
 			return $prep_time;
 		break;
 		
-		// recipress_cook_time
+		// cook_time
 		case 'cook_time':
 			$cook_time = $meta['cook_time'][0];
 			$cook_time = recipress_time($cook_time, $attr);
 			return $cook_time;
 		break;
 		
-		// recipress_ready_time
+		// ready_time
 		case 'ready_time':
 			$prep_time = $meta['prep_time'][0];
 			$cook_time = $meta['cook_time'][0];
@@ -157,7 +157,7 @@ function recipress_recipe($field, $attr = null) {
 			return $ready_time;
 		break;
 		
-		// recipress_yield
+		// yield
 		case 'yield':
 			$yield = $meta['yield'][0];
 			$servings = $meta['servings'][0];
@@ -166,7 +166,7 @@ function recipress_recipe($field, $attr = null) {
 			return $yield;
 		break;
 		
-		// recipress_ingredients
+		// ingredients
 		case 'ingredients':
 			$fields = get_post_custom($post->ID);
 			$ingredients = $fields['ingredient'];
@@ -182,7 +182,7 @@ function recipress_recipe($field, $attr = null) {
 			return $output;
 		break;
 		
-		// recipress_instructions
+		// instructions
 		case 'instructions':
 			$fields = get_post_custom($post->ID);
 			$instructions = $fields['instruction'];
@@ -199,6 +199,13 @@ function recipress_recipe($field, $attr = null) {
 		break;
 	} // end switch
 	
+}
+
+// recipress_credit
+function recipress_credit() {
+	$credit = recipress_options('credit');
+	if(isset($credit) && $credit == 1)
+		return '<p class="recipress_credit"><a href="http://www.recipress.com" target="_target">WordPress Recipe Plugin</a> by ReciPress</p>';
 }
 
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 /* Recipe Output
 ------------------------------------------------------------------------- */
@@ -34,6 +34,7 @@ function the_recipe($content) {
 								<li>'.recipress_recipe('course').'</li>
 								<li>'.recipress_recipe('skill_level').'</li>
 							</ul>
+							'.recipress_credit().'
 						</div>';
 		// put it all together
 	}
