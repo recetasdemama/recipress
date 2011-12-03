@@ -1,4 +1,4 @@
-jQuery(function() {
+jQuery(function(jQuery) {
 	
 	var hasRecipe = jQuery('#hasRecipe');
 	jQuery(hasRecipe).change(function(){
@@ -7,8 +7,8 @@ jQuery(function() {
 	if(jQuery(hasRecipe).is(':checked')) jQuery('#recipress_table').show();
 	
 	jQuery('.upload_image_button').click(function() {
-		formfield = jQuery(this).siblings(".upload_image");
-		preview = jQuery(this).siblings(".preview_image");
+		formfield = jQuery(this).siblings('.upload_image');
+		preview = jQuery(this).siblings('.preview_image');
 		tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 		window.send_to_editor = function(html) {
 			imgurl = jQuery('img',html).attr('src');
@@ -26,10 +26,10 @@ jQuery(function() {
 		jQuery('.preview_image').attr('src', pluginDir + 'img/image.png');
 	});
 	
-	jQuery(".ingredient_add").click(function() {
-		jQuery("#ingredients_table tbody>tr:last")
+	jQuery('.ingredient_add').click(function() {
+		jQuery('#ingredients_table .tbody>.tr:last')
 			.clone(true)
-			.insertAfter('#ingredients_table tbody>tr:last')
+			.insertAfter('#ingredients_table .tbody>.tr:last')
 			.addClass('more')
 			.find('input[type=text], input[type=number], select').val('')
 			.attr('name', function(index, name) {
@@ -52,10 +52,10 @@ jQuery(function() {
 		return false;
 	});
 	
-	jQuery(".instruction_add").click(function() {
-		jQuery("#instructions_table tbody>tr:last")
+	jQuery('.instruction_add').click(function() {
+		jQuery('#instructions_table .tbody>.tr:last')
 			.clone(true)
-			.insertAfter('#instructions_table tbody>tr:last')
+			.insertAfter('#instructions_table .tbody>.tr:last')
 			.addClass('more')
 			.find('input[type=hidden], textarea').val('')
 			.attr('name', function(index, name) {
@@ -64,12 +64,6 @@ jQuery(function() {
 				});
 			})
 			//.parent().find('.preview_image').attr('src', pluginDir + 'img/image.png')
-			.parent().parent().find('.step')
-			.html(function(index, id) {
-				return id.replace(/(\d+)/, function(fullMatch, n) {
-					return Number(n) + 1;
-				});
-			})
 		return false;
 	});
 	
@@ -83,18 +77,24 @@ jQuery(function() {
 		return false;
 	});
 	
-	jQuery('#ingredients_table tbody').sortable({
+	jQuery('#ingredients_table .tbody').sortable({
 		opacity: 0.6,
 		revert: true,
 		cursor: 'move',
 		handle: '.sort'
 	});
 		
-	jQuery('#instructions_table tbody').sortable({
+	jQuery('#instructions_table .tbody').sortable({
 		opacity: 0.6,
 		revert: true,
 		cursor: 'move',
 		handle: '.sort'
+	});
+	
+	//On Click Event
+	jQuery('.image_radio label').click(function() {
+		jQuery('.image_radio label').removeClass('active'); //Remove any 'active' class
+		jQuery(this).addClass('active'); //Add 'active' class to selected tab
 	});
 
 });

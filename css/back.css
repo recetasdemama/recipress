@@ -1,9 +1,24 @@
-/* 
- * Meta box styles
- */
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic);
- 
-#recipress .inside {
+		
+.clear { 
+	clear:both !important;
+	height:0 !important;
+	width:100% !important;
+	padding:0 !important;
+	margin:0 !important;
+	float:none !important;
+	background:none !important;
+	line-height:0 !important;
+	font-size:1px !important;
+	}
+	
+/*
+ * -----------------------------
+ * Meta Box
+ * ----------------------------- 
+ */
+#recipress .inside,
+#recipress_options .inside {
 	background:#e0e0e0 url(../img/texture.jpg);
 	margin:0;
 	padding:10px 20px;
@@ -31,14 +46,18 @@
 	margin:0;
 }
 
-#recipress .form-table th, #recipress .form-table td {
-	padding:0 0 15px;;
+#recipress .form-table th, 
+#recipress .form-table td,
+#recipress_options .form-table th,
+#recipress_options .form-table td {
+	padding:0 0 15px;
 	margin:0;
 	min-height:30px;
 	text-shadow:none;
 }
 
-#recipress .description {
+#recipress .description,
+#recipress_options .description {
 	color:#777;
 	font-family:Ubuntu, sans-serif;
 	display:inline-block;
@@ -46,9 +65,19 @@
 	line-height:30px;
 }
 
+#recipress input[type=radio],
+#recipress input[type=checkbox],
+#recipress_options input[type=radio],
+#recipress_options input[type=checkbox] {
+	margin-right:5px;
+}
+
 #recipress input[type=text],
 #recipress select,
-#recipress textarea {
+#recipress textarea,
+#recipress_options input[type=text],
+#recipress_options select,
+#recipress_options textarea {
 	background:#fff;
 	border:1px solid #ccc;
 	-webkit-border-radius:5px;
@@ -61,37 +90,44 @@
 	height:30px;
 	font:12px Ubuntu, sans-serif;
 	color:#666;
+	margin:0;
 }
 
-#recipress input[type=text].text-small {
-	width:42px !important;
+#recipress input[type=text].text-small,
+#recipress_options input[type=text].text-small,
+#recipress ul.table li.cell-amount {
+	width:45px !important;
 }
 
-#recipress input[type=text].text-medium {
+#recipress input[type=text].text-medium,
+#recipress_options input[type=text].text-medium {
 	width:130px;
 }
 
-#recipress input[type=text].text-large {
+#recipress input[type=text].text-large,
+#recipress_options input[type=text].text-large {
 	width:290px;
 	font-size:17px;
 }
 
-#recipress #ingredients_table input[type=text] {
-	width:183px;
-}
-
-#recipress select {
+#recipress select,
+#recipress_options select {
 	height:30px;
 	padding:3px;
 	width:130px;
 }
 
-#recipress textarea {
+#recipress textarea,
+#recipress_options textarea {
 	height:93px;
-	width:521px;
+	width:25%;
+	min-width:200px;
+	max-width:500px;
+	margin:0;
 }
 
-#recipress textarea.text-small {
+#recipress textarea.text-small,
+#recipress_options textarea.text-small {
 	width:290px;
 	height:53px;
 }
@@ -106,12 +142,16 @@
 	width:43px;
 }
 
-#recipress table.form-table table {
-	width:650px;
+#recipress table.form-table ul.table {
 	margin-bottom:5px;
+	min-width:450px;
 }
 
-#recipress table.form-table table th {
+#recipress table.form-table ul.table li.thead ul.tr {
+	height:30px;
+}
+
+#recipress table.form-table ul.table li.th {
 	padding:0 5px;
 	font-size:10px;
 	font-weight:bold;
@@ -130,13 +170,16 @@
 	color:#fff;
 	line-height:30px;
 	text-indent:1px;
+	float:left;
+	height:30px;
+	margin:0;
 }
 
-#recipress table.form-table table th.textcenter {
+#recipress table.form-table ul.table li.th.textcenter {
 	text-align:center;
 }
 
-#recipress table.form-table table th.left_corner {
+#recipress table.form-table ul.table li.th.left_corner {
 	-webkit-border-top-left-radius: 5px;
 	-moz-border-radius-topleft: 5px;
 	border-top-left-radius: 5px;
@@ -144,25 +187,60 @@
 	padding-left:10px;
 }
 
-#recipress table.form-table table th.right_corner {
+#recipress table.form-table ul.table li.th.right_corner {
 	-webkit-border-top-right-radius: 5px;
 	-moz-border-radius-topright: 5px;
 	border-top-right-radius: 5px;
 }
 
-#recipress table.form-table table td {
+#recipress table.form-table ul.table#instructions_table li.tbody ul.tr {
+}
+
+#recipress table.form-table ul.table li.td {
 	padding:5px;
+	float:left;
+	margin:0;
 	border-bottom:1px solid #adadad;
-	white-space:nowrap;
-	vertical-align:top;
+	height:30px;
+}
+
+#recipress table.form-table ul.table#instructions_table li.td {
+	height:93px;
+}
+
+#recipress table.form-table ul.table input,
+#recipress table.form-table ul.table select,
+#recipress table.form-table ul.table textarea {
+	width:100%;
+	min-width:100%;
+	max-width:100%;
+}
+
+#recipress table.form-table ul.table .cell-measurement {
+	width:10%;
+	min-width:100px;
+	max-width:130px;
+}
+
+#recipress table.form-table ul.table .cell-ingredient,
+#recipress table.form-table ul.table .cell-notes {
+	width:20%;
+	min-width:100px;
+	max-width:200px;
+}
+
+#recipress table.form-table ul.table .cell-description {
+	width:57.5%;
+	min-width:375px;
+	max-width:605px;
 }
 
 #recipress .sort_label {
 	display:block;
-	width:16px;
+	width:20px;
 	height:17px;
-	background:url(../img/sprite.png) no-repeat -70px -100px;
-	margin:6px 0 0 2px;
+	background:url(../img/sprite.png) no-repeat -68px -100px;
+	margin:6px 0 0 1px;
 }
 
 #recipress .sort {
@@ -195,12 +273,14 @@
 	background-position:-50px -100px;
 }
 
-#recipress tr:nth-child(1) .ingredient_remove,
-#recipress tr:nth-child(1) .instruction_remove {
-	display:none;
+#recipress .tr:first-child .ingredient_remove,
+#recipress .tr:first-child .instruction_remove {
+	background:none;
+	height:0;
 }
 
-#recipress img.preview_image {
+#recipress img.preview_image,
+#recipress_options .image_radio img {
 	display:block;
 	border:5px solid #fff;
 	-webkit-border-radius:5px;
@@ -215,28 +295,55 @@
 }
 
 #recipress input[type=button] {
-	background:url(../img/sprite.png) 0 0;
-	border:none;
-	color:#fff;
-	text-transform:uppercase;
-	font:bold 10px Ubuntu, sans-serif;
-	width:100px;
-	height:25px;
-	padding:0;
-	cursor:pointer;
-	margin-top:5px;
-}
-
-#recipress input[type=button]:hover {
-	background-position:0 -30px;
-}
-
-#recipress input[type=button]:active {
-	background-position:0 -60px;
+	margin:5px 0;
 }
 
 /*
+ * -----------------------------
+ * Options
+ * ----------------------------- 
+ */
+ 
+#recipress_options .title {
+	border-bottom:1px dotted #ccc;
+	padding-bottom:5px;
+	margin-bottom:0;
+}
+
+#recipress_options .image_radio label {
+	float:left;
+	margin-right:15px;
+}
+
+#recipress_options .image_radio input {
+	display:none;
+}
+
+#recipress_options .image_radio img {
+	float:none;
+	margin-bottom:10px;
+}
+
+#recipress_options .image_radio .active img {
+	border-color:#298CBA;
+}
+
+#recipress_options .metabox-holder {
+	padding:0;
+}
+
+#recipress_options h3 {
+	cursor:auto;
+}
+
+#recipress_options fieldset label {
+	line-height:30px;
+}
+
+/*
+ * -----------------------------
  * Icons
+ * ----------------------------- 
  */
  
 #icon-recipress_options,
@@ -254,14 +361,4 @@
 #toplevel_page_recipress_options:hover .wp-menu-image a,
 #toplevel_page_recipress_options.wp-has-current-submenu .wp-menu-image a {
 	background-position:0 -88px;
-}
-
-/*
- * Options
- */
- 
-#recipress_options .title {
-	border-bottom:1px dotted #ccc;
-	padding-bottom:5px;
-	margin-bottom:0;
 }

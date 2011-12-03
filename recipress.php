@@ -1,9 +1,9 @@
-<?
+<?php
 /*
 Plugin Name: ReciPress
 Plugin URI: http://www.recipress.com
 Description: Create recipes in your posts with a clean interface and layout that are easy to organize.
-Version: 1.1
+Version: 1.2
 Author: Tammy Hart
 Author URI: http://tammyhartdesigns.com
 */
@@ -30,6 +30,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 define( 'RECIPRESS_DIR', WP_PLUGIN_DIR . '/' . basename( dirname( __FILE__ ) ) . '/' );
 define( 'RECIPRESS_URL', WP_PLUGIN_URL . '/' . basename( dirname( __FILE__ ) ) . '/' );
 
+function get_recipress_url() { return RECIPRESS_URL; }
+
 // Load plugin files
 include_once(RECIPRESS_DIR.'php/functions.php');
 include_once(RECIPRESS_DIR.'php/options.php');
@@ -55,11 +57,14 @@ function add_script_config() {
     <script type="text/javascript" >
     // Function to add auto suggest
     function setSuggest(id) {
-        jQuery('#' + id).suggest("<?= get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?action=ajax-tag-search&tax=ingredient");
+        jQuery('#' + id).suggest("<?php echo get_bloginfo('wpurl'); ?>/wp-admin/admin-ajax.php?action=ajax-tag-search&tax=ingredient");
     }
-	var pluginDir = '<? echo RECIPRESS_URL ?>';
+	var pluginDir = '<?php echo get_recipress_url() ?>';
     </script>
-<?
+	<!--[if lt IE 9]>
+        <link rel="stylesheet" type="text/css" href="<?php echo get_recipress_url() ?>css/ie.css" />
+	<![endif]-->
+<?php
 }
 
 // Register taxonomies and insert terms on plugin activation

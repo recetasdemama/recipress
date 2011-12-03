@@ -121,3 +121,16 @@
 #recipress_recipe.recipress-dark b {
 	color:#fff !important;
 }
+
+.recipress_credit {
+	font-size:11px;
+	margin:10px 0 0;
+	font-style:italic;
+	opacity:.5;
+	filter: alpha(opacity=50);
+}
+
+.recipress_credit:hover {
+	opacity:1;
+	filter: alpha(opacity=100);
+}
