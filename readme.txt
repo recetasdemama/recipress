@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.2.1
-Stable tag: 1.2
+Stable tag: 1.3
 
 
 == Description ==
@@ -57,6 +57,9 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 4. Recipe output - ReciPress theme
 
 == Changelog ==
+
+= 1.3 (December 6, 2011) =
+* Fixed broken images on Options page
 
 = 1.2 (December 2, 2011) =
 * Replaced PHP short tags with full PHP tags
