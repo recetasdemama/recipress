@@ -14,8 +14,10 @@ function recipress_output() {
 	// determine where to output
 	$output = false;
 	$outputs = recipress_options('output');
-	if(!isset($outputs) && is_single()) {
-		$output = true;
+	if(!isset($outputs)) {
+		if (is_single()) {
+			$output = true;
+		}
 	}
 	else {
 		if(is_home() && in_array('home', $outputs)) $output = true;
