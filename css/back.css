@@ -208,7 +208,7 @@
 	height:93px;
 }
 
-#recipress table.form-table ul.table input,
+#recipress table.form-table ul.table input[type=text],
 #recipress table.form-table ul.table select,
 #recipress table.form-table ul.table textarea {
 	width:100%;
@@ -230,9 +230,15 @@
 }
 
 #recipress table.form-table ul.table .cell-description {
-	width:57.5%;
-	min-width:375px;
-	max-width:605px;
+	width:36.5%;
+	min-width:185px;
+	max-width:395px;
+}
+
+#recipress table.form-table ul.table .image {
+	width:20%;
+	min-width:180px;
+	max-width:200px;
 }
 
 #recipress .sort_label {
@@ -292,6 +298,10 @@
 	float:left;
 	margin:2px 10px 5px 0;
 	max-width:300px;
+}
+
+#recipress ul.table img.preview_image {
+	max-height:50px;
 }
 
 #recipress input[type=button] {
