@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.2.1
-Stable tag: 1.3
+Stable tag: 1.4
 
 
 == Description ==
@@ -18,6 +18,7 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 * Sortable, numbered instructions
 * Custom taxonomies for Ingredients, Cuisines, Courses, and Skill Levels
 * Output automatically or with a shortcode
+* Sidebar widgets and template tags for listing Recipes, Cuisines, Courses, Skill Levels, and an Ingredient Cloud
 * Three basic recipe output designs to choose from
 * Supports themes with or without post-thumbnails for a recipe photo selection
 * hRecipe optimized for Search Engine Optimization
@@ -26,7 +27,6 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 
 * Localization
 * Contextual Help and Pointers
-* Sidebar widgets for listing Recipes, Cuisines, Courses, Skill Levels, and an Ingredient Cloud
 * ReciPress Pro! [Sign up](http://www.recipress.com) for updates!
 
 I'll also be opening a support area and releasing a "Pro" version soon at [ReciPress.com](http://www.recipress.com). Be sure to visit the site and like us, follow us, or subscribe to email updates for more news on that. 
@@ -46,6 +46,14 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 = Q: Can I edit the Cuisines, Courses, Skill Levels, and Ingredients? =
 **A:** Yes! You can find the management pages in the ReciPress menu. They work just like post tags and categories.
 
+= Q: Can I output ReciPress term lists without using a widget? =
+**A:** Yes! Use the template tag `recipress_terms($taxonomy, $args)`. The `$args` variable accepts the same attributs as [`get_terms()`](http://codex.wordpress.org/Function_Reference/get_terms). **Note:** This only supports a list output, not a cloud.
+
+= Q: Can I output recent Recipes without using a widget? =
+**A:** Yes! Use the template tag `recipress_recent($num , $image)`. 
+* `$num` should be set to the number of posts you want to output and is set to 5 if ommitted.
+* `$image` should be set for displaying an image(1) thumbnail in the list or not(0) ans is set to 1 by default.
+
 = Q: Can I request a feature or report a bug? =
 **A:** Yes please! I have big plans for this recipe to keep developing it into a multifaceted solution for food and recipe bloggers. [ReciPress.com](http://www.recipress.com) will have a support forum, upgraded support for "Pro" customers, and even custom themes and add-ons! It is my goal to offer a fully supported solution and I would love your feedback on what features seem broken, incomplete, uneccessary, or missing. Until I open the official support forum, please use the forums here and tag your posts with "ReciPress".
 
@@ -55,8 +63,17 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 2. Recipe output - light theme
 3. Recipe output - dark theme
 4. Recipe output - ReciPress theme
+5. ReciPress Options
 
 == Changelog ==
+
+= 1.4 (December 10, 2011) =
+* Made the Featured Image optional
+* Added ability to set a photo for each instruction
+* Added Taxonomy and Recent Recipes widget
+* Linked ingredients in recipe output to their archive pages
+* Made all taxonomies optional except Ingredients
+* Added an optional "cost of recipe" field
 
 = 1.3 (December 6, 2011) =
 * Fixed broken images on Options page
