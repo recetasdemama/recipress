@@ -29,21 +29,6 @@ $meta_fields = array(
 		'type'	=> 'textarea'
 	),
 	array(
-		'name'	=> 'Cuisine',
-		'id'	=> 'cuisine',
-		'type'	=> 'tax_select'
-	),
-	array(
-		'name'	=> 'Course',
-		'id'	=> 'course',
-		'type'	=> 'tax_select'
-	),
-	array(
-		'name'	=> 'Skill Level',
-		'id'	=> 'skill_level',
-		'type'	=> 'tax_select'
-	),
-	array(
 		'name'	=> 'Yield',
 		'desc'	=> 'How much/many does this recipe produce?',
 		'place'	=> 'e.g., 1 loaf, 2 cups',
@@ -127,7 +112,7 @@ else { $measurements_plural = explode("\n", $measurements_plural); array_unshift
 function recipe_show_box() {
     global $meta_fields, $post, $measurements_singular, $measurements_plural;
 	// if post-thumbnails aren't supported, add a recipe photo
-	if(!current_theme_supports('post-thumbnails')) 
+	if(recipress_add_photo()) 
 		array_unshift($meta_fields,
 		array(
 			'name'	=> 'Photo',
@@ -135,6 +120,42 @@ function recipe_show_box() {
 			'id'	=> 'photo',
 			'type'	=> 'image'
 			));
+	// get set taxonomies
+	$taxonomies = recipress_use_taxonomies();
+	if($taxonomies) {
+		$splice = 2;
+		if(recipress_add_photo()) $splice = 3;
+		foreach ($taxonomies as $taxonomy) {
+			$tax_name = '';
+			if($taxonomy == 'cuisine') $tax_name = 'Cuisine';
+			if($taxonomy == 'course') $tax_name = 'Course';
+			if($taxonomy == 'skill_level') $tax_name = 'Skill Level';
+			
+			array_splice($meta_fields, $splice++, 0,
+				array(array(
+					'name'	=> $tax_name,
+					'id'	=> $taxonomy,
+					'type'	=> 'tax_select'
+				))
+			);
+		}
+	}
+	// if cost of recipe field is on
+	if(recipress_options('cost_field') == 'yes') {
+		$taxonomies = count($taxonomies);
+		$splice = $taxonomies + 2;
+		if(recipress_add_photo()) $splice++;
+		array_splice($meta_fields, $splice, 0,
+			array(array(
+				'name'	=> 'Cost',
+				'desc'	=> 'What does it cost to make this recipe?',
+				'place'	=> '$0.00',
+				'size'	=> 'medium',
+				'id'	=> 'cost',
+				'type'	=> 'text'
+			))
+		);
+	}
     // Use nonce for verification
     echo '<input type="hidden" name="recipe_meta_box_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
 	$hasRecipe_check = '';
@@ -224,7 +245,7 @@ function recipe_show_box() {
 						'<li class="thead"><ul class="tr">',
 							'<li class="th left_corner"><span class="sort_label"></span></li>',
 							'<li class="th cell-description">Description</li>',
-							//<th>Image</th>
+							'<li class="th image">Image</li>',
 							'<li class="th right_corner"><a class="instruction_add" href="#"></a></li>
 						</ul></li>',
 						'<li class="tbody">';
@@ -232,14 +253,16 @@ function recipe_show_box() {
 				$image = RECIPRESS_URL.'img/image.png';
 				if($meta != '') {
 					foreach($meta as $row) {
+						if($row['image'])  { $image = wp_get_attachment_image_src($row['image'], 'medium');	$image = $image[0]; }	
+						else $image = RECIPRESS_URL.'img/image.png';
 						echo '<ul class="tr" id="insutrction_row-'.$i.'">',
 							'<li class="td"><span class="sort"></span></li>', // sort
 							'<li class="td cell-description"><textarea placeholder="Describe this step in the recipe" class="instruction" name="instruction['.$i.'][description]" cols="40" rows="4" id="ingredient_description_'.$i.'">'. $row['description'].'</textarea></li>', // description
-							/*'<td><input name="instruction['.$i.'][image]" type="hidden" class="upload_image instruction" value="'.$row['image'].'" /><img src="';
-					if($row['image']) echo $row['image']; else echo $image;
-						echo '" class="preview_image" width="170" alt="" />
-								<input class="upload_image_button" type="button" value="Upload Image" />
-							</td>', // image*/
+							'<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="upload_image instruction" value="'.$row['image'].'" />
+										<img src="'.$image.'" class="preview_image" alt="" />
+										<input class="upload_image_button button-primary" type="button" value="Upload Image" />
+										<small>&nbsp;<a href="#" class="clear_image_button">Remove Image</a></small>
+							</li>', // image
 							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
 							'<li class="clear"></clear>', // clear
 						'</ul>';
@@ -264,13 +287,13 @@ function recipe_show_box() {
 			// text
 			// ----------------
             case 'text':
-                echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ? $meta : $field['value'],'" class="text-', $field['size'] ,'" size="30" placeholder="', $field['place'], '" />', '&nbsp;&nbsp;<span class="description">', $field['desc'], '</span>';
+                echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ,'" class="text-', $field['size'] ,'" size="30" placeholder="', $field['place'], '" />', '&nbsp;&nbsp;<span class="description">', $field['desc'], '</span>';
             break;
 			// ----------------
 			// textarea
 			// ----------------
             case 'textarea':
-                echo '<textarea name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4" class="text-', $field['size'] ,'">', $meta ? $meta : $field['value'], '</textarea>', 
+                echo '<textarea name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4" class="text-', $field['size'] ,'">', $meta , '</textarea>', 
 						'&nbsp;&nbsp;<span class="description">', $field['desc'], '</span>';
             break;
 			// ----------------
@@ -322,7 +345,7 @@ function recipe_show_box() {
 				echo	'<input name="', $field['id'], '" type="hidden" class="upload_image" value="', $meta, '" />',
 							'<img src="'.$image.'" class="preview_image" alt="" />
 								<input class="upload_image_button button-primary" type="button" value="Upload Image" /><br />
-								<input class="clear_image_button button-secondary" type="button" value="Remove Image" />
+								<small>&nbsp;<a href="#" class="clear_image_button">Remove Image</a></small>
 								<br clear="all" /><span class="description">', $field['desc'], '</span>';
 			break;
         }
@@ -341,11 +364,22 @@ add_action('save_post', 'recipe_save_data');
 function recipe_save_data($post_id) {
     global $meta_fields;
 	// if post-thumbnails aren't supported, add a recipe photo
-	if(!current_theme_supports('post-thumbnails')) 
+	if(!current_theme_supports('post-thumbnails') || (current_theme_supports('post-thumbnails') && recipress_options('use_photo') == 'no')) 
 		array_unshift($meta_fields,
 		array(
 			'id'	=> 'photo'
 			));
+	// if cost of recipe field is on
+	if(recipress_options('cost_field') == 'yes') {
+		$taxonomies = count($taxonomies);
+		$splice = 2;
+		if(recipress_add_photo()) $splice++;
+		array_splice($meta_fields, $splice, 0,
+			array(array(
+				'id'	=> 'cost'
+			))
+		);
+	}
 	// set the value of hasRecipe
 	$hasRecipe_old = get_post_meta($post_id, $field['id'], true);
 	$hasRecipe_new = $_POST['hasRecipe'];

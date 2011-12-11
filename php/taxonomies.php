@@ -192,12 +192,12 @@ function recipress_default_taxonomies() {
 
 /* Remove Taxonomy Boxes
    ------------------------------------------------------------------------- */
-function remove_taxonomy_boxes() {
+function recipress_remove_taxonomy_boxes() {
 	remove_meta_box('tagsdiv-ingredient', 'post', 'side');
 	remove_meta_box('tagsdiv-cuisine', 'post', 'side');
 	remove_meta_box('tagsdiv-course', 'post', 'side');
 	remove_meta_box('tagsdiv-skill_level', 'post', 'side');
 }
-add_action( 'admin_menu' , 'remove_taxonomy_boxes' );
+add_action( 'admin_menu' , 'recipress_remove_taxonomy_boxes' );
 
 ?>

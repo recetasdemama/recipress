@@ -8,9 +8,13 @@ function recipress_add_page() {
 	add_menu_page( 'ReciPress Options', 'ReciPress', 'edit_others_posts', 'recipress_options', 'recipress_do_page' );
 	add_submenu_page( 'recipress_options', 'ReciPress Options', 'ReciPress Options', 'edit_others_posts', 'recipress_options', 'recipress_do_page');
 	add_submenu_page( 'recipress_options', 'Ingredients', 'Ingredients', 'edit_others_posts', 'edit-tags.php?taxonomy=ingredient');
-	add_submenu_page( 'recipress_options', 'Cuisines', 'Cuisines', 'edit_others_posts', 'edit-tags.php?taxonomy=cuisine');
-	add_submenu_page( 'recipress_options', 'Courses', 'Courses', 'edit_others_posts', 'edit-tags.php?taxonomy=course');
-	add_submenu_page( 'recipress_options', 'Skill Levels', 'Skill Levels', 'edit_others_posts', 'edit-tags.php?taxonomy=skill_level');
+	$taxonomies = recipress_use_taxonomies();
+	if(!isset($taxonomies) || (isset($taxonomies) && in_array('cuisine', $taxonomies)))
+		add_submenu_page( 'recipress_options', 'Cuisines', 'Cuisines', 'edit_others_posts', 'edit-tags.php?taxonomy=cuisine');
+	if(!isset($taxonomies) || (isset($taxonomies) && in_array('course', $taxonomies)))
+		add_submenu_page( 'recipress_options', 'Courses', 'Courses', 'edit_others_posts', 'edit-tags.php?taxonomy=course');
+	if(!isset($taxonomies) || (isset($taxonomies) && in_array('skill_level', $taxonomies)))
+		add_submenu_page( 'recipress_options', 'Skill Levels', 'Skill Levels', 'edit_others_posts', 'edit-tags.php?taxonomy=skill_level');
 }
 
 // highlight the proper top level menu
@@ -69,13 +73,13 @@ $fields = array(
 		)
 	),
 	array(
-		'label' => 'Output Recipe',
+		'label' => 'Output Recipe On',
 		'id' 	=> 'output',
 		'type' 	=> 'checkbox_group',
 		'options'=> array(
 			'home'	=> array(
 				'label'	=> 'Home Page/Latest Posts Page',
-				'value'	=> 'home',
+				'value'	=> 'home'
 			),
 			'single'	=> array(
 				'label'	=> 'Single Post Page',
@@ -84,11 +88,11 @@ $fields = array(
 			),
 			'archive'	=> array(
 				'label'	=> 'Archive and Category Pages',
-				'value'	=> 'archive',
+				'value'	=> 'archive'
 			),
 			'search'	=> array(
 				'label'	=> 'Search Result Page',
-				'value'	=> 'search',
+				'value'	=> 'search'
 			),
 		)
 	),
@@ -113,8 +117,52 @@ $fields = array(
 				'label'	=> 'ReciPress',
 				'value'	=> 'recipress-recipress',
 				'image'	=> 'theme-recipress.jpg',
-				'desc'	=> 'Custom textured design (light or dark themes)'
+				'desc'	=> 'Custom textured design'
 			)
+		)
+	),
+	array(
+		'label' => 'Recipe Input',
+		'type' 	=> 'section'
+	),
+	array(
+		'label' => 'Use Taxonomies',
+		'id' 	=> 'taxonomies',
+		'type' 	=> 'checkbox_group',
+		'options'=> array(
+			'cuisine'	=> array(
+				'label'	=> 'Cuisine',
+				'value'	=> 'cuisine',
+				'default'=> true
+			),
+			'course'	=> array(
+				'label'	=> 'Course',
+				'value'	=> 'course',
+				'default'=> true
+			),
+			'skill_level'	=> array(
+				'label'	=> 'Skill Level',
+				'value'	=> 'skill_level',
+				'default'=> true
+			)
+		)
+	),
+	array(
+		'label' => 'Cost of Recipe Field',
+		'id' 	=> 'cost_field',
+		'type' 	=> 'radio',
+		'options'=> array(
+			'yes'	=> array(
+				'label'	=> 'Yes',
+				'value'	=> 'yes',
+				'desc'	=> 'An input for the total cost to make the recipe will be available'
+			),
+			'no'	=> array(
+				'label'	=> 'No',
+				'value'	=> 'no',
+				'desc'	=> 'This field will be omitted when creating recipes',
+				'default'=> true
+			),
 		)
 	),
 	array(
@@ -140,6 +188,28 @@ $fields = array(
 ------------------------------------------------------------------------- */
 function recipress_do_page() {
 	global $fields;
+	// if post-thumbnails are supported, add a recipe photo
+	if(current_theme_supports('post-thumbnails')) 
+		array_splice($fields, 4, 0,
+		array(array(
+			'label'	=> 'Use Featured Image',
+			'id' 	=> 'use_photo',
+			'type' 	=> 'radio',
+			'options'=> array(
+				'yes'	=> array(
+					'label'	=> 'Yes',
+					'value'	=> 'yes',
+					'desc'	=> 'Recipe photo will be the same as the post&rsquo;s featured image',
+					'default'=> true
+				),
+				'no'	=> array(
+					'label'	=> 'No',
+					'value'	=> 'no',
+					'desc'	=> 'Use a different image for the recipe'
+				),
+			)
+		))
+	);
 
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
@@ -197,7 +267,7 @@ function recipress_do_page() {
 								$checked = '';
 								$the_option = $options[$field['id']];
 								$the_value = $option['value'];
-								if ((!$the_option && $option['default'] == true) || ($the_option && in_array($the_value, $the_option)))
+								if (((!isset($the_option) || $field['id'] == 'output') && $option['default'] == true) || ($the_option && in_array($the_value, $the_option)))
 									$checked = ' checked="checked"';
 								echo '<input id="', $option['value'], '" name="recipress_options[', $field['id'], '][]" type="checkbox" value="', $option['value'], '"',$checked, ' />', 
 										' <label for="', $option['value'], '">', $option['label'], '</label><br />';
@@ -305,6 +375,12 @@ function recipress_validate( $input ) {
 				if ( ! isset( $input[$field['id']] ) )
 					$input[$field['id']] = null;
 				$input[$field['id']] = ( $input[$field['id']] == 1 ? 1 : 0 );
+			break;
+
+			case 'checkbox_group':
+				// Our checkbox value is either an array of values or an empty array
+				if ( ! isset( $input[$field['id']] ) )
+					$input[$field['id']] = array();
 			break;
 			
 			case 'text':

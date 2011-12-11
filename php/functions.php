@@ -5,7 +5,7 @@ function has_recipress_recipe() {
 	global $post;
 	$hasRecipe = false;
 	$meta = get_post_meta($post->ID, 'hasRecipe', true);
-	if(isset($meta) && $meta == 'Yes') $hasRecipe = true;
+	if($meta == 'Yes') $hasRecipe = true;
 	return $hasRecipe;
 }
 
@@ -58,6 +58,22 @@ function recipress_gen_summary() {
    return $new_excerpt;
 }
 
+// recipress_use_feat_image
+function recipress_add_photo() {
+	$add_photo = false;
+	if(!current_theme_supports('post-thumbnails') || (current_theme_supports('post-thumbnails') && recipress_options('use_photo') == 'no'))
+		$add_photo = true;
+	return $add_photo;
+}
+
+// recipress_use_taxonomies
+function recipress_use_taxonomies() {
+	$taxonomies = array('cuisine', 'course', 'skill_level');
+	$set_taxonomies = recipress_options('taxonomies');
+	$taxonomies = $set_taxonomies;
+	return $taxonomies;
+}
+
 // recipress_time
 function recipress_time($minutes, $attr = null) {
 	if ($minutes != '') {
@@ -101,10 +117,11 @@ function recipress_recipe($field, $attr = null) {
 		
 		// photo
 		case 'photo':
-			if(current_theme_supports('post-thumbnails')) $photo = get_the_post_thumbnail($post->ID, 'thumbnail', array('class' => 'alignright'));
+			if(current_theme_supports('post-thumbnails') && recipress_options('use_photo') != 'no') 
+				$photo = get_the_post_thumbnail($post->ID, 'thumbnail', $attr);
 			else {
 				$photo_id = $meta['photo'][0];
-				$photo = wp_get_attachment_image($photo_id, 'thumbnail', false, array('class' => 'alignright'));
+				$photo = wp_get_attachment_image($photo_id, 'thumbnail', false, $attr);
 			}
 			return $photo;
 		break;
@@ -120,19 +137,19 @@ function recipress_recipe($field, $attr = null) {
 		
 		// cuisine
 		case 'cuisine':
-			$cuisine = get_the_term_list( $post->ID, 'cuisine', '<b>Cuisine:</b> ', ', ', '');
+			$cuisine = get_the_term_list( $post->ID, 'cuisine', '<li><b>Cuisine:</b> ', ', ', '</li>');
 			return $cuisine;
 		break;
 		
 		// course
 		case 'course':
-			$course = get_the_term_list( $post->ID, 'course', '<b>Course:</b> ', ', ', '');
+			$course = get_the_term_list( $post->ID, 'course', '<li><b>Course:</b> ', ', ', '</li>');
 			return $course;
 		break;
 		
 		// skill_level
 		case 'skill_level':
-			$skill_level = get_the_term_list( $post->ID, 'skill_level', '<b>Skill Level:</b> ', ', ', '');
+			$skill_level = get_the_term_list( $post->ID, 'skill_level', '<li><b>Skill Level:</b> ', ', ', '</li>');
 			return $skill_level;
 		break;
 		
@@ -168,16 +185,24 @@ function recipress_recipe($field, $attr = null) {
 			return $yield;
 		break;
 		
+		// cost
+		case 'cost':
+			$cost = $meta['cost'][0];
+			return $cost;
+		break;
+		
 		// ingredients
 		case 'ingredients':
-			$fields = get_post_custom($post->ID);
-			$ingredients = $fields['ingredient'];
+			$ingredients = $meta['ingredient'];
 			foreach($ingredients as $ingredient) {
 				$ingredients = unserialize($ingredient);
 			}	
 			$output = '<ul class="ingredients">';
 			foreach($ingredients as $ingredient) {
-				$output .= '<li class="ingredient"><span class="amount">'.$ingredient['amount'].' '.$ingredient['measurement'].'</span> <span class="name">'.$ingredient['ingredient'].'</span> <i class="notes">'.$ingredient['notes'].'</i></li>';
+				$output .= '<li class="ingredient">
+								<span class="amount">'.$ingredient['amount'].' '.$ingredient['measurement'].'</span> 
+								<span class="name"><a href="'.get_term_link($ingredient['ingredient'], 'ingredient').'">'.$ingredient['ingredient'].'</a></span> 
+								<i class="notes">'.$ingredient['notes'].'</i></li>';
 			}
 			$output .= '</ul>';
 			
@@ -186,14 +211,14 @@ function recipress_recipe($field, $attr = null) {
 		
 		// instructions
 		case 'instructions':
-			$fields = get_post_custom($post->ID);
-			$instructions = $fields['instruction'];
+			$instructions = $meta['instruction'];
 			foreach($instructions as $instruction) {
 				$instructions = unserialize($instruction);
 			}
 			$output = '<ol class="instructions">';
 			foreach($instructions as $instruction) {
-				$output .= '<li>'.$instruction['description'].'</li>';
+				$image = $instruction['image'] != '' ? '<br />'.wp_get_attachment_image($instruction['image'], 'large', false, array('class' => 'aligncenter')) : '';
+				$output .= '<li>'.$instruction['description'].$image.'</li>';
 			}
 			$output .= '</ol>';
 			
