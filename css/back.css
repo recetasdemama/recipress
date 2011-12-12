@@ -285,7 +285,7 @@
 	height:0;
 }
 
-#recipress img.preview_image,
+#recipress img.recipress_preview_image,
 #recipress_options .image_radio img {
 	display:block;
 	border:5px solid #fff;
@@ -300,7 +300,7 @@
 	max-width:300px;
 }
 
-#recipress ul.table img.preview_image {
+#recipress ul.table img.recipress_preview_image {
 	max-height:50px;
 }
 
