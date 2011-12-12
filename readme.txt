@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.2.1
-Stable tag: 1.4
+Stable tag: 1.5
 
 
 == Description ==
@@ -67,6 +67,10 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 
 == Changelog ==
 
+= 1.5 (December 12, 2011) =
+* Fixed upload image javascript
+* Fixed missing image field in new instructions
+
 = 1.4 (December 10, 2011) =
 * Made the Featured Image optional
 * Added ability to set a photo for each instruction
@@ -90,7 +94,3 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 
 = 1.0 (November 14, 2011) =
 * First release.
-
-== Upgrade Notice ==
-
-Lots of code and UI cleanups have been made.
