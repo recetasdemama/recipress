@@ -105,7 +105,8 @@ $fields = array(
 				'label'	=> 'Light',
 				'value'	=> 'recipress-light',
 				'image'	=> 'theme-light.jpg',
-				'desc'	=> 'For use with light themes'
+				'desc'	=> 'For use with light themes',
+				'default' => true
 			),
 			'recipress-dark'	=> array(
 				'label'	=> 'Dark',

@@ -122,7 +122,8 @@ function recipe_show_box() {
 			));
 	// get set taxonomies
 	$taxonomies = recipress_use_taxonomies();
-	if($taxonomies) {
+	if(!isset($taxonomies)) $taxonomies = array('cuisine', 'course', 'skill_level');
+	if($taxonomies != '') {
 		$splice = 2;
 		if(recipress_add_photo()) $splice = 3;
 		foreach ($taxonomies as $taxonomy) {
@@ -258,10 +259,10 @@ function recipe_show_box() {
 						echo '<ul class="tr" id="insutrction_row-'.$i.'">',
 							'<li class="td"><span class="sort"></span></li>', // sort
 							'<li class="td cell-description"><textarea placeholder="Describe this step in the recipe" class="instruction" name="instruction['.$i.'][description]" cols="40" rows="4" id="ingredient_description_'.$i.'">'. $row['description'].'</textarea></li>', // description
-							'<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="upload_image instruction" value="'.$row['image'].'" />
-										<img src="'.$image.'" class="preview_image" alt="" />
-										<input class="upload_image_button button-primary" type="button" value="Upload Image" />
-										<small>&nbsp;<a href="#" class="clear_image_button">Remove Image</a></small>
+							'<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="'.$row['image'].'" />
+										<img src="'.$image.'" class="recipress_preview_image" alt="" />
+										<input class="recipress_upload_image_button button" type="button" value="Upload Image" />
+										<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
 							</li>', // image
 							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
 							'<li class="clear"></clear>', // clear
@@ -272,10 +273,11 @@ function recipe_show_box() {
 						echo '<ul class="tr" id="insutrction_row-'.$i.'">',
 							'<li class="td"><span class="sort"></span></li>', // sort
 							'<li class="td cell-description"><textarea placeholder="Describe this step in the recipe" class="instruction" type="text" name="instruction['.$i.'][description]" cols="77" rows="4" id="ingredient_description_'.$i.'"></textarea></li>', // description
-							/*'<td><input name="instruction['.$i.'][image]" type="hidden" class="upload_image instruction" value="" />',
-							'<img src="'.$image.'" class="preview_image" width="170" alt="" />
-								<input class="upload_image_button" type="button" value="Upload Image" />
-							</td>', // image*/
+							'<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="" />
+										<img src="'.$image.'" class="recipress_preview_image" alt="" />
+										<input class="recipress_upload_image_button button" type="button" value="Upload Image" />
+										<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
+							</li>', // image
 							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
 							'<li class="clear"></clear>', // clear
 						'</ul>';
@@ -342,10 +344,10 @@ function recipe_show_box() {
 			case 'image':
 				$image = RECIPRESS_URL.'img/image.png';	
 				if($meta)  { $image = wp_get_attachment_image_src($meta, 'medium');	$image = $image[0]; }				
-				echo	'<input name="', $field['id'], '" type="hidden" class="upload_image" value="', $meta, '" />',
-							'<img src="'.$image.'" class="preview_image" alt="" />
-								<input class="upload_image_button button-primary" type="button" value="Upload Image" /><br />
-								<small>&nbsp;<a href="#" class="clear_image_button">Remove Image</a></small>
+				echo	'<input name="', $field['id'], '" type="hidden" class="recipress_upload_image" value="', $meta, '" />',
+							'<img src="'.$image.'" class="recipress_preview_image" alt="" />
+								<input class="recipress_upload_image_button button" type="button" value="Upload Image" /><br />
+								<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
 								<br clear="all" /><span class="description">', $field['desc'], '</span>';
 			break;
         }

@@ -172,6 +172,7 @@ function recipress_default_taxonomies() {
 	wp_insert_term( 'Japanese', 'cuisine');
 	wp_insert_term( 'Mediterrarean', 'cuisine');
 	wp_insert_term( 'Mexican', 'cuisine');
+	wp_insert_term( 'Seafood', 'cuisine');
 	// Default Courses
 	wp_insert_term( 'Appetizer', 'course');
 	wp_insert_term( 'Breakfast', 'course');
