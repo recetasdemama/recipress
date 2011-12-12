@@ -6,9 +6,9 @@ jQuery(function(jQuery) {
 	});
 	if(jQuery(hasRecipe).is(':checked')) jQuery('#recipress_table').show();
 	
-	jQuery('.upload_image_button').click(function() {
-		formfield = jQuery(this).siblings('.upload_image');
-		preview = jQuery(this).siblings('.preview_image');
+	jQuery('.recipress_upload_image_button').click(function() {
+		formfield = jQuery(this).siblings('.recipress_upload_image');
+		preview = jQuery(this).siblings('.recipress_preview_image');
 		tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 		window.send_to_editor = function(html) {
 			imgurl = jQuery('img',html).attr('src');
@@ -21,9 +21,9 @@ jQuery(function(jQuery) {
 		return false;
 	});
 	
-	jQuery('.clear_image_button').click(function() {
-		jQuery(this).parent().siblings('.upload_image').val('');
-		jQuery(this).parent().siblings('.preview_image').attr('src', pluginDir + 'img/image.png');
+	jQuery('.recipress_clear_image_button').click(function() {
+		jQuery(this).parent().siblings('.recipress_upload_image').val('');
+		jQuery(this).parent().siblings('.recipress_preview_image').attr('src', pluginDir + 'img/image.png');
 		return false;
 	});
 	
@@ -64,7 +64,7 @@ jQuery(function(jQuery) {
 					return Number(n) + 1;
 				});
 			})
-			//.parent().find('.preview_image').attr('src', pluginDir + 'img/image.png')
+			.parent().find('.recipress_preview_image').attr('src', pluginDir + 'img/image.png')
 		return false;
 	});
 	
