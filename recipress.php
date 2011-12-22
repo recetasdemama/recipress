@@ -3,7 +3,7 @@
 Plugin Name: ReciPress
 Plugin URI: http://www.recipress.com
 Description: Create recipes in your posts with a clean interface and layout that are easy to organize.
-Version: 1.5
+Version: 1.6
 Author: Tammy Hart
 Author URI: http://tammyhartdesigns.com
 */
@@ -52,8 +52,8 @@ else {
 }
 
 // Admin Head Script
-add_action('admin_head', 'add_script_config');
-function add_script_config() {
+add_action('admin_head', 'add_recipress_script_config');
+function add_recipress_script_config() {
 ?>
     <script type="text/javascript" >
     // Function to add auto suggest

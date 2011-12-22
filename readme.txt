@@ -3,8 +3,8 @@ Contributors: tammyhart
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammyhartdesigns%40gmail%2ecom&item_name=Recipe%20Box%20Plugin%20Latte%20Fund&no_shipping=0&no_note=1&tax=0&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
-Tested up to: 3.2.1
-Stable tag: 1.5
+Tested up to: 3.3
+Stable tag: 1.6
 
 
 == Description ==
@@ -26,7 +26,7 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 = Coming Soon: =
 
 * Localization
-* Contextual Help and Pointers
+* Contextual Help
 * ReciPress Pro! [Sign up](http://www.recipress.com) for updates!
 
 I'll also be opening a support area and releasing a "Pro" version soon at [ReciPress.com](http://www.recipress.com). Be sure to visit the site and like us, follow us, or subscribe to email updates for more news on that. 
@@ -66,6 +66,10 @@ I'll also be opening a support area and releasing a "Pro" version soon at [ReciP
 5. ReciPress Options
 
 == Changelog ==
+
+= 1.6 (December 21, 2011) =
+* Fixed closing tags in meta_box.php
+* Fixed missing ingredient error
 
 = 1.5 (December 12, 2011) =
 * Fixed upload image javascript
