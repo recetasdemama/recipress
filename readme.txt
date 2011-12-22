@@ -27,9 +27,7 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 
 * Localization
 * Contextual Help
-* ReciPress Pro! [Sign up](http://www.recipress.com) for updates!
-
-I'll also be opening a support area and releasing a "Pro" version soon at [ReciPress.com](http://www.recipress.com). Be sure to visit the site and like us, follow us, or subscribe to email updates for more news on that. 
+* ReciPress.com dedicated support, docs, and demo. [Sign up](http://www.recipress.com) for updates!
 
 == Installation ==
 
