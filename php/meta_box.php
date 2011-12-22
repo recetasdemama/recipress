@@ -73,38 +73,6 @@ $meta_fields = array(
 		'type'	=> 'instruction'
 	)
 );
-	
-$measurements_singular = recipress_options('measurements-singular');
-if (!isset($measurements_singular))
-	$measurements_singular = array(
-		'',
-		'teaspoon',
-		'tablespoon',
-		'ounce',
-		'pound',
-		'cup',
-		'can',
-		'jar',
-		'box',
-		'package'
-	);
-else { $measurements_singular = explode("\n", $measurements_singular); array_unshift($measurements_singular,''); }
-	
-$measurements_plural = recipress_options('measurements-plural');
-if (!isset($measurements_plural))
-	$measurements_plural = array(
-		'',
-		'teaspoons',
-		'tablespoons',
-		'ounces',
-		'pounds',
-		'cups',
-		'cans',
-		'jars',
-		'boxes',
-		'packages'
-	);
-else { $measurements_plural = explode("\n", $measurements_plural); array_unshift($measurements_plural,''); }
 
 
 /* The Callback
@@ -220,7 +188,7 @@ function recipe_show_box() {
 							'<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="', $row['ingredient'],'" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>', // ingredient
 							'<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="', $row['notes'],'" size="30" placeholder="e.g., chopped, sifted, fresh" /></li>', // notes
 							'<li class="td"><a class="ingredient_remove" href="#"></a></li>', // remove
-							'<li class="clear"></clear>', // clear
+							'<li class="clear"></li>', // clear
 						'</ul>';
 						$i++;
 					}
@@ -232,7 +200,7 @@ function recipe_show_box() {
 							'<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>', // ingredient
 							'<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="" size="30" class=" " placeholder="e.g., chopped, fresh, etc." /></li>', // notes
 							'<li class="td"><a class="ingredient_remove" href="#"></a></li>', // remove
-							'<li class="clear"></clear>', // clear
+							'<li class="clear"></li>', // clear
 						'</ul>';
 				}
 				echo '</li></ul>',
@@ -265,7 +233,7 @@ function recipe_show_box() {
 										<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
 							</li>', // image
 							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
-							'<li class="clear"></clear>', // clear
+							'<li class="clear"></li>', // clear
 						'</ul>';
 						$i++;
 					}
@@ -279,7 +247,7 @@ function recipe_show_box() {
 										<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
 							</li>', // image
 							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
-							'<li class="clear"></clear>', // clear
+							'<li class="clear"></li>', // clear
 						'</ul>';
 				}
 				echo '</li></ul>',

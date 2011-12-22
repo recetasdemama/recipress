@@ -1,4 +1,4 @@
-<?
+<?php
 
 // recipress_terms
 function get_recipress_terms($taxonomy, $args = null) {

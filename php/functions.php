@@ -199,6 +199,7 @@ function recipress_recipe($field, $attr = null) {
 			}	
 			$output = '<ul class="ingredients">';
 			foreach($ingredients as $ingredient) {
+				if(!$ingredient['ingredient']) continue;
 				$output .= '<li class="ingredient">
 								<span class="amount">'.$ingredient['amount'].' '.$ingredient['measurement'].'</span> 
 								<span class="name"><a href="'.get_term_link($ingredient['ingredient'], 'ingredient').'">'.$ingredient['ingredient'].'</a></span> 
