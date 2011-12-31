@@ -11,6 +11,8 @@ Stable tag: 1.6
 
 Create recipes in your posts with a clean interface and layout that are easy to organize.
 
+[youtube http://www.youtube.com/watch?v=3ShvmQdYYOk]
+
 = Features Include: =
 * Custom meta box to create a recipe with the following fields: photo, title, summary, cuisine, course, skill level, yield, servings, prep time, cook time, ingredients, and instructions.
 * Sortable ingredient rows with fields for amount, measurement, ingredient, and notes
