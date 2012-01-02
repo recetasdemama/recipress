@@ -58,7 +58,7 @@ function recipress_gen_summary() {
    return $new_excerpt;
 }
 
-// recipress_use_feat_image
+// recipress_add_photo
 function recipress_add_photo() {
 	$add_photo = false;
 	if(!current_theme_supports('post-thumbnails') || (current_theme_supports('post-thumbnails') && recipress_options('use_photo') == 'no'))
@@ -89,10 +89,10 @@ function recipress_time($minutes, $attr = null) {
 			if ($hours != '' ) $time = 'PT'.$hours.'H'.$minutes.'M';
 			else $time = 'PT'.$minutes.'M';
 		} else {
-			$h = 'hrs';
-			$m = 'mins';
-			if($hours < 2) $h = 'hr';
-			if($minutes < 02) $m = 'min';
+			$h = __('hrs', 'recipress');
+			$m = __('mins', 'recipress');
+			if($hours < 2) $h = __('hr', 'recipress');
+			if($minutes < 02) $m = __('min', 'recipress');
 			if ($hours != '' ) $time = $hours.' '.$h.' '.$minutes.' '.$m;
 			else $time = $minutes.' '.$m;
 		} 	
@@ -109,7 +109,7 @@ function recipress_recipe($field, $attr = null) {
 	switch($field) {
 		// title
 		case 'title':
-			$title = get_the_title().' Recipe';
+			$title = get_the_title().' '.__('Recipe', 'recipress');
 			$recipe_title = $meta['title'][0];
 			if($recipe_title) $title = $recipe_title;
 			return $title;
@@ -137,19 +137,19 @@ function recipress_recipe($field, $attr = null) {
 		
 		// cuisine
 		case 'cuisine':
-			$cuisine = get_the_term_list( $post->ID, 'cuisine', '<li><b>Cuisine:</b> ', ', ', '</li>');
+			$cuisine = get_the_term_list( $post->ID, 'cuisine', '<li><b>'.__('Cuisine', 'recipress').':</b> ', ', ', '</li>');
 			return $cuisine;
 		break;
 		
 		// course
 		case 'course':
-			$course = get_the_term_list( $post->ID, 'course', '<li><b>Course:</b> ', ', ', '</li>');
+			$course = get_the_term_list( $post->ID, 'course', '<li><b>'.__('Course:', 'recipress').'</b> ', ', ', '</li>');
 			return $course;
 		break;
 		
 		// skill_level
 		case 'skill_level':
-			$skill_level = get_the_term_list( $post->ID, 'skill_level', '<li><b>Skill Level:</b> ', ', ', '</li>');
+			$skill_level = get_the_term_list( $post->ID, 'skill_level', '<li><b>'.__('Skill Level', 'recipress').':</b> ', ', ', '</li>');
 			return $skill_level;
 		break;
 		
@@ -180,8 +180,8 @@ function recipress_recipe($field, $attr = null) {
 		case 'yield':
 			$yield = $meta['yield'][0];
 			$servings = $meta['servings'][0];
-			if($yield && $servings) $yield = $yield.' ('.$servings.' Servings)';
-			if(!$yield && $servings) $yield = $servings.' Servings';
+			if($yield && $servings) $yield = $yield.' ('.$servings.' '.__('Servings', 'recipress').')';
+			if(!$yield && $servings) $yield = $servings.' '.__('Servings', 'recipress');
 			return $yield;
 		break;
 		
@@ -199,11 +199,18 @@ function recipress_recipe($field, $attr = null) {
 			}	
 			$output = '<ul class="ingredients">';
 			foreach($ingredients as $ingredient) {
+				$amount = $ingredient['amount'];
+				$measurement = $ingredient['measurement'];
+				$ingredient = $ingredient['ingredient'];
+				$notes = $ingredient['notes'];
 				if(!$ingredient['ingredient']) continue;
-				$output .= '<li class="ingredient">
-								<span class="amount">'.$ingredient['amount'].' '.$ingredient['measurement'].'</span> 
-								<span class="name"><a href="'.get_term_link($ingredient['ingredient'], 'ingredient').'">'.$ingredient['ingredient'].'</a></span> 
-								<i class="notes">'.$ingredient['notes'].'</i></li>';
+				$output .= '<li class="ingredient">';
+				if (isset($amount) || isset($measurement)) 
+					$output .= '<span class="amount">'.$amount.' '.$measurement.'</span> ';
+				if (isset($ingredient)) 
+					$output .= '<span class="name"><a href="'.get_term_link($ingredient, 'ingredient').'">'.$ingredient.'</a></span> ';
+				if (isset($notes)) 
+					$output .= '<i class="notes">'.$notes.'</i></li>';
 			}
 			$output .= '</ul>';
 			

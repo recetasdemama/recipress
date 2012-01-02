@@ -19,7 +19,7 @@ function recipress_terms($taxonomy, $args = null) {
 class recipress_terms_widget extends WP_Widget {
 	/** constructor */
 	function __construct() {
-		parent::WP_Widget( 'recipress_terms', 'Recipress Terms', array( 'description' => 'Output a list or cloud of recipe terms' ) );
+		parent::WP_Widget( 'recipress_terms', __('Recipress Terms', 'recipress'), array( 'description' => __('Output a list or cloud of recipe terms', 'recipress') ) );
 	}
 
 	/** @see WP_Widget::widget */
@@ -73,11 +73,11 @@ class recipress_terms_widget extends WP_Widget {
 			
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'recipress'); ?></label> 
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id('taxonomy'); ?>"><?php _e('Taxonomy:'); ?></label>
+		<label for="<?php echo $this->get_field_id('taxonomy'); ?>"><?php _e('Taxonomy:', 'recipress'); ?></label>
 		<select class="widefat" id="<?php echo $this->get_field_id('taxonomy'); ?>" name="<?php echo $this->get_field_name('taxonomy'); ?>"><?php
 			foreach ($taxes as $tax) {
 				echo '<option', $taxonomy == $tax['id'] ? ' selected="selected"' : '', ' value="'.$tax['id'].'">'.$tax['name'].'</option>';
@@ -85,9 +85,9 @@ class recipress_terms_widget extends WP_Widget {
 		?></select>
 		</p>
 		<p>
-		<label><?php _e('Output Type:'); ?></label> <br />
-		<label><input id="<?php echo $this->get_field_id('type'); ?>_list" name="<?php echo $this->get_field_name('type'); ?>" type="radio"<?php if($type == 'list') echo ' checked="checked"'; ?> value="list" /><?php _e('List'); ?></label> &nbsp; 
-		<label><input id="<?php echo $this->get_field_id('type'); ?>_cloud" name="<?php echo $this->get_field_name('type'); ?>" type="radio"<?php if($type == 'cloud') echo ' checked="checked"'; ?> value="cloud" /><?php _e('Cloud'); ?></label>
+		<label><?php _e('Output Type:', 'recipress'); ?></label> <br />
+		<label><input id="<?php echo $this->get_field_id('type'); ?>_list" name="<?php echo $this->get_field_name('type'); ?>" type="radio"<?php if($type == 'list') echo ' checked="checked"'; ?> value="list" /><?php _e('List', 'recipress'); ?></label> &nbsp; 
+		<label><input id="<?php echo $this->get_field_id('type'); ?>_cloud" name="<?php echo $this->get_field_name('type'); ?>" type="radio"<?php if($type == 'cloud') echo ' checked="checked"'; ?> value="cloud" /><?php _e('Cloud', 'recipress'); ?></label>
 		</p>
 		<?php 
 	}
@@ -116,7 +116,7 @@ function get_recipress_recent($num = '5', $image = 1) {
 		endwhile;
 		$output .= '</ul>';
 	else :
-		$output = '<p>No recipes found.</p>';
+		$output = '<p>'.__('No recipes found.', 'recipress').'</p>';
 	endif;
 	
 	wp_reset_postdata();
@@ -130,7 +130,7 @@ function recipress_recent($num = '5', $image = 1) {
 class recipress_recent_widget extends WP_Widget {
 	/** constructor */
 	function __construct() {
-		parent::WP_Widget( 'recipress_recent', 'Recent Recipes', array( 'description' => 'Output a list of recent recipe posts' ) );
+		parent::WP_Widget( 'recipress_recent', __('Recent Recipes', 'recipress'), array( 'description' => __('Output a list of recent recipe posts', 'recipress') ) );
 	}
 
 	/** @see WP_Widget::widget */
@@ -139,7 +139,7 @@ class recipress_recent_widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$num = $instance['num'];
 		$image = $instance['image'];
-		if ($title == '') $title = 'Recent Recipes';
+		if ($title == '') $title = __('Recent Recipes', 'recipress');
 		echo $before_widget;
 		echo $before_title . $title . $after_title;
 		echo get_recipress_recent($num, $image);
@@ -169,15 +169,15 @@ class recipress_recent_widget extends WP_Widget {
 		}			
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'recipress'); ?></label> 
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id('num'); ?>"><?php _e('Number of Posts:'); ?></label> 
+		<label for="<?php echo $this->get_field_id('num'); ?>"><?php _e('Number of Posts:', 'recipress'); ?></label> 
 		<input class="widefat" id="<?php echo $this->get_field_id('num'); ?>" name="<?php echo $this->get_field_name('num'); ?>" type="text" value="<?php echo $num; ?>" />
 		</p>
 		<p>
-		<label><input id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>" type="checkbox"<?php if($image == 1) echo ' checked="checked"'; ?> value="1" /> <?php _e('Recipe Thumbnail'); ?></label>
+		<label><input id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>" type="checkbox"<?php if($image == 1) echo ' checked="checked"'; ?> value="1" /> <?php _e('Recipe Thumbnail', 'recipress'); ?></label>
 		</p>
 		<?php 
 	}

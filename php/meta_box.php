@@ -6,85 +6,90 @@
 add_action('admin_menu', 'recipe_add_box');
 function recipe_add_box() {
     global $meta_fields;
-    add_meta_box('recipress', 'Recipe', 'recipe_show_box', 'post', 'normal', 'high');
+    add_meta_box('recipress', __('Recipe', 'recipress'), 'recipe_show_box', 'post', 'normal', 'high');
 }
 
 /* Custom Fields
 ------------------------------------------------------------------------- */
 $meta_fields = array(
 	array(
-		'name'	=> 'Recipe Title',
-		'desc'	=> 'Do you want to give the recipe a different title from the post?',
+		'name'	=> __('Recipe Title', 'recipress'),
+		'desc'	=> __('Do you want to give the recipe a different title from the post?', 'recipress'),
 		'place'	=> '',
 		'size'	=> 'large',
 		'id'	=> 'title',
 		'type'	=> 'text'
 	),
 	array(
-		'name'	=> 'Recipe Summary',
-		'desc'	=> 'A small summary of the recipe',
+		'name'	=> __('Recipe Summary', 'recipress'),
+		'desc'	=> __('A small summary of the recipe', 'recipress'),
 		'place'	=> '',
 		'size'	=> 'small',
 		'id'	=> 'summary',
 		'type'	=> 'textarea'
 	),
 	array(
-		'name'	=> 'Yield',
-		'desc'	=> 'How much/many does this recipe produce?',
-		'place'	=> 'e.g., 1 loaf, 2 cups',
+		'name'	=> __('Yield', 'recipress'),
+		'desc'	=> __('How much/many does this recipe produce?', 'recipress'),
+		'place'	=> __('e.g., 1 loaf, 2 cups', 'recipress'),
 		'size'	=> 'medium',
 		'id'	=> 'yield',
 		'type'	=> 'text'
 	),
 	array(
-		'name'	=> 'Servings',
-		'desc'	=> 'How many servings?',
+		'name'	=> __('Servings', 'recipress'),
+		'desc'	=> __('How many servings?', 'recipress'),
 		'place'	=> '00',
 		'size'	=> 'small',
 		'id'	=> 'servings',
 		'type'	=> 'text'
 	),
 	array(
-		'name'	=> 'Prep Time',
-		'desc'	=> 'How many minutes? (60+ minutes will output as hours)',
+		'name'	=> __('Prep Time', 'recipress'),
+		'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
 		'place'	=> '00',
 		'size'	=> 'small',
 		'id'	=> 'prep_time',
 		'type'	=> 'text'
 	),
 	array(
-		'name'	=> 'Cook Time',
-		'desc'	=> 'How many minutes? (60+ minutes will output as hours)',
+		'name'	=> __('Cook Time', 'recipress'),
+		'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
 		'place'	=> '00',
 		'size'	=> 'small',
 		'id'	=> 'cook_time',
 		'type'	=> 'text'
 	),
 	array(
-		'name'	=> 'Ingredients',
-		'desc'	=> 'Click the plus icon to add another ingredient. <a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=ingredient">Manage Ingedients</a>',
+		'name'	=> __('Ingredients', 'recipress'),
+		'desc'	=> __('Click the plus icon to add another ingredient. <a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=ingredient">Manage Ingedients</a>', 'recipress'),
 		'id'	=> 'ingredient',
 		'type'	=> 'ingredient'
 	),
 	array(
-		'name'	=> 'Instructions',
-		'desc'	=> 'Click the plus icon to add another instruction.',
+		'name'	=> __('Instructions', 'recipress'),
+		'desc'	=> __('Click the plus icon to add another instruction.', 'recipress'),
 		'id'	=> 'instruction',
 		'type'	=> 'instruction'
 	)
 );
 
+function meta_fields() {
+	global $meta_fields;
+	return $meta_fields;
+}
 
 /* The Callback
 ------------------------------------------------------------------------- */
 function recipe_show_box() {
-    global $meta_fields, $post, $measurements_singular, $measurements_plural;
+    global $post, $measurements_singular, $measurements_plural;
+	$meta_fields = meta_fields();
 	// if post-thumbnails aren't supported, add a recipe photo
 	if(recipress_add_photo()) 
 		array_unshift($meta_fields,
 		array(
-			'name'	=> 'Photo',
-			'desc'	=> 'Add a photo of your completed recipe',
+			'name'	=> __('Photo', 'recipress'),
+			'desc'	=> __('Add a photo of your completed recipe', 'recipress'),
 			'id'	=> 'photo',
 			'type'	=> 'image'
 			));
@@ -96,9 +101,9 @@ function recipe_show_box() {
 		if(recipress_add_photo()) $splice = 3;
 		foreach ($taxonomies as $taxonomy) {
 			$tax_name = '';
-			if($taxonomy == 'cuisine') $tax_name = 'Cuisine';
-			if($taxonomy == 'course') $tax_name = 'Course';
-			if($taxonomy == 'skill_level') $tax_name = 'Skill Level';
+			if($taxonomy == 'cuisine') $tax_name = __('Cuisine', 'recipress');
+			if($taxonomy == 'course') $tax_name = __('Course', 'recipress');
+			if($taxonomy == 'skill_level') $tax_name = __('Skill Level', 'recipress');
 			
 			array_splice($meta_fields, $splice++, 0,
 				array(array(
@@ -116,9 +121,9 @@ function recipe_show_box() {
 		if(recipress_add_photo()) $splice++;
 		array_splice($meta_fields, $splice, 0,
 			array(array(
-				'name'	=> 'Cost',
-				'desc'	=> 'What does it cost to make this recipe?',
-				'place'	=> '$0.00',
+				'name'	=> __('Cost', 'recipress'),
+				'desc'	=> __('What does it cost to make this recipe?', 'recipress'),
+				'place'	=> __('$0.00', 'recipress'),
 				'size'	=> 'medium',
 				'id'	=> 'cost',
 				'type'	=> 'text'
@@ -130,7 +135,7 @@ function recipe_show_box() {
 	$hasRecipe_check = '';
 	$hasRecipe = get_post_meta($post->ID, 'hasRecipe', true);
 	if($hasRecipe == 'Yes') $hasRecipe_check = ' checked="checked"';
-	echo '<p id="hasRecipe_box"><input type="checkbox"'.$hasRecipe_check.' id="hasRecipe" name="hasRecipe" value="Yes" /><label for="hasRecipe">Add a Recipe to this post?</label></p>';
+	echo '<p id="hasRecipe_box"><input type="checkbox"'.$hasRecipe_check.' id="hasRecipe" name="hasRecipe" value="Yes" /><label for="hasRecipe">'.__('Add a Recipe to this post?', 'recipress').'</label></p>';
     echo '<div id="recipress_table"><table class="form-table">';
     foreach ($meta_fields as $field) {
 		if ($field['type'] == 'section') {
@@ -142,9 +147,15 @@ function recipe_show_box() {
 		}
 		else {
         // get current post meta data
-        $meta = get_post_meta($post->ID, $field['id'], true);
+		$name = $field['name'];
+		$desc = $field['desc'];
+		$place = $field['place'];
+		$size = $field['size'];
+		$id = $field['id'];
+		$type = $field['type'];
+        $meta = get_post_meta($post->ID, $id, true);
         echo '<tr>',
-                '<th style="width:20%"><label for="', $field['id'], '">', $field['name'], '</label></th>',
+                '<th style="width:20%"><label for="'.$id.'">'.$name.'</label></th>',
                 '<td>';
 				
         switch ($field['type']) {
@@ -152,159 +163,120 @@ function recipe_show_box() {
 			// tax_select
 			// ----------------
             case 'tax_select':
-                echo '<select name="', $field['id'], '" id="', $field['id'], '">',
-						'<option value="">Select One</option>'; // Select One
-				$terms = get_terms($field['id'], 'get=all');
-				$selected = wp_get_object_terms($post->ID, $field['id']);
+                echo '<select name="'.$id.'" id="'.$id.'">',
+						'<option value="">'.__('Select One', 'recipress').'</option>'; // Select One
+				$terms = get_terms($id, 'get=all');
+				$selected = wp_get_object_terms($post->ID, $id);
                 foreach ($terms as $term) {
                     if (!is_wp_error($selected) && !empty($selected) && !strcmp($term->slug, $selected[0]->slug)) 
-						echo '<option value="' . $term->slug . '" selected="selected">' . $term->name . '</option>'; 
+						echo '<option value="'.$term->slug.'" selected="selected">'.$term->name.'</option>'; 
 					else
-						echo '<option value="' . $term->slug . '">' . $term->name . '</option>'; 
+						echo '<option value="'.$term->slug.'">'.$term->name.'</option>'; 
                 }
-                echo '</select>', '&nbsp;&nbsp;<span class="description"><a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=', $field['id'], '">Manage ', $field['name'], 's</a></span>';
+				$tax = get_taxonomy($id);
+                echo '</select>&nbsp;&nbsp;<span class="description"><a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy='.$id.'">'.__('Manage', 'recipress').' '.$tax->label.'</a></span>';
 			break;
 			// ----------------
 			// ingredient
 			// ----------------
             case 'ingredient':
-                echo '<ul class="table" id="ingredients_table">',
-						'<li class="thead"><ul class="tr">
+                echo '<ul class="table" id="ingredients_table">
+						<li class="thead"><ul class="tr">
 							<li class="th left_corner"><span class="sort_label"></span></li>
-							<li class="th cell-amount">Amount</li>
-							<li class="th cell-measurement">Measurement</li>
-							<li class="th cell-ingredient">Ingredient</li>
-							<li class="th cell-notes">Notes</li>
+							<li class="th cell-amount">'.__('Amount', 'recipress').'</li>
+							<li class="th cell-measurement">'.__('Measurement', 'recipress').'</li>
+							<li class="th cell-ingredient">'.__('Ingredient', 'recipress').'</li>
+							<li class="th cell-notes">'.__('Notes', 'recipress').'</li>
 							<li class="th right_corner"><a class="ingredient_add" href="#"></a></li>
-						</ul></li>',
-						'<li class="tbody">';
+						</ul></li>
+						<li class="tbody">';
 				$i = 0;
 				if($meta != '') {
 					foreach($meta as $row) {
-						echo '<ul class="tr">',
-							'<li class="td"><span class="sort"></span></li>', // sort
-							'<li class="td cell-amount"><input type="text" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="', $row['amount'],'" size="3" /></li>', //amount
-							'<li class="td cell-measurement"><input type="text" name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'" value="', $row['measurement'],'" size="30" /></li>', //measurement
-							'<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="', $row['ingredient'],'" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>', // ingredient
-							'<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="', $row['notes'],'" size="30" placeholder="e.g., chopped, sifted, fresh" /></li>', // notes
-							'<li class="td"><a class="ingredient_remove" href="#"></a></li>', // remove
-							'<li class="clear"></li>', // clear
-						'</ul>';
+						echo '<ul class="tr">
+							<li class="td"><span class="sort"></span></li>
+							<li class="td cell-amount"><input type="text" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="'.$row['amount'].'" size="3" /></li>
+							<li class="td cell-measurement"><input type="text" name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'" value="'.$row['measurement'].'" size="30" /></li>
+							<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="', $row['ingredient'],'" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>
+							<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="'.$row['notes'].'" size="30" placeholder="e.g., chopped, sifted, fresh" /></li>
+							<li class="td"><a class="ingredient_remove" href="#"></a></li>
+							<li class="clear"></li>
+						</ul>';
 						$i++;
 					}
 				} else {
-						echo '<ul class="tr">',
-							'<li class="td"><span class="sort"></span></li>', // sort
-							'<li class="td cell-amount"><input type="text" class="text-small" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="" size="3" /></li>', //amount
-							'<li class="td cell-measurement"><input type="text" name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'" value="" size="30" /></li>', //measurement
-							'<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>', // ingredient
-							'<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="" size="30" class=" " placeholder="e.g., chopped, fresh, etc." /></li>', // notes
-							'<li class="td"><a class="ingredient_remove" href="#"></a></li>', // remove
-							'<li class="clear"></li>', // clear
-						'</ul>';
+						echo '<ul class="tr">
+							<li class="td"><span class="sort"></span></li>
+							<li class="td cell-amount"><input type="text" class="text-small" placeholder="0" name="ingredient['.$i.'][amount]" id="ingredient_amount_'.$i.'" value="" size="3" /></li>
+							<li class="td cell-measurement"><input type="text" name="ingredient['.$i.'][measurement]" id="ingredient_measurement_'.$i.'" value="" size="30" /></li>
+							<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>
+							<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="" size="30" class=" " placeholder="e.g., chopped, fresh, etc." /></li>
+							<li class="td"><a class="ingredient_remove" href="#"></a></li>
+							<li class="clear"></li>
+						</ul>';
 				}
-				echo '</li></ul>',
-					'<span class="description">', $field['desc'], '</span>';
+				echo '</li></ul>
+					<span class="description">'.$desc.'</span>';
             break;
 			// ----------------
 			// instruction
 			// ----------------
             case 'instruction':
-                echo '<ul class="table" id="instructions_table">',
-						'<li class="thead"><ul class="tr">',
-							'<li class="th left_corner"><span class="sort_label"></span></li>',
-							'<li class="th cell-description">Description</li>',
-							'<li class="th image">Image</li>',
-							'<li class="th right_corner"><a class="instruction_add" href="#"></a></li>
-						</ul></li>',
-						'<li class="tbody">';
+                echo '<ul class="table" id="instructions_table">
+						<li class="thead"><ul class="tr">
+							<li class="th left_corner"><span class="sort_label"></span></li>
+							<li class="th cell-description">'.__('Description', 'recipress').'</li>
+							<li class="th image">'.__('Image', 'recipress').'</li>
+							<li class="th right_corner"><a class="instruction_add" href="#"></a></li>
+						</ul></li>
+						<li class="tbody">';
 				$i = 0;
 				$image = RECIPRESS_URL.'img/image.png';
 				if($meta != '') {
 					foreach($meta as $row) {
 						if($row['image'])  { $image = wp_get_attachment_image_src($row['image'], 'medium');	$image = $image[0]; }	
 						else $image = RECIPRESS_URL.'img/image.png';
-						echo '<ul class="tr" id="insutrction_row-'.$i.'">',
-							'<li class="td"><span class="sort"></span></li>', // sort
-							'<li class="td cell-description"><textarea placeholder="Describe this step in the recipe" class="instruction" name="instruction['.$i.'][description]" cols="40" rows="4" id="ingredient_description_'.$i.'">'. $row['description'].'</textarea></li>', // description
-							'<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="'.$row['image'].'" />
+						echo '<ul class="tr" id="insutrction_row-'.$i.'">
+							<li class="td"><span class="sort"></span></li>
+							<li class="td cell-description"><textarea placeholder="'.__('Describe this step in the recipe', 'recipress').'" class="instruction" name="instruction['.$i.'][description]" cols="40" rows="4" id="ingredient_description_'.$i.'">'.$row['description'].'</textarea></li>
+							<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="'.$row['image'].'" />
 										<img src="'.$image.'" class="recipress_preview_image" alt="" />
-										<input class="recipress_upload_image_button button" type="button" value="Upload Image" />
-										<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
-							</li>', // image
-							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
-							'<li class="clear"></li>', // clear
-						'</ul>';
+										<input class="recipress_upload_image_button button" type="button" value="'.__('Upload Image', 'recipress').'" />
+										<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
+							</li>
+							<li class="td"><a class="instruction_remove" href="#"></a></li>
+							<li class="clear"></li>
+						</ul>';
 						$i++;
 					}
 				} else {
-						echo '<ul class="tr" id="insutrction_row-'.$i.'">',
-							'<li class="td"><span class="sort"></span></li>', // sort
-							'<li class="td cell-description"><textarea placeholder="Describe this step in the recipe" class="instruction" type="text" name="instruction['.$i.'][description]" cols="77" rows="4" id="ingredient_description_'.$i.'"></textarea></li>', // description
-							'<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="" />
+						echo '<ul class="tr" id="insutrction_row-'.$i.'">
+							<li class="td"><span class="sort"></span></li>
+							<li class="td cell-description"><textarea placeholder="'.__('Describe this step in the recipe', 'recipress').'" class="instruction" type="text" name="instruction['.$i.'][description]" cols="77" rows="4" id="ingredient_description_'.$i.'"></textarea></li>
+							<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="" />
 										<img src="'.$image.'" class="recipress_preview_image" alt="" />
-										<input class="recipress_upload_image_button button" type="button" value="Upload Image" />
-										<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
-							</li>', // image
-							'<li class="td"><a class="instruction_remove" href="#"></a></li>', //remove
-							'<li class="clear"></li>', // clear
-						'</ul>';
+										<input class="recipress_upload_image_button button" type="button" value="'.__('Upload Image', 'recipress').'" />
+										<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
+							</li>
+							<li class="td"><a class="instruction_remove" href="#"></a></li>
+							<li class="clear"></li>
+						</ul>';
 				}
-				echo '</li></ul>',
-					'<div class="clear"></div><span class="description">', $field['desc'], '</span>';
+				echo '</li></ul>
+					<div class="clear"></div><span class="description">'.$desc.'</span>';
             break;
 			// ----------------
 			// text
 			// ----------------
             case 'text':
-                echo '<input type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ,'" class="text-', $field['size'] ,'" size="30" placeholder="', $field['place'], '" />', '&nbsp;&nbsp;<span class="description">', $field['desc'], '</span>';
+                echo '<input type="text" name="'.$id.'" id="'.$id.'" value="'.$meta.'" class="text-'.$size.'" size="30" placeholder="'.$place.'" />&nbsp;&nbsp;<span class="description">'.$desc.'</span>';
             break;
 			// ----------------
 			// textarea
 			// ----------------
             case 'textarea':
-                echo '<textarea name="', $field['id'], '" id="', $field['id'], '" cols="60" rows="4" class="text-', $field['size'] ,'">', $meta , '</textarea>', 
-						'&nbsp;&nbsp;<span class="description">', $field['desc'], '</span>';
-            break;
-			// ----------------
-			// select
-			// ----------------
-            case 'select':
-                echo '<select name="', $field['id'], '" id="', $field['id'], '">';
-                foreach ($field['options'] as $option) {
-                    echo '<option', $meta == $option['value'] ? ' selected="selected"' : '', ' value="', $option['value'],'">', $option['label'], '</option>';
-                }
-                echo '</select>', '&nbsp;&nbsp;<span class="description">', $field['desc'], '</span>';
-            break;
-			// ----------------
-			// radio
-			// ----------------
-            case 'radio':
-				echo '<fieldset><legend class="screen-reader-text"><span>', $field['label'], '</span></legend>';
-					
-					foreach ( $field['options'] as $option ) {
-							
-						echo '<label>',
-								'<input type="radio" name="', $field['id'], '" value="', esc_attr_e( $option['value'] ), '" ', $meta == $option['value'] ? ' checked="checked"' : '', ' /> ', $option['label'], 
-							 '</label><br />';
-					}
-					echo '</fieldset>';
-            break;
-			// ----------------
-			// checkbox
-			// ----------------
-            case 'checkbox':
-                echo '<input type="checkbox" name="', $field['id'], '" id="', $field['id'], '"', $meta ? ' checked="checked"' : '', ' /> <label for="', $field['id'], '">', $field['desc'], '</label>';
-            break;
-			// ----------------
-			// checkbox_group
-			// ----------------
-            case 'checkbox_group':
-				foreach ($field['options'] as $option) {
-                	echo '<input type="checkbox" value="', $option, '" name="', $field['id'], '[]" id="', $option, '"', $meta && in_array($option, $meta) ? ' checked="checked"' : '', ' />', 
-							' <label for="', $option, '">', $option, '</label><br />';
-				}
-				echo '<span class="description">', $field['desc'], '</span>';
+                echo '<textarea name="'.$id.'" id="'.$id.'" cols="60" rows="4" class="text-'.$size.'">'.$meta.'</textarea>', 
+						'&nbsp;&nbsp;<span class="description">'.$desc.'</span>';
             break;
 			// ----------------
 			// image
@@ -312,15 +284,15 @@ function recipe_show_box() {
 			case 'image':
 				$image = RECIPRESS_URL.'img/image.png';	
 				if($meta)  { $image = wp_get_attachment_image_src($meta, 'medium');	$image = $image[0]; }				
-				echo	'<input name="', $field['id'], '" type="hidden" class="recipress_upload_image" value="', $meta, '" />',
+				echo	'<input name="'.$id.'" type="hidden" class="recipress_upload_image" value="'.$meta.'" />',
 							'<img src="'.$image.'" class="recipress_preview_image" alt="" />
-								<input class="recipress_upload_image_button button" type="button" value="Upload Image" /><br />
-								<small>&nbsp;<a href="#" class="recipress_clear_image_button">Remove Image</a></small>
-								<br clear="all" /><span class="description">', $field['desc'], '</span>';
+								<input class="recipress_upload_image_button button" type="button" value="'.__('Upload Image', 'recipress').'" /><br />
+								<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
+								<br clear="all" /><span class="description">'.$desc.'</span>';
 			break;
         }
-        echo     '<td>',
-            '</tr>';
+        echo     '<td>
+            </tr>';
 		}
     }
     echo '</table></div>';
@@ -332,7 +304,7 @@ function recipe_show_box() {
 add_action('save_post', 'recipe_save_data');
 // Save data from meta box
 function recipe_save_data($post_id) {
-    global $meta_fields;
+    $meta_fields = meta_fields();
 	// if post-thumbnails aren't supported, add a recipe photo
 	if(!current_theme_supports('post-thumbnails') || (current_theme_supports('post-thumbnails') && recipress_options('use_photo') == 'no')) 
 		array_unshift($meta_fields,

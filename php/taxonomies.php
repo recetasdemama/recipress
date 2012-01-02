@@ -1,23 +1,24 @@
 <?php
 
-/* Register Ingredients
+/* Register Taxonomies
 ------------------------------------------------------------------------- */
-function register_taxonomy_ingredient() {
+function register_recipress_taxonomies() {
 	
+	// ingredients
 	$labels = array( 
-	'name' 				=> _x( 'Ingredients', 'ingredient' ),
-	'singular_name' 	=> _x( 'Ingredient', 'ingredient' ),
-	'search_items'		=> _x( 'Search Ingredients', 'ingredient' ),
-	'popular_items' 	=> _x( 'Popular Ingredients', 'ingredient' ),
-	'all_items'			=> _x( 'All Ingredients', 'ingredient' ),
-	'parent_item' 		=> _x( 'Parent Ingredient', 'ingredient' ),
-	'parent_item_colon' => _x( 'Parent Ingredient:', 'ingredient' ),
-	'edit_item' 		=> _x( 'Edit Ingredient', 'ingredient' ),
-	'update_item' 		=> _x( 'Update Ingredient', 'ingredient' ),
-	'add_new_item' 		=> _x( 'Add New Ingredient', 'ingredient' ),
-	'new_item_name' 	=> _x( 'New Ingredient Name', 'ingredient' ),
-	'add_or_remove_items' => _x( 'Add or remove ingredients', 'ingredient' ),
-	'menu_name' 		=> _x( 'Ingredients', 'ingredient' ),
+	'name' 				=> _x( 'Ingredients', 'taxonomy general name', 'recipress' ),
+	'singular_name' 	=> _x( 'Ingredient', 'taxonomy singular name', 'recipress' ),
+	'search_items'		=> __( 'Search Ingredients', 'recipress' ),
+	'popular_items' 	=> __( 'Popular Ingredients', 'recipress' ),
+	'all_items'			=> __( 'All Ingredients', 'recipress' ),
+	'parent_item' 		=> __( 'Parent Ingredient', 'recipress' ),
+	'parent_item_colon' => __( 'Parent Ingredient:', 'recipress' ),
+	'edit_item' 		=> __( 'Edit Ingredient', 'recipress' ),
+	'update_item' 		=> __( 'Update Ingredient', 'recipress' ),
+	'add_new_item' 		=> __( 'Add New Ingredient', 'recipress' ),
+	'new_item_name' 	=> __( 'New Ingredient Name', 'recipress' ),
+	'add_or_remove_items' => __( 'Add or remove ingredients', 'recipress' ),
+	'menu_name' 		=> _x( 'Ingredients', 'taxonomy menu name', 'recipress' ),
 	);
 	
 	$args = array( 
@@ -33,26 +34,22 @@ function register_taxonomy_ingredient() {
 	);
 
 	register_taxonomy( 'ingredient', 'post', $args );
-}
-
-/* Register Cuisines
-------------------------------------------------------------------------- */
-function register_taxonomy_cuisine() {
 	
+	// cuisines
 	$labels = array( 
-	'name' 				=> _x( 'Cuisines', 'cuisine' ),
-	'singular_name' 	=> _x( 'Cuisine', 'cuisine' ),
-	'search_items'		=> _x( 'Search Cuisines', 'cuisine' ),
-	'popular_items' 	=> _x( 'Popular Cuisines', 'cuisine' ),
-	'all_items'			=> _x( 'All Cuisines', 'cuisine' ),
-	'parent_item' 		=> _x( 'Parent Cuisine', 'cuisine' ),
-	'parent_item_colon' => _x( 'Parent Cuisine:', 'cuisine' ),
-	'edit_item' 		=> _x( 'Edit Cuisine', 'cuisine' ),
-	'update_item' 		=> _x( 'Update Cuisine', 'cuisine' ),
-	'add_new_item' 		=> _x( 'Add New Cuisine', 'cuisine' ),
-	'new_item_name' 	=> _x( 'New Cuisine Name', 'cuisine' ),
-	'add_or_remove_items' => _x( 'Add or remove cuisines', 'cuisine' ),
-	'menu_name' 		=> _x( 'Cuisines', 'cuisine' ),
+	'name' 				=> _x( 'Cuisines', 'taxonomy general name', 'recipress' ),
+	'singular_name' 	=> _x( 'Cuisine', 'taxonomy singular name', 'recipress' ),
+	'search_items'		=> __( 'Search Cuisines', 'recipress' ),
+	'popular_items' 	=> __( 'Popular Cuisines', 'recipress' ),
+	'all_items'			=> __( 'All Cuisines', 'recipress' ),
+	'parent_item' 		=> __( 'Parent Cuisine', 'recipress' ),
+	'parent_item_colon' => __( 'Parent Cuisine:', 'recipress' ),
+	'edit_item' 		=> __( 'Edit Cuisine', 'recipress' ),
+	'update_item' 		=> __( 'Update Cuisine', 'recipress' ),
+	'add_new_item' 		=> __( 'Add New Cuisine', 'recipress' ),
+	'new_item_name' 	=> __( 'New Cuisine Name', 'recipress' ),
+	'add_or_remove_items' => __( 'Add or remove cuisines', 'recipress' ),
+	'menu_name' 		=> _x( 'Cuisines', 'taxonomy menu name', 'recipress' ),
 	);
 	
 	$args = array( 
@@ -68,26 +65,22 @@ function register_taxonomy_cuisine() {
 	);
 
 	register_taxonomy( 'cuisine', 'post', $args );
-}
-
-/* Register Courses
-------------------------------------------------------------------------- */
-function register_taxonomy_course() {
 	
+	// courses
 	$labels = array( 
-	'name' 				=> _x( 'Courses', 'course' ),
-	'singular_name' 	=> _x( 'Course', 'course' ),
-	'search_items'		=> _x( 'Search Courses', 'course' ),
-	'popular_items' 	=> _x( 'Popular Courses', 'course' ),
-	'all_items'			=> _x( 'All Courses', 'course' ),
-	'parent_item' 		=> _x( 'Parent Course', 'course' ),
-	'parent_item_colon' => _x( 'Parent Course:', 'course' ),
-	'edit_item' 		=> _x( 'Edit Course', 'course' ),
-	'update_item' 		=> _x( 'Update Course', 'course' ),
-	'add_new_item' 		=> _x( 'Add New Course', 'course' ),
-	'new_item_name' 	=> _x( 'New Course Name', 'course' ),
-	'add_or_remove_items' => _x( 'Add or remove courses', 'course' ),
-	'menu_name' 		=> _x( 'Courses', 'course' ),
+	'name' 				=> _x( 'Courses', 'taxonomy general name', 'recipress' ),
+	'singular_name' 	=> _x( 'Course', 'taxonomy singular name', 'recipress' ),
+	'search_items'		=> __( 'Search Courses', 'recipress' ),
+	'popular_items' 	=> __( 'Popular Courses', 'recipress' ),
+	'all_items'			=> __( 'All Courses', 'recipress' ),
+	'parent_item' 		=> __( 'Parent Course', 'recipress' ),
+	'parent_item_colon' => __( 'Parent Course:', 'recipress' ),
+	'edit_item' 		=> __( 'Edit Course', 'recipress' ),
+	'update_item' 		=> __( 'Update Course', 'recipress' ),
+	'add_new_item' 		=> __( 'Add New Course', 'recipress' ),
+	'new_item_name' 	=> __( 'New Course Name', 'recipress' ),
+	'add_or_remove_items' => __( 'Add or remove courses', 'recipress' ),
+	'menu_name' 		=> _x( 'Courses', 'taxonomy menu name', 'recipress' ),
 	);
 	
 	$args = array( 
@@ -103,26 +96,22 @@ function register_taxonomy_course() {
 	);
 
 	register_taxonomy( 'course', 'post', $args );
-}
-
-/* Register Skill Levels
-------------------------------------------------------------------------- */
-function register_taxonomy_skill_level() {
 	
+	// skill_levels
 	$labels = array( 
-	'name' 				=> _x( 'Skill Levels', 'skill_level' ),
-	'singular_name' 	=> _x( 'Skill Level', 'skill_level' ),
-	'search_items'		=> _x( 'Search Skill Levels', 'skill_level' ),
-	'popular_items' 	=> _x( 'Popular Skill Levels', 'skill_level' ),
-	'all_items'			=> _x( 'All Skill Levels', 'skill_level' ),
-	'parent_item' 		=> _x( 'Parent Skill Level', 'skill_level' ),
-	'parent_item_colon' => _x( 'Parent Skill Level:', 'skill_level' ),
-	'edit_item' 		=> _x( 'Edit Skill Level', 'skill_level' ),
-	'update_item' 		=> _x( 'Update Skill Level', 'skill_level' ),
-	'add_new_item' 		=> _x( 'Add New Skill Level', 'skill_level' ),
-	'new_item_name' 	=> _x( 'New Skill Level Name', 'skill_level' ),
-	'add_or_remove_items' => _x( 'Add or remove skill levels', 'skill_level' ),
-	'menu_name' 		=> _x( 'Skill Levels', 'skill_level' ),
+	'name' 				=> _x( 'Skill Levels', 'taxonomy general name', 'recipress' ),
+	'singular_name' 	=> _x( 'Skill Level', 'taxonomy singular name', 'recipress' ),
+	'search_items'		=> __( 'Search Skill Levels', 'recipress' ),
+	'popular_items' 	=> __( 'Popular Skill Levels', 'recipress' ),
+	'all_items'			=> __( 'All Skill Levels', 'recipress' ),
+	'parent_item' 		=> __( 'Parent Skill Level', 'recipress' ),
+	'parent_item_colon' => __( 'Parent Skill Level:', 'recipress' ),
+	'edit_item' 		=> __( 'Edit Skill Level', 'recipress' ),
+	'update_item' 		=> __( 'Update Skill Level', 'recipress' ),
+	'add_new_item' 		=> __( 'Add New Skill Level', 'recipress' ),
+	'new_item_name' 	=> __( 'New Skill Level Name', 'recipress' ),
+	'add_or_remove_items' => __( 'Add or remove skill levels', 'recipress' ),
+	'menu_name' 		=> _x( 'Skill Levels', 'taxonomy menu name', 'recipress' ),
 	);
 	
 	$args = array( 
@@ -145,49 +134,49 @@ function register_taxonomy_skill_level() {
    ------------------------------------------------------------------------- */
 function recipress_default_taxonomies() {
 	// Default Ingredients
-	wp_insert_term( 'beef', 'ingredient');
-	wp_insert_term( 'bell pepper', 'ingredient');
-	wp_insert_term( 'bread', 'ingredient');
-	wp_insert_term( 'cheese', 'ingredient');
-	wp_insert_term( 'chicken', 'ingredient');
-	wp_insert_term( 'eggs', 'ingredient');
-	wp_insert_term( 'fish', 'ingredient');
-	wp_insert_term( 'flour', 'ingredient');
-	wp_insert_term( 'garlic', 'ingredient');
-	wp_insert_term( 'milk', 'ingredient');
-	wp_insert_term( 'nutmeg', 'ingredient');
-	wp_insert_term( 'onion', 'ingredient');
-	wp_insert_term( 'pasta', 'ingredient');
-	wp_insert_term( 'potatoes', 'ingredient');
-	wp_insert_term( 'shrimp', 'ingredient');
-	wp_insert_term( 'spinach', 'ingredient');
-	wp_insert_term( 'strawberries', 'ingredient');
-	wp_insert_term( 'tomatoes', 'ingredient');
+	wp_insert_term( __('beef', 'recipress'), 'ingredient');
+	wp_insert_term( __('bell pepper', 'recipress'), 'ingredient');
+	wp_insert_term( __('bread', 'recipress'), 'ingredient');
+	wp_insert_term( __('cheese', 'recipress'), 'ingredient');
+	wp_insert_term( __('chicken', 'recipress'), 'ingredient');
+	wp_insert_term( __('eggs', 'recipress'), 'ingredient');
+	wp_insert_term( __('fish', 'recipress'), 'ingredient');
+	wp_insert_term( __('flour', 'recipress'), 'ingredient');
+	wp_insert_term( __('garlic', 'recipress'), 'ingredient');
+	wp_insert_term( __('milk', 'recipress'), 'ingredient');
+	wp_insert_term( __('nutmeg', 'recipress'), 'ingredient');
+	wp_insert_term( __('onion', 'recipress'), 'ingredient');
+	wp_insert_term( __('pasta', 'recipress'), 'ingredient');
+	wp_insert_term( __('potatoes', 'recipress'), 'ingredient');
+	wp_insert_term( __('shrimp', 'recipress'), 'ingredient');
+	wp_insert_term( __('spinach', 'recipress'), 'ingredient');
+	wp_insert_term( __('strawberries', 'recipress'), 'ingredient');
+	wp_insert_term( __('tomatoes', 'recipress'), 'ingredient');
 	// Default Cuisines
-	wp_insert_term( 'American', 'cuisine');
-	wp_insert_term( 'Chinese', 'cuisine');
-	wp_insert_term( 'Indian', 'cuisine');
-	wp_insert_term( 'Italian', 'cuisine');
-	wp_insert_term( 'French', 'cuisine');
-	wp_insert_term( 'Japanese', 'cuisine');
-	wp_insert_term( 'Mediterrarean', 'cuisine');
-	wp_insert_term( 'Mexican', 'cuisine');
-	wp_insert_term( 'Seafood', 'cuisine');
+	wp_insert_term( __('American', 'recipress'), 'cuisine');
+	wp_insert_term( __('Chinese', 'recipress'), 'cuisine');
+	wp_insert_term( __('Indian', 'recipress'), 'cuisine');
+	wp_insert_term( __('Italian', 'recipress'), 'cuisine');
+	wp_insert_term( __('French', 'recipress'), 'cuisine');
+	wp_insert_term( __('Japanese', 'recipress'), 'cuisine');
+	wp_insert_term( __('Mediterrarean', 'recipress'), 'cuisine');
+	wp_insert_term( __('Mexican', 'recipress'), 'cuisine');
+	wp_insert_term( __('Seafood', 'recipress'), 'cuisine');
 	// Default Courses
-	wp_insert_term( 'Appetizer', 'course');
-	wp_insert_term( 'Breakfast', 'course');
-	wp_insert_term( 'Entrée', 'course');
-	wp_insert_term( 'Dessert', 'course');
-	wp_insert_term( 'Salad', 'course');
-	wp_insert_term( 'Side Dish', 'course');
-	wp_insert_term( 'Snack', 'course');
-	wp_insert_term( 'Soup', 'course');
+	wp_insert_term( __('Appetizer', 'recipress'), 'course');
+	wp_insert_term( __('Breakfast', 'recipress'), 'course');
+	wp_insert_term( __('Entrée', 'recipress'), 'course');
+	wp_insert_term( __('Dessert', 'recipress'), 'course');
+	wp_insert_term( __('Salad', 'recipress'), 'course');
+	wp_insert_term( __('Side Dish', 'recipress'), 'course');
+	wp_insert_term( __('Snack', 'recipress'), 'course');
+	wp_insert_term( __('Soup', 'recipress'), 'course');
 	// Default Skill Levels
-	wp_insert_term( 'Advanced', 'skill_level');
-	wp_insert_term( 'Beginner', 'skill_level');
-	wp_insert_term( 'Child Friendly', 'skill_level');
-	wp_insert_term( 'Easy', 'skill_level');
-	wp_insert_term( 'Moderate', 'skill_level');
+	wp_insert_term( __('Advanced', 'recipress'), 'skill_level');
+	wp_insert_term( __('Beginner', 'recipress'), 'skill_level');
+	wp_insert_term( __('Child Friendly', 'recipress'), 'skill_level');
+	wp_insert_term( __('Easy', 'recipress'), 'skill_level');
+	wp_insert_term( __('Moderate', 'recipress'), 'skill_level');
 }
 
 
