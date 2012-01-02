@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.3
-Stable tag: 1.6
+Stable tag: 1.7
 
 
 == Description ==
@@ -24,10 +24,10 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 * Three basic recipe output designs to choose from
 * Supports themes with or without post-thumbnails for a recipe photo selection
 * hRecipe optimized for Search Engine Optimization
+* Complete plugin localization
 
 = Coming Soon: =
 
-* Localization
 * Contextual Help
 * ReciPress.com dedicated support, docs, and demo. [Sign up](http://www.recipress.com) for updates!
 
@@ -66,6 +66,10 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 5. ReciPress Options
 
 == Changelog ==
+
+= 1.7 (January 2, 2012) =
+* Code cleanups
+* Localization
 
 = 1.6 (December 21, 2011) =
 * Fixed closing tags in meta_box.php

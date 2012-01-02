@@ -3,7 +3,7 @@
 Plugin Name: ReciPress
 Plugin URI: http://www.recipress.com
 Description: Create recipes in your posts with a clean interface and layout that are easy to organize.
-Version: 1.6
+Version: 1.7
 Author: Tammy Hart
 Author URI: http://tammyhartdesigns.com
 */
@@ -46,6 +46,7 @@ if (is_admin()) {
 	wp_enqueue_script( 'suggest' );
 	wp_enqueue_script('recipress_back', RECIPRESS_URL.'js/back.js');
 	wp_enqueue_style('recipress_back', RECIPRESS_URL.'css/back.css');
+	add_filter( 'gettext', 'recipress_button_text', 20, 3 );
 }
 else {
 	wp_enqueue_style('recipress_front', RECIPRESS_URL.'css/front.css');
@@ -68,23 +69,36 @@ function add_recipress_script_config() {
 <?php
 }
 
-// Register taxonomies and insert terms on plugin activation
-add_action('init', 'register_taxonomy_ingredient');
-add_action('init', 'register_taxonomy_cuisine' );
-add_action('init', 'register_taxonomy_course' );
-add_action('init', 'register_taxonomy_skill_level' );
+// Insert Button text
+function recipress_button_text( $translation, $original, $domain ) {
+	 // We don't pass "type" in our custom upload fields, yet WordPress does, so ignore our function when WordPress has triggered the upload popup.
+	if ( isset( $_REQUEST['type'] ) ) { return $translation; }
+	
+	if( $original == 'Insert into Post' ) {
+		$translation = __( 'Use this Image', 'recipress' );
+	}
 
+	return $translation;
+}
+
+
+// Register taxonomies and insert terms on plugin activation
+add_action('init', 'register_recipress_taxonomies');
 register_activation_hook( __FILE__, 'activate_recipress_taxonomies' );
 
 function activate_recipress_taxonomies() {
 	// activate taxonomies
-	register_taxonomy_ingredient();
-	register_taxonomy_cuisine();
-	register_taxonomy_course();
-	register_taxonomy_skill_level();
+	register_recipress_taxonomies();
 	// insert terms
 	recipress_default_taxonomies();
 	$GLOBALS['wp_rewrite']->flush_rules();
+}
+
+// Localization
+add_action('after_theme_setup', 'recipress_plugin_setup');
+
+function recipress_plugin_setup() {  
+	load_plugin_textdomain('recipress', false, RECIPRESS_DIR.'/lang/');  
 }
 
 ?>
