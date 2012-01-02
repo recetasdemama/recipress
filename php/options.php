@@ -330,7 +330,7 @@ function recipress_do_page() {
 						// image_radio
 						// ----------------
 						case 'image_radio':
-							echo '<fieldset class="image_radio">'.$meta.'<legend class="screen-reader-text"><span>'.$label.'</span></legend>';
+							echo '<fieldset class="image_radio"><legend class="screen-reader-text"><span>'.$label.'</span></legend>';
 							foreach ( $f_options as $option ) {
 								$label = $option['label'];
 								$value = $option['value'];
