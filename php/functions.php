@@ -201,14 +201,14 @@ function recipress_recipe($field, $attr = null) {
 			foreach($ingredients as $ingredient) {
 				$amount = $ingredient['amount'];
 				$measurement = $ingredient['measurement'];
-				$ingredient = $ingredient['ingredient'];
+				$the_ingredient = $ingredient['ingredient'];
 				$notes = $ingredient['notes'];
 				if(!$ingredient['ingredient']) continue;
 				$output .= '<li class="ingredient">';
 				if (isset($amount) || isset($measurement)) 
 					$output .= '<span class="amount">'.$amount.' '.$measurement.'</span> ';
-				if (isset($ingredient)) 
-					$output .= '<span class="name"><a href="'.get_term_link($ingredient, 'ingredient').'">'.$ingredient.'</a></span> ';
+				if (isset($the_ingredient)) 
+					$output .= '<span class="name"><a href="'.get_term_link($the_ingredient, 'ingredient').'">'.$the_ingredient.'</a></span> ';
 				if (isset($notes)) 
 					$output .= '<i class="notes">'.$notes.'</i></li>';
 			}
