@@ -13,7 +13,7 @@ function the_recipe($content) {
 								'.__('Published:', 'recipress').' <span class="published">'.get_the_date('F j, Y').'<span class="value-title" title="'.get_the_date('c').'"></span></span></p>
 							<ul class="recipe-details">';
 			if(recipress_recipe('yield'))
-			$content .= 		'<li><b>'.__('Yeild:', 'recipress').'</b> <span class="yield">'.recipress_recipe('yield').'</span></li>';
+			$content .= 		'<li><b>'.__('Yield:', 'recipress').'</b> <span class="yield">'.recipress_recipe('yield').'</span></li>';
 			if(recipress_recipe('cost'))
 			$content .= 		'<li><b>'.__('Cost:', 'recipress').'</b> <span class="cost">'.recipress_recipe('cost').'</span></li>';
 			if(recipress_recipe('prep_time') && recipress_recipe('cook_time'))
