@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.3
-Stable tag: 1.7
+Stable tag: 1.8
 
 
 == Description ==
@@ -25,11 +25,7 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 * Supports themes with or without post-thumbnails for a recipe photo selection
 * hRecipe optimized for Search Engine Optimization
 * Complete plugin localization
-
-= Coming Soon: =
-
-* Contextual Help
-* ReciPress.com dedicated support, docs, and demo. [Sign up](http://www.recipress.com) for updates!
+* [ReciPress.com](http://www.recipress.com) dedicated support, documentation, and demo.
 
 == Installation ==
 
@@ -38,7 +34,11 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 3. Start adding recipes to your blog posts
 4. Click on 'ReciPress' in the left admin bar to set up options
 
+See our [Installation Guide](http://recipress.com/docs/using-recipress/installation-guide/) for more information.
+
 == Frequently Asked Questions ==
+
+See our [Documentation](http://recipress.com/docs) for more information.
 
 = Q: How quickly does the plugin work? =
 **A:** The plugin will automatically add some cuisines, courses, skill levels, and ingredients so that you can start adding recipes right away.
@@ -59,6 +59,8 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 
 == Screenshots ==
 
+See a [demo](http://plugin.recipress.com/) of ReciPress in action!
+
 1. Add a recipe
 2. Recipe output - light theme
 3. Recipe output - dark theme
@@ -66,6 +68,10 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 5. ReciPress Options
 
 == Changelog ==
+
+= 1.8 (January 13, 2012) =
+* Code cleanups
+* ReciPress.com links added
 
 = 1.7 (January 2, 2012) =
 * Code cleanups

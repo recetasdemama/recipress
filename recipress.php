@@ -3,7 +3,7 @@
 Plugin Name: ReciPress
 Plugin URI: http://www.recipress.com
 Description: Create recipes in your posts with a clean interface and layout that are easy to organize.
-Version: 1.7
+Version: 1.8
 Author: Tammy Hart
 Author URI: http://tammyhartdesigns.com
 */
@@ -41,14 +41,13 @@ include_once(RECIPRESS_DIR.'php/output.php');
 include_once(RECIPRESS_DIR.'php/widgets.php');
 
 // Styles and Scripts
-if (is_admin()) {
-	wp_enqueue_script('jquery-ui-sortable');
-	wp_enqueue_script( 'suggest' );
-	wp_enqueue_script('recipress_back', RECIPRESS_URL.'js/back.js');
+add_action('admin_enqueue_scripts', 'recipress_admin_enqueue');
+function recipress_admin_enqueue() {
+	wp_enqueue_script('recipress_back', RECIPRESS_URL.'js/back.js', array('jquery', 'jquery-ui-sortable'));
 	wp_enqueue_style('recipress_back', RECIPRESS_URL.'css/back.css');
-	add_filter( 'gettext', 'recipress_button_text', 20, 3 );
 }
-else {
+add_action('wp_enqueue_scripts', 'recipress_wp_enqueue');
+function recipress_wp_enqueue() {
 	wp_enqueue_style('recipress_front', RECIPRESS_URL.'css/front.css');
 }
 
@@ -69,19 +68,6 @@ function add_recipress_script_config() {
 <?php
 }
 
-// Insert Button text
-function recipress_button_text( $translation, $original, $domain ) {
-	 // We don't pass "type" in our custom upload fields, yet WordPress does, so ignore our function when WordPress has triggered the upload popup.
-	if ( isset( $_REQUEST['type'] ) ) { return $translation; }
-	
-	if( $original == 'Insert into Post' ) {
-		$translation = __( 'Use this Image', 'recipress' );
-	}
-
-	return $translation;
-}
-
-
 // Register taxonomies and insert terms on plugin activation
 add_action('init', 'register_recipress_taxonomies');
 register_activation_hook( __FILE__, 'activate_recipress_taxonomies' );
@@ -95,10 +81,9 @@ function activate_recipress_taxonomies() {
 }
 
 // Localization
-add_action('after_theme_setup', 'recipress_plugin_setup');
-
-function recipress_plugin_setup() {  
+add_action('init', 'recipress_localization');
+function recipress_localization() {
 	load_plugin_textdomain('recipress', false, RECIPRESS_DIR.'/lang/');  
 }
-
+	
 ?>
