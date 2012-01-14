@@ -6,6 +6,13 @@ jQuery(function(jQuery) {
 	});
 	if(jQuery(hasRecipe).is(':checked')) jQuery('#recipress_table').show();
 	
+	
+	jQuery('#media-items').bind('DOMNodeInserted',function(){
+		jQuery('input[value="Insert into Post"]').each(function(){
+				jQuery(this).attr('value','Use This Image');
+		});
+	});
+	
 	jQuery('.recipress_upload_image_button').click(function() {
 		formfield = jQuery(this).siblings('.recipress_upload_image');
 		preview = jQuery(this).siblings('.recipress_preview_image');
