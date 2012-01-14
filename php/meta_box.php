@@ -351,7 +351,7 @@ function recipe_save_data($post_id) {
 			$new = $_POST[$field['id']];
 			if ($new && $new != $old) {
 				if ('ingredient' == $field['id']) 
-					foreach ($new as &$ingredient) $ingredient['measurement'] = rtrim($ingredient['measurement']);
+					foreach ($new as &$ingredient) $ingredient['measurement'] = $ingredient['measurement'];
 				update_post_meta($post_id, $field['id'], $new);
 			} elseif ('' == $new && $old) {
 				delete_post_meta($post_id, $field['id'], $old);

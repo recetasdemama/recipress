@@ -33,7 +33,7 @@ class recipress_terms_widget extends WP_Widget {
 		echo $before_widget;
 		echo $before_title . $title . $after_title;
 		if ($type == 'list') {
-			echo get_recipress_terms($taxonomy);
+			echo get_recipress_terms($taxonomy, 'hide_empty=0');
 		} elseif ($type == 'cloud') {
 			wp_tag_cloud('taxonomy='.$taxonomy);
 		}

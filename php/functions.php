@@ -208,7 +208,7 @@ function recipress_recipe($field, $attr = null) {
 				if (isset($amount) || isset($measurement)) 
 					$output .= '<span class="amount">'.$amount.' '.$measurement.'</span> ';
 				if (isset($the_ingredient)) 
-					$output .= '<span class="name"><a href="'.get_term_link($the_ingredient, 'ingredient').'">'.$the_ingredient.'</a></span> ';
+					$output .= '<span class="name">'.$the_ingredient.'</span> ';
 				if (isset($notes)) 
 					$output .= '<i class="notes">'.$notes.'</i></li>';
 			}
