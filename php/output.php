@@ -42,16 +42,23 @@ function the_recipe($content) {
 	return $content;
 }
 
+// shortcode function
+function the_recipe_shortcode($content) {
+	$autoadd = recipress_options('autoadd');
+	if ( isset($autoadd) && $autoadd != 'yes' )
+		$content .= the_recipe($content);
+	return $content;
+}
+
 // shortcode
-add_shortcode('recipe', 'the_recipe');
+add_shortcode('recipe', 'the_recipe_shortcode');
 
 // auto add?
-function _add_my_filter() {
+function recipress_add_my_filter() {
 	$autoadd = recipress_options('autoadd');
-	if ( !isset($autoadd) || $autoadd == 'yes' ) {
-		add_filter('the_content', 'the_recipe');
-	}
+	if ( !isset($autoadd) || $autoadd == 'yes' )
+		add_action('the_content', 'the_recipe');
 }
-add_action('template_redirect', '_add_my_filter');
+add_action('template_redirect', 'recipress_add_my_filter');
 
 ?>
