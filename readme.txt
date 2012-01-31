@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.3
-Stable tag: 1.8
+Stable tag: 1.9
 
 
 == Description ==
@@ -59,8 +59,6 @@ See our [Documentation](http://recipress.com/docs) for more information.
 
 == Screenshots ==
 
-See a [demo](http://plugin.recipress.com/) of ReciPress in action!
-
 1. Add a recipe
 2. Recipe output - light theme
 3. Recipe output - dark theme
@@ -68,6 +66,15 @@ See a [demo](http://plugin.recipress.com/) of ReciPress in action!
 5. ReciPress Options
 
 == Changelog ==
+
+= 1.9 (Janury 31, 20120) =
+* fixed image uploader js
+* added $type to recipress_terms()
+* fixed widget constructors
+* fixed get_term_link
+* added de_DE lang
+* fixed load_plugin_textdomain
+* fixed meta box Ingredients description to use sprintf
 
 = 1.8 (January 13, 2012) =
 * Code cleanups
