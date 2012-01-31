@@ -18,8 +18,9 @@ jQuery(function(jQuery) {
 		preview = jQuery(this).siblings('.recipress_preview_image');
 		tb_show('', 'media-upload.php?type=image&TB_iframe=true');
 		window.send_to_editor = function(html) {
-			imgurl = jQuery('img',html).attr('src');
-			classes = jQuery('img', html).attr('class');
+			data = jQuery(html).filter('img');
+			imgurl = data.attr("src");
+			classes = data.attr("class");
 			id = classes.replace(/(.*?)wp-image-/, '');
 			formfield.val(id);
 			preview.attr('src', imgurl);
