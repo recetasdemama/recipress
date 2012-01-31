@@ -1,24 +1,39 @@
 <?php
 
 // recipress_terms
-function get_recipress_terms($taxonomy, $args = null) {
-	$terms = get_terms($taxonomy, $args);
-	$output = '<ul class="'.$taxonomy.'-list">';
-	foreach($terms as $term) {
-		$output .= '<li><a href="'.get_term_link($term->slug, $taxonomy).'">'.$term->name.'</a></li>';
+function get_recipress_terms($taxonomy, $args = null, $type = null) {
+	if ($type == 'cloud') {
+		if(!empty($args)) {
+			$defaults = array(
+				'smallest' => 10, 'largest' => 24, 'unit' => 'px', 'number' => 45,
+				'format' => 'flat', 'separator' => "\n", 'orderby' => 'name', 'order' => 'ASC',
+				'exclude' => '', 'include' => '', 'link' => 'view', 'taxonomy' => $taxonomy, 'echo' => true
+			);
+			$args = wp_parse_args($args, $defaults);
+		} else {
+			$args = array('taxonomy' => $taxonomy);
+		}
+		$output = '<p class="'.$taxonomy.'-cloud">'.wp_tag_cloud($args).'</p>';
+	} else {
+		$terms = get_terms($taxonomy, $args);
+		
+		$output = '<ul class="'.$taxonomy.'-list">';
+		foreach($terms as $term) {
+			$output .= '<li><a href="'.get_term_link($term->slug, $taxonomy).'">'.$term->name.'</a></li>';
+		}
+		$output .= '</ul>';
 	}
-	$output .= '</ul>';
 	
 	return $output;
 }
 
-function recipress_terms($taxonomy, $args = null) {
-	echo get_recipress_terms($taxonomy, $args);
+function recipress_terms($taxonomy, $args = null, $type = null) {
+	echo get_recipress_terms($taxonomy, $args, $type);
 }
 
 class recipress_terms_widget extends WP_Widget {
 	/** constructor */
-	function __construct() {
+	function recipress_terms_widget() {
 		parent::WP_Widget( 'recipress_terms', __('Recipress Terms', 'recipress'), array( 'description' => __('Output a list or cloud of recipe terms', 'recipress') ) );
 	}
 
@@ -32,11 +47,7 @@ class recipress_terms_widget extends WP_Widget {
 		if ($title == '') $title = $the_taxonomy->label;
 		echo $before_widget;
 		echo $before_title . $title . $after_title;
-		if ($type == 'list') {
-			echo get_recipress_terms($taxonomy, 'hide_empty=0');
-		} elseif ($type == 'cloud') {
-			wp_tag_cloud('taxonomy='.$taxonomy);
-		}
+			echo get_recipress_terms($taxonomy, 'hide_empty=0', $type);
 		echo $after_widget;
 	}
 
@@ -129,7 +140,7 @@ function recipress_recent($num = '5', $image = 1) {
 
 class recipress_recent_widget extends WP_Widget {
 	/** constructor */
-	function __construct() {
+	function recipress_recent_widget() {
 		parent::WP_Widget( 'recipress_recent', __('Recent Recipes', 'recipress'), array( 'description' => __('Output a list of recent recipe posts', 'recipress') ) );
 	}
 

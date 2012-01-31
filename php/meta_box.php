@@ -62,7 +62,7 @@ $meta_fields = array(
 	),
 	array(
 		'name'	=> __('Ingredients', 'recipress'),
-		'desc'	=> __('Click the plus icon to add another ingredient. <a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=ingredient">Manage Ingedients</a>', 'recipress'),
+		'desc'	=> sprintf( __( 'Click the plus icon to add another ingredient. %1$sManage Ingedients%2$s', 'recipress' ), '<a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=ingredient">', '</a>' ),
 		'id'	=> 'ingredient',
 		'type'	=> 'ingredient'
 	),
