@@ -14,13 +14,14 @@ jQuery(function(jQuery) {
 	});
 	
 	jQuery('.recipress_upload_image_button').click(function() {
+		formID = jQuery(this).attr('rel');
 		formfield = jQuery(this).siblings('.recipress_upload_image');
 		preview = jQuery(this).siblings('.recipress_preview_image');
-		tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+		tb_show('', 'media-upload.php?post_id='+formID+'&type=image&TB_iframe=true');
 		window.send_to_editor = function(html) {
-			data = jQuery(html).filter('img');
-			imgurl = data.attr("src");
-			classes = data.attr("class");
+			img = jQuery('img',html);
+			imgurl = img.attr('src');
+			classes = img.attr('class');
 			id = classes.replace(/(.*?)wp-image-/, '');
 			formfield.val(id);
 			preview.attr('src', imgurl);
