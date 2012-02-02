@@ -230,8 +230,8 @@ function recipress_recipe($field, $attr = null) {
 			}
 			$output = '<ol class="instructions">';
 			foreach($instructions as $instruction) {
-				$size = recipress_options('insruction_image_size');
-				if (empty($size)) $size == 'large';
+				$size = recipress_options('instruction_image_size');
+				if (!isset($size)) $size = 'large';
 				$image = $instruction['image'] != '' ? wp_get_attachment_image($instruction['image'], $size, false, array('class' => 'align-'.$size)) : '';
 				
 				$output .= '<li>';

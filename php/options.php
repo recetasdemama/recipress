@@ -124,7 +124,7 @@ $recipress_options_fields = array(
 	),
 	array(
 		'label'	=> __('Instruction Image Size', 'recipress'),
-		'id' 	=> 'insruction_image_size',
+		'id' 	=> 'instruction_image_size',
 		'type' 	=> 'radio',
 		'options'=> array(
 			'thumbnail'	=> array(
