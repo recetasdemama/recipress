@@ -3,7 +3,7 @@
 Plugin Name: ReciPress
 Plugin URI: http://www.recipress.com
 Description: Create recipes in your posts with a clean interface and layout that are easy to organize.
-Version: 1.9
+Version: 1.9.1
 Author: Tammy Hart
 Author URI: http://tammyhartdesigns.com
 */
@@ -25,6 +25,9 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software 
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. 
 */  
+
+// Localization
+load_plugin_textdomain( 'recipress', false, basename( dirname( __FILE__ ) ) . '/lang' );
 
 // The full path to the plugin directory
 define( 'RECIPRESS_DIR', WP_PLUGIN_DIR . '/' . basename( dirname( __FILE__ ) ) . '/' );
@@ -79,8 +82,5 @@ function activate_recipress_taxonomies() {
 	recipress_default_taxonomies();
 	$GLOBALS['wp_rewrite']->flush_rules();
 }
-
-// Localization
-load_plugin_textdomain( 'recipress', false, basename( dirname( __FILE__ ) ) . '/lang' );
 	
 ?>

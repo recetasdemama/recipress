@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.3
-Stable tag: 1.9
+Stable tag: 1.9.1
 
 
 == Description ==
@@ -67,7 +67,12 @@ See our [Documentation](http://recipress.com/docs) for more information.
 
 == Changelog ==
 
-= 1.9 (Janury 31, 20120) =
+= 1.9.1 (February 2, 2012) =
+* fixed load_plugin_textdomain
+* fixed image uploader js and added the gallery tab
+* added Instruction Image Size option
+
+= 1.9 (Janury 31, 2012) =
 * fixed image uploader js
 * added $type to recipress_terms()
 * fixed widget constructors
