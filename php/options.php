@@ -123,6 +123,30 @@ $recipress_options_fields = array(
 		)
 	),
 	array(
+		'label'	=> __('Instruction Image Size', 'recipress'),
+		'id' 	=> 'insruction_image_size',
+		'type' 	=> 'radio',
+		'options'=> array(
+			'thumbnail'	=> array(
+				'label'	=> __('Thumbnail', 'recipress'),
+				'value'	=> 'thumbnail'
+			),
+			'medium'	=> array(
+				'label'	=> __('Medium', 'recipress'),
+				'value'	=> 'medium'
+			),
+			'large'	=> array(
+				'label'	=> __('Large', 'recipress'),
+				'value'	=> 'large',
+				'default'=> true
+			),
+			'full'	=> array(
+				'label'	=> __('Full', 'recipress'),
+				'value'	=> 'full'
+			)
+		)
+	),
+	array(
 		'label' => __('Recipe Input', 'recipress'),
 		'type' 	=> 'section'
 	),

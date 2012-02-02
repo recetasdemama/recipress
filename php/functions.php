@@ -209,7 +209,11 @@ function recipress_recipe($field, $attr = null) {
 					$output .= '<span class="amount">'.$amount.' '.$measurement.'</span> ';
 				if (isset($the_ingredient))
 					$term = get_term_by('name', $the_ingredient, 'ingredient');
-					$output .= '<span class="name"><a href="'.get_term_link($term->slug, 'ingredient').'">'.$the_ingredient.'</a></span> ';
+					$output .= '<span class="name">';
+					if (!empty($term)) $output .= '<a href="'.get_term_link($term->slug, 'ingredient').'">';
+					$output .= $the_ingredient;
+					if (!empty($term)) $output .= '</a>';
+					$output .= '</span> ';
 				if (isset($notes)) 
 					$output .= '<i class="notes">'.$notes.'</i></li>';
 			}
@@ -226,8 +230,17 @@ function recipress_recipe($field, $attr = null) {
 			}
 			$output = '<ol class="instructions">';
 			foreach($instructions as $instruction) {
-				$image = $instruction['image'] != '' ? '<br />'.wp_get_attachment_image($instruction['image'], 'large', false, array('class' => 'aligncenter')) : '';
-				$output .= '<li>'.$instruction['description'].$image.'</li>';
+				$size = recipress_options('insruction_image_size');
+				if (empty($size)) $size == 'large';
+				$image = $instruction['image'] != '' ? wp_get_attachment_image($instruction['image'], $size, false, array('class' => 'align-'.$size)) : '';
+				
+				$output .= '<li>';
+				if ($size == 'thumbnail' || $size == 'medium') 
+					$output .= $image;
+				$output .= $instruction['description'];
+				if ($size == 'large' || $size == 'full') 
+					$output .= '<br />'.$image;
+				$output .= '</li>';
 			}
 			$output .= '</ol>';
 			

@@ -200,7 +200,7 @@ function recipe_show_box() {
 							<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="', $row['ingredient'],'" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>
 							<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="'.$row['notes'].'" size="30" placeholder="e.g., chopped, sifted, fresh" /></li>
 							<li class="td"><a class="ingredient_remove" href="#"></a></li>
-							<li class="clear"></li>
+							<li class="recipress-clear"></li>
 						</ul>';
 						$i++;
 					}
@@ -212,7 +212,7 @@ function recipe_show_box() {
 							<li class="td cell-ingredient"><input type="text" name="ingredient['.$i.'][ingredient]" id="ingredient_'.$i.'" onfocus="setSuggest(\'ingredient_'.$i.'\');" value="" size="30" class="ingredient" placeholder="start typing an ingredient" /></li>
 							<li class="td cell-notes"><input type="text" name="ingredient['.$i.'][notes]" id="ingredient_notes_'.$i.'" value="" size="30" class=" " placeholder="e.g., chopped, fresh, etc." /></li>
 							<li class="td"><a class="ingredient_remove" href="#"></a></li>
-							<li class="clear"></li>
+							<li class="recipress-clear"></li>
 						</ul>';
 				}
 				echo '</li></ul>
@@ -241,11 +241,11 @@ function recipe_show_box() {
 							<li class="td cell-description"><textarea placeholder="'.__('Describe this step in the recipe', 'recipress').'" class="instruction" name="instruction['.$i.'][description]" cols="40" rows="4" id="ingredient_description_'.$i.'">'.$row['description'].'</textarea></li>
 							<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="'.$row['image'].'" />
 										<img src="'.$image.'" class="recipress_preview_image" alt="" />
-										<input class="recipress_upload_image_button button" type="button" value="'.__('Upload Image', 'recipress').'" />
+										<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Upload Image', 'recipress').'" />
 										<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
 							</li>
 							<li class="td"><a class="instruction_remove" href="#"></a></li>
-							<li class="clear"></li>
+							<li class="recipress-clear"></li>
 						</ul>';
 						$i++;
 					}
@@ -255,15 +255,15 @@ function recipe_show_box() {
 							<li class="td cell-description"><textarea placeholder="'.__('Describe this step in the recipe', 'recipress').'" class="instruction" type="text" name="instruction['.$i.'][description]" cols="77" rows="4" id="ingredient_description_'.$i.'"></textarea></li>
 							<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="" />
 										<img src="'.$image.'" class="recipress_preview_image" alt="" />
-										<input class="recipress_upload_image_button button" type="button" value="'.__('Upload Image', 'recipress').'" />
+										<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Upload Image', 'recipress').'" />
 										<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
 							</li>
 							<li class="td"><a class="instruction_remove" href="#"></a></li>
-							<li class="clear"></li>
+							<li class="recipress-clear"></li>
 						</ul>';
 				}
 				echo '</li></ul>
-					<div class="clear"></div><span class="description">'.$desc.'</span>';
+					<div class="recipress-clear"></div><span class="description">'.$desc.'</span>';
             break;
 			// ----------------
 			// text
@@ -286,7 +286,7 @@ function recipe_show_box() {
 				if($meta)  { $image = wp_get_attachment_image_src($meta, 'medium');	$image = $image[0]; }				
 				echo	'<input name="'.$id.'" type="hidden" class="recipress_upload_image" value="'.$meta.'" />',
 							'<img src="'.$image.'" class="recipress_preview_image" alt="" />
-								<input class="recipress_upload_image_button button" type="button" value="'.__('Upload Image', 'recipress').'" /><br />
+								<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Upload Image', 'recipress').'" /><br />
 								<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
 								<br clear="all" /><span class="description">'.$desc.'</span>';
 			break;
@@ -313,6 +313,7 @@ function recipe_save_data($post_id) {
 			));
 	// if cost of recipe field is on
 	if(recipress_options('cost_field') == 'yes') {
+		$taxonomies = recipress_use_taxonomies();
 		$taxonomies = count($taxonomies);
 		$splice = 2;
 		if(recipress_add_photo()) $splice++;
@@ -323,7 +324,7 @@ function recipe_save_data($post_id) {
 		);
 	}
 	// set the value of hasRecipe
-	$hasRecipe_old = get_post_meta($post_id, $field['id'], true);
+	$hasRecipe_old = get_post_meta($post_id, 'hasRecipe', true);
 	$hasRecipe_new = $_POST['hasRecipe'];
 	if ($hasRecipe_new && $hasRecipe_new != $hasRecipe_old) {
 		update_post_meta($post_id, 'hasRecipe', $hasRecipe_new);
