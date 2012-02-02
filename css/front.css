@@ -146,3 +146,15 @@
 .recipress-recent li {
 	clear:left;
 }
+
+#recipress_recipe img.align-thumbnail,
+#recipress_recipe img.align-medium {
+	float:right;
+	margin-left:20px;
+}
+
+#recipress_recipe img.align-large,
+#recipress_recipe img.align-full {
+	margin:15px auto;
+	display:block;
+}
