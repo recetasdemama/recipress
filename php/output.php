@@ -8,7 +8,7 @@ function the_recipe($content) {
 		// create the output
 			$content .= '<div class="hrecipe '.recipress_theme().'" id="recipress_recipe">
 							<h2 class="fn">'.recipress_recipe('title').'</h2>
-							'.recipress_recipe('photo', 'class=alignright').'
+							'.recipress_recipe('photo', 'class=alignright photo').'
 							<p class="seo_only">'.__('By', 'recipress').' <span class="author">'.get_the_author().'</span>
 								'.__('Published:', 'recipress').' <span class="published">'.get_the_date('F j, Y').'<span class="value-title" title="'.get_the_date('c').'"></span></span></p>
 							<ul class="recipe-details">';
