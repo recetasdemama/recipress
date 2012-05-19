@@ -326,11 +326,6 @@ function recipe_save_data($post_id) {
 	// set the value of hasRecipe
 	$hasRecipe_old = get_post_meta($post_id, 'hasRecipe', true);
 	$hasRecipe_new = $_POST['hasRecipe'];
-	if ($hasRecipe_new && $hasRecipe_new != $hasRecipe_old) {
-		update_post_meta($post_id, 'hasRecipe', $hasRecipe_new);
-	} elseif ('' == $hasRecipe_new && $hasRecipe_old) {
-		delete_post_meta($post_id, 'hasRecipe', $hasRecipe_old);
-	}
 	// determine if a recipe was added
 	if ($hasRecipe_new == 'Yes') {
 		// verify nonce
@@ -345,6 +340,11 @@ function recipe_save_data($post_id) {
 				return $post_id;
 		} elseif (!current_user_can('edit_post', $post_id)) {
 			return $post_id;
+		}
+		if ($hasRecipe_new && $hasRecipe_new != $hasRecipe_old) {
+			update_post_meta($post_id, 'hasRecipe', $hasRecipe_new);
+		} elseif ('' == $hasRecipe_new && $hasRecipe_old) {
+			delete_post_meta($post_id, 'hasRecipe', $hasRecipe_old);
 		}
 		foreach ($meta_fields as $field) {
 			if($field['type'] == 'tax_select') continue;

@@ -70,7 +70,7 @@ function recipress_add_photo() {
 function recipress_use_taxonomies() {
 	$taxonomies = array('cuisine', 'course', 'skill_level');
 	$set_taxonomies = recipress_options('taxonomies');
-	$taxonomies = $set_taxonomies;
+	if($set_taxonomies !='') $taxonomies = $set_taxonomies;
 	return $taxonomies;
 }
 
@@ -100,7 +100,7 @@ function recipress_time($minutes, $attr = null) {
 	}
 }
 
-// function for outputting the recipe
+// function for outputting recipe items
 // ----------------------------------------------------
 function recipress_recipe($field, $attr = null) {
 	global $post;
@@ -128,28 +128,25 @@ function recipress_recipe($field, $attr = null) {
 		
 		// summary
 		case 'summary':
-			$summary = $meta['summary'][0];
-			if(!$summary) $summary = '<p class="summary seo_only">'.recipress_gen_summary().'</p>';
-			else $summary = '<p class="summary">'.$summary.'</p>';
-			return $summary;
+			return $meta['summary'][0];
 		break;
 			
 		
 		// cuisine
 		case 'cuisine':
-			$cuisine = get_the_term_list( $post->ID, 'cuisine', '<li><b>'.__('Cuisine', 'recipress').':</b> ', ', ', '</li>');
+			$cuisine = get_the_term_list( $post->ID, 'cuisine', $attr);
 			return $cuisine;
 		break;
 		
 		// course
 		case 'course':
-			$course = get_the_term_list( $post->ID, 'course', '<li><b>'.__('Course:', 'recipress').'</b> ', ', ', '</li>');
+			$course = get_the_term_list( $post->ID, 'course', $attr);
 			return $course;
 		break;
 		
 		// skill_level
 		case 'skill_level':
-			$skill_level = get_the_term_list( $post->ID, 'skill_level', '<li><b>'.__('Skill Level', 'recipress').':</b> ', ', ', '</li>');
+			$skill_level = get_the_term_list( $post->ID, 'skill_level', $attr);
 			return $skill_level;
 		break;
 		
@@ -197,27 +194,7 @@ function recipress_recipe($field, $attr = null) {
 			foreach($ingredients as $ingredient) {
 				$ingredients = unserialize($ingredient);
 			}	
-			$output = '<ul class="ingredients">';
-			foreach($ingredients as $ingredient) {
-				$amount = $ingredient['amount'];
-				$measurement = $ingredient['measurement'];
-				$the_ingredient = $ingredient['ingredient'];
-				$notes = $ingredient['notes'];
-				if(!$ingredient['ingredient']) continue;
-				$output .= '<li class="ingredient">';
-				if (isset($amount) || isset($measurement)) 
-					$output .= '<span class="amount">'.$amount.' '.$measurement.'</span> ';
-				if (isset($the_ingredient))
-					$term = get_term_by('name', $the_ingredient, 'ingredient');
-					$output .= '<span class="name">';
-					if (!empty($term)) $output .= '<a href="'.get_term_link($term->slug, 'ingredient').'">';
-					$output .= $the_ingredient;
-					if (!empty($term)) $output .= '</a>';
-					$output .= '</span> ';
-				if (isset($notes)) 
-					$output .= '<i class="notes">'.$notes.'</i></li>';
-			}
-			$output .= '</ul>';
+			$output = $ingredients;
 			
 			return $output;
 		break;
@@ -228,26 +205,64 @@ function recipress_recipe($field, $attr = null) {
 			foreach($instructions as $instruction) {
 				$instructions = unserialize($instruction);
 			}
-			$output = '<ol class="instructions">';
-			foreach($instructions as $instruction) {
-				$size = recipress_options('instruction_image_size');
-				if (!isset($size)) $size = 'large';
-				$image = $instruction['image'] != '' ? wp_get_attachment_image($instruction['image'], $size, false, array('class' => 'align-'.$size)) : '';
-				
-				$output .= '<li>';
-				if ($size == 'thumbnail' || $size == 'medium') 
-					$output .= $image;
-				$output .= $instruction['description'];
-				if ($size == 'large' || $size == 'full') 
-					$output .= '<br />'.$image;
-				$output .= '</li>';
-			}
-			$output .= '</ol>';
+			$output = $instructions;
 			
 			return $output;
 		break;
 	} // end switch
 	
+}
+
+// recipress_ingredients_list
+function recipress_ingredients_list() {
+	$ingredients = recipress_recipe('ingredients');
+	$output = '<ul class="ingredients">';
+	foreach($ingredients as $ingredient) {
+		$amount = $ingredient['amount'];
+		$measurement = $ingredient['measurement'];
+		$the_ingredient = $ingredient['ingredient'];
+		$notes = $ingredient['notes'];
+		
+		if(!$ingredient['ingredient']) continue;
+		
+		$output .= '<li class="ingredient">';
+		if (isset($amount) || isset($measurement)) 
+			$output .= '<span class="amount">'.$amount.' '.$measurement.'</span> ';
+		if (isset($the_ingredient))
+			$term = get_term_by('name', $the_ingredient, 'ingredient');
+			$output .= '<span class="name">';
+			if (!empty($term)) $output .= '<a href="'.get_term_link($term->slug, 'ingredient').'">';
+			$output .= $the_ingredient;
+			if (!empty($term)) $output .= '</a>';
+			$output .= '</span> ';
+		if (isset($notes)) 
+			$output .= '<i class="notes">'.$notes.'</i></li>';
+	}
+	$output .= '</ul>';
+	
+	return $output;
+}
+
+// recipress_instructions_list
+function recipress_instructions_list() {
+	$instructions = recipress_recipe('instructions');
+	$output = '<ol class="instructions">';
+	foreach($instructions as $instruction) {
+		$size = recipress_options('instruction_image_size');
+		if (!isset($size)) $size = 'large';
+		$image = $instruction['image'] != '' ? wp_get_attachment_image($instruction['image'], $size, false, array('class' => 'align-'.$size)) : '';
+		
+		$output .= '<li>';
+		if ($size == 'thumbnail' || $size == 'medium') 
+			$output .= $image;
+		$output .= $instruction['description'];
+		if ($size == 'large' || $size == 'full') 
+			$output .= '<br />'.$image;
+		$output .= '</li>';
+	}
+	$output .= '</ol>';
+	
+	return $output;
 }
 
 // recipress_credit
@@ -256,5 +271,6 @@ function recipress_credit() {
 	if(isset($credit) && $credit == 1)
 		return '<p class="recipress_credit"><a href="http://www.recipress.com" target="_target">WordPress Recipe Plugin</a> by ReciPress</p>';
 }
+
 
 ?>

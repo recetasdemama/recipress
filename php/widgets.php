@@ -107,13 +107,18 @@ class recipress_terms_widget extends WP_Widget {
 add_action( 'widgets_init', create_function( '', 'register_widget("recipress_terms_widget");' ) );
 
 // recipress_recent
-function get_recipress_recent($num = '5', $image = 1) {
+function get_recipress_recent($atts) {
+	extract(shortcode_atts(array(
+		'num' => 5,
+		'image' => false
+	), $atts));
+	
 	global $post;
 	
 	$args = array(
 		'meta_key' => 'hasRecipe',
 		'meta_value' => 'Yes',
-		'numberposts' => $num
+		'posts_per_page' => $num
 	);
 	$recipes = new WP_query($args);
 	if($recipes->have_posts()) :
@@ -121,7 +126,7 @@ function get_recipress_recent($num = '5', $image = 1) {
 		while($recipes->have_posts()) : $recipes->the_post();
 			$output .= '<li class="clear_items">';
 			$output .= '<a href="'.get_permalink().'">';
-			if ($image == 1)
+			if ($image == true)
 				$output .= recipress_recipe('photo', 'class=recipress-thumb alignleft');
 			$output .= '<strong>'.recipress_recipe('title').'</strong></a></li>';
 		endwhile;
@@ -134,9 +139,15 @@ function get_recipress_recent($num = '5', $image = 1) {
 	return $output;
 }
 
-function recipress_recent($num = '5', $image = 1) {
-	echo get_recipress_recent($num , $image);
+function recipress_recent($num = '5', $image = true) {
+	$atts = array(
+		'num' => $num,
+		'image' => $image
+	);
+	echo get_recipress_recent($atts);
 }
+
+add_shortcode('recipress_recent', 'get_recipress_recent');
 
 class recipress_recent_widget extends WP_Widget {
 	/** constructor */
@@ -148,12 +159,14 @@ class recipress_recent_widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title = apply_filters( 'widget_title', $instance['title'] );
-		$num = $instance['num'];
-		$image = $instance['image'];
+		$atts = array(
+			'num' => $instance['num'],
+			'image' => $instance['image']
+		);
 		if ($title == '') $title = __('Recent Recipes', 'recipress');
 		echo $before_widget;
 		echo $before_title . $title . $after_title;
-		echo get_recipress_recent($num, $image);
+		echo get_recipress_recent($atts);
 		echo $after_widget;
 	}
 
@@ -188,7 +201,7 @@ class recipress_recent_widget extends WP_Widget {
 		<input class="widefat" id="<?php echo $this->get_field_id('num'); ?>" name="<?php echo $this->get_field_name('num'); ?>" type="text" value="<?php echo $num; ?>" />
 		</p>
 		<p>
-		<label><input id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>" type="checkbox"<?php if($image == 1) echo ' checked="checked"'; ?> value="1" /> <?php _e('Recipe Thumbnail', 'recipress'); ?></label>
+		<label><input id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>" type="checkbox"<?php if($image == true) echo ' checked="checked"'; ?> value="true" /> <?php _e('Recipe Thumbnail', 'recipress'); ?></label>
 		</p>
 		<?php 
 	}
