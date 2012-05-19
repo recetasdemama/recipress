@@ -141,6 +141,7 @@
 
 .recipress-thumb {
 	width:50px;
+	height:auto;
 }
 
 .recipress-recent li {
@@ -155,6 +156,8 @@
 
 #recipress_recipe img.align-large,
 #recipress_recipe img.align-full {
-	margin:15px auto;
+	margin:15px 0;
 	display:block;
+	max-width:98%;
+	height:auto;
 }
