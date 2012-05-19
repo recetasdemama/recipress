@@ -1,0 +1,1010 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: gogolino <gorazd.srecnik@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ recipress
+#: php/functions.php:92
+msgid "hrs"
+msgstr "ur"
+
+#@ recipress
+#: php/functions.php:93
+msgid "mins"
+msgstr "minut"
+
+#@ recipress
+#: php/functions.php:94
+msgid "hr"
+msgstr "ura"
+
+#@ recipress
+#: php/functions.php:95
+msgid "min"
+msgstr "minuta"
+
+#@ recipress
+#: php/functions.php:112
+#: php/meta_box.php:9
+msgid "Recipe"
+msgstr "Recept"
+
+#@ recipress
+#: php/functions.php:140
+#: php/meta_box.php:104
+#: php/options.php:135
+msgid "Cuisine"
+msgstr "Kuhinja"
+
+#@ recipress
+#: php/functions.php:146
+msgid "Course:"
+msgstr "Priprava:"
+
+#@ recipress
+#: php/functions.php:152
+#: php/meta_box.php:106
+#: php/options.php:145
+msgid "Skill Level"
+msgstr "Zahtevnost:"
+
+#@ recipress
+#: php/functions.php:183
+#: php/functions.php:184
+#: php/meta_box.php:40
+msgid "Servings"
+msgstr "Serviranje"
+
+#@ recipress
+#: php/meta_box.php:16
+msgid "Recipe Title"
+msgstr "Naslov recepta"
+
+#@ recipress
+#: php/meta_box.php:17
+msgid "Do you want to give the recipe a different title from the post?"
+msgstr "Ali naj bo naslov prispevka drugačen od naziva recepta?"
+
+#@ recipress
+#: php/meta_box.php:24
+msgid "Recipe Summary"
+msgstr "Povzetek recepta"
+
+#@ recipress
+#: php/meta_box.php:25
+msgid "A small summary of the recipe"
+msgstr "Kratek povzetek recepta"
+
+#@ recipress
+#: php/meta_box.php:32
+msgid "Yield"
+msgstr "Število porcij"
+
+#@ recipress
+#: php/meta_box.php:33
+msgid "How much/many does this recipe produce?"
+msgstr "Za koliko porcij?"
+
+#@ recipress
+#: php/meta_box.php:34
+msgid "e.g., 1 loaf, 2 cups"
+msgstr "na primer, 1 štruca, 2 skodelici"
+
+#@ recipress
+#: php/meta_box.php:41
+msgid "How many servings?"
+msgstr "Za koliko obrokov?"
+
+#@ recipress
+#: php/meta_box.php:48
+msgid "Prep Time"
+msgstr "Čas priprave"
+
+#@ recipress
+#: php/meta_box.php:49
+#: php/meta_box.php:57
+msgid "How many minutes? (60+ minutes will output as hours)"
+msgstr "Koliko minut? (60+ minut se označi kot ura)"
+
+#@ recipress
+#: php/meta_box.php:56
+msgid "Cook Time"
+msgstr "Čas kuhanja"
+
+#@ recipress
+#: php/meta_box.php:64
+#: php/options.php:10
+#: php/output.php:29
+msgid "Ingredients"
+msgstr "Sestavine"
+
+#@ recipress
+#: php/meta_box.php:70
+#: php/output.php:31
+msgid "Instructions"
+msgstr "Navodila"
+
+#@ recipress
+#: php/meta_box.php:71
+msgid "Click the plus icon to add another instruction."
+msgstr "Kliknite ikono \"+\" za dodatna navodila."
+
+#@ recipress
+#: php/meta_box.php:91
+msgid "Photo"
+msgstr "Fotografija"
+
+#@ recipress
+#: php/meta_box.php:92
+msgid "Add a photo of your completed recipe"
+msgstr "Dodaj fotografijo svojega recepta"
+
+#@ recipress
+#: php/meta_box.php:105
+#: php/options.php:140
+msgid "Course"
+msgstr "Priprava"
+
+#@ recipress
+#: php/meta_box.php:124
+msgid "Cost"
+msgstr "Stroški"
+
+#@ recipress
+#: php/meta_box.php:125
+msgid "What does it cost to make this recipe?"
+msgstr "Koliko stane priprava jedi iz tega recepta?"
+
+#@ recipress
+#: php/meta_box.php:126
+msgid "$0.00"
+msgstr "eur 0,00"
+
+#@ recipress
+#: php/meta_box.php:138
+msgid "Add a Recipe to this post?"
+msgstr "Dodam recept v prispevek?"
+
+#@ recipress
+#: php/meta_box.php:167
+msgid "Select One"
+msgstr "Izberi enega"
+
+#@ recipress
+#: php/meta_box.php:177
+msgid "Manage"
+msgstr "Upravljaj"
+
+#@ recipress
+#: php/meta_box.php:186
+msgid "Amount"
+msgstr "Znesek"
+
+#@ recipress
+#: php/meta_box.php:187
+msgid "Measurement"
+msgstr "Merjenja"
+
+#@ recipress
+#: php/meta_box.php:188
+msgid "Ingredient"
+msgstr "Sestavina"
+
+#@ recipress
+#: php/meta_box.php:189
+msgid "Notes"
+msgstr "Zapiski"
+
+#@ recipress
+#: php/meta_box.php:228
+msgid "Description"
+msgstr "Opis"
+
+#@ recipress
+#: php/meta_box.php:229
+msgid "Image"
+msgstr "Slika"
+
+#@ recipress
+#: php/meta_box.php:241
+#: php/meta_box.php:255
+msgid "Describe this step in the recipe"
+msgstr "Opiši ta korak v receptu"
+
+#@ recipress
+#: php/meta_box.php:244
+#: php/meta_box.php:258
+#: php/meta_box.php:289
+msgid "Upload Image"
+msgstr "Naloži sliko"
+
+#@ recipress
+#: php/meta_box.php:245
+#: php/meta_box.php:259
+#: php/meta_box.php:290
+msgid "Remove Image"
+msgstr "Odstrani sliko"
+
+#@ recipress
+#: php/options.php:8
+#: php/options.php:9
+#: php/options.php:224
+msgid "ReciPress Options"
+msgstr "ReciPress nastavitve"
+
+#@ recipress
+#: php/options.php:8
+#: php/options.php:118
+msgid "ReciPress"
+msgstr "ReciPress"
+
+#@ recipress
+#: php/options.php:13
+msgid "Cuisines"
+msgstr "Kuhinje"
+
+#@ recipress
+#: php/options.php:15
+msgid "Courses"
+msgstr "Obedi"
+
+#@ recipress
+#: php/options.php:17
+msgid "Skill Levels"
+msgstr "Zahtevnost priprave"
+
+#@ recipress
+#: php/options.php:54
+msgid "Recipe Output"
+msgstr "Izpis recepta"
+
+#@ recipress
+#: php/options.php:58
+msgid "Automatically Output Recipe"
+msgstr "Samodejni izpis recepta"
+
+#@ recipress
+#: php/options.php:63
+#: php/options.php:157
+#: php/options.php:205
+msgid "Yes"
+msgstr "Da"
+
+#@ recipress
+#: php/options.php:65
+msgid "Recipe will output after the post content"
+msgstr "Recept se bo izpisal po vsebini prispevka"
+
+#@ recipress
+#: php/options.php:69
+#: php/options.php:162
+#: php/options.php:211
+msgid "No"
+msgstr "Ne"
+
+#@ recipress
+#: php/options.php:71
+msgid "Use the <code>[recipe]</code> shortcode to output the recipe"
+msgstr "Uporabi <code>[recipe]</code> shortcode za izpis recepta"
+
+#@ recipress
+#: php/options.php:76
+msgid "Output Recipe On"
+msgstr "Izpis recepta na"
+
+#@ recipress
+#: php/options.php:81
+msgid "Home Page/Latest Posts Page"
+msgstr "Domača stran/Zadnja stran prispevkov"
+
+#@ recipress
+#: php/options.php:85
+msgid "Single Post Page"
+msgstr "Stran s prispevkom"
+
+#@ recipress
+#: php/options.php:90
+msgid "Archive and Category Pages"
+msgstr "Arhiv in kategorije"
+
+#@ recipress
+#: php/options.php:94
+msgid "Search Result Page"
+msgstr "Rezultati iskanja"
+
+#@ recipress
+#: php/options.php:100
+msgid "Recipe Theme"
+msgstr "Tema receptov"
+
+#@ recipress
+#: php/options.php:105
+msgid "Light"
+msgstr "Svetla"
+
+#@ recipress
+#: php/options.php:108
+msgid "For use with light themes"
+msgstr "Za uporabo s svetlo temo"
+
+#@ recipress
+#: php/options.php:112
+msgid "Dark"
+msgstr "Temna"
+
+#@ recipress
+#: php/options.php:115
+msgid "For use with dark themes"
+msgstr "Za uporabo s temno temo"
+
+#@ recipress
+#: php/options.php:121
+msgid "Custom textured design"
+msgstr "Prilagajanje oblike teksture"
+
+#@ recipress
+#: php/options.php:126
+msgid "Recipe Input"
+msgstr "Vnos recepta"
+
+#@ recipress
+#: php/options.php:130
+msgid "Use Taxonomies"
+msgstr "Uporabi razvrščanje"
+
+#@ recipress
+#: php/options.php:152
+msgid "Cost of Recipe Field"
+msgstr "Polje za vnos stroškov recepta"
+
+#@ recipress
+#: php/options.php:159
+msgid "An input for the total cost to make the recipe will be available"
+msgstr "Skupni stroški za recept"
+
+#@ recipress
+#: php/options.php:164
+msgid "This field will be omitted when creating recipes"
+msgstr "To polje bo umaknjeno, ko boste napisali recept"
+
+#@ recipress
+#: php/options.php:170
+msgid "Say Thanks"
+msgstr "Zahvali se"
+
+#@ recipress
+#: php/options.php:174
+msgid "Plugin Credit"
+msgstr "Zahvale za prispevke pri vtičniku"
+
+#@ recipress
+#: php/options.php:177
+msgid "Add a credit link to the recipe box."
+msgstr "Dodaj povezavo  za prispevke pri vtičniku"
+
+#@ recipress
+#: php/options.php:181
+msgid "Buy me a latte!"
+msgstr "Povabi me na kavo!"
+
+#@ recipress
+#: php/options.php:200
+msgid "Use Featured Image"
+msgstr "Uporabi naslovno sliko"
+
+#@ recipress
+#: php/options.php:207
+msgid "Recipe photo will be the same as the post&rsquo;s featured image"
+msgstr "Fotografija recepta bo enaka kot  post&rsquo;s naslovna slika"
+
+#@ recipress
+#: php/options.php:213
+msgid "Use a different image for the recipe"
+msgstr "Uporabi drugo sliko za recept"
+
+#@ recipress
+#: php/options.php:227
+msgid "Options saved"
+msgstr "nastavitve shranjene"
+
+#@ recipress
+#: php/options.php:366
+msgid "Do you find this plugin useful and want to say thanks?"
+msgstr "Če smatraš, da je vtičnik uporaben, se zahvali!"
+
+#@ recipress
+#: php/options.php:367
+msgid "Donate"
+msgstr "Doniraj"
+
+#@ recipress
+#: php/options.php:377
+msgid "Save Options"
+msgstr "Shrani nastavitve"
+
+#@ recipress
+#: php/output.php:12
+msgid "By"
+msgstr "Od"
+
+#@ recipress
+#: php/output.php:13
+msgid "Published:"
+msgstr "Objavil:"
+
+#@ recipress
+#: php/output.php:16
+msgid "Yeild:"
+msgstr "Donos:"
+
+#@ recipress
+#: php/output.php:18
+msgid "Cost:"
+msgstr "Stroški:"
+
+#@ recipress
+#: php/output.php:22
+msgid "Prep:"
+msgstr "Predpriprava:"
+
+#@ recipress
+#: php/output.php:24
+msgid "Cook:"
+msgstr "Kuhanje:"
+
+#@ recipress
+#: php/output.php:26
+msgid "Ready In:"
+msgstr "Pripravljen v:"
+
+#@ recipress
+#: php/taxonomies.php:9
+msgctxt "taxonomy general name"
+msgid "Ingredients"
+msgstr "Sestavine"
+
+#@ recipress
+#: php/taxonomies.php:10
+msgctxt "taxonomy singular name"
+msgid "Ingredient"
+msgstr "Sestavina"
+
+#@ recipress
+#: php/taxonomies.php:11
+msgid "Search Ingredients"
+msgstr "Poišči sestavine"
+
+#@ recipress
+#: php/taxonomies.php:12
+msgid "Popular Ingredients"
+msgstr "Pogoste sestavine"
+
+#@ recipress
+#: php/taxonomies.php:13
+msgid "All Ingredients"
+msgstr "Vse sestavine"
+
+#@ recipress
+#: php/taxonomies.php:14
+msgid "Parent Ingredient"
+msgstr "Osnova sestavina"
+
+#@ recipress
+#: php/taxonomies.php:15
+msgid "Parent Ingredient:"
+msgstr "Osnovna sestavina:"
+
+#@ recipress
+#: php/taxonomies.php:16
+msgid "Edit Ingredient"
+msgstr "Uredi sestavine"
+
+#@ recipress
+#: php/taxonomies.php:17
+msgid "Update Ingredient"
+msgstr "Posodobi sestavine"
+
+#@ recipress
+#: php/taxonomies.php:18
+msgid "Add New Ingredient"
+msgstr "Dodaj novo sestavino"
+
+#@ recipress
+#: php/taxonomies.php:19
+msgid "New Ingredient Name"
+msgstr "Novo ime sestavine"
+
+#@ recipress
+#: php/taxonomies.php:20
+msgid "Add or remove ingredients"
+msgstr "Dodaj ali odstrani sestavine"
+
+#@ recipress
+#: php/taxonomies.php:21
+msgctxt "taxonomy menu name"
+msgid "Ingredients"
+msgstr "Sestavine"
+
+#@ recipress
+#: php/taxonomies.php:40
+msgctxt "taxonomy general name"
+msgid "Cuisines"
+msgstr "Kuhinje"
+
+#@ recipress
+#: php/taxonomies.php:41
+msgctxt "taxonomy singular name"
+msgid "Cuisine"
+msgstr "Kuhinja"
+
+#@ recipress
+#: php/taxonomies.php:42
+msgid "Search Cuisines"
+msgstr "Išči kuhinje"
+
+#@ recipress
+#: php/taxonomies.php:43
+msgid "Popular Cuisines"
+msgstr "Popularne kuhinje"
+
+#@ recipress
+#: php/taxonomies.php:44
+msgid "All Cuisines"
+msgstr "Vse kuhinje"
+
+#@ recipress
+#: php/taxonomies.php:45
+msgid "Parent Cuisine"
+msgstr "Osnovna kuhinja"
+
+#@ recipress
+#: php/taxonomies.php:46
+msgid "Parent Cuisine:"
+msgstr "Osnovna kuhinja:"
+
+#@ recipress
+#: php/taxonomies.php:47
+msgid "Edit Cuisine"
+msgstr "Uredi kuhinjo"
+
+#@ recipress
+#: php/taxonomies.php:48
+msgid "Update Cuisine"
+msgstr "Posodobi kuhinjo"
+
+#@ recipress
+#: php/taxonomies.php:49
+msgid "Add New Cuisine"
+msgstr "Dodaj novo kuhinjo"
+
+#@ recipress
+#: php/taxonomies.php:50
+msgid "New Cuisine Name"
+msgstr "Ime nove kuhinje"
+
+#@ recipress
+#: php/taxonomies.php:51
+msgid "Add or remove cuisines"
+msgstr "Dodaj ali odstrani kuhinjo"
+
+#@ recipress
+#: php/taxonomies.php:52
+msgctxt "taxonomy menu name"
+msgid "Cuisines"
+msgstr "Kuhinja"
+
+#@ recipress
+#: php/taxonomies.php:71
+msgctxt "taxonomy general name"
+msgid "Courses"
+msgstr "Obroki"
+
+#@ recipress
+#: php/taxonomies.php:72
+msgctxt "taxonomy singular name"
+msgid "Course"
+msgstr "Obrok"
+
+#@ recipress
+#: php/taxonomies.php:73
+msgid "Search Courses"
+msgstr "Išči obroke"
+
+#@ recipress
+#: php/taxonomies.php:74
+msgid "Popular Courses"
+msgstr "Popularni obroki"
+
+#@ recipress
+#: php/taxonomies.php:75
+msgid "All Courses"
+msgstr "Vsi obroki"
+
+#@ recipress
+#: php/taxonomies.php:76
+msgid "Parent Course"
+msgstr "Osnovni obrok"
+
+#@ recipress
+#: php/taxonomies.php:77
+msgid "Parent Course:"
+msgstr "Osnovni obrok:"
+
+#@ recipress
+#: php/taxonomies.php:78
+msgid "Edit Course"
+msgstr "Uredi obrok"
+
+#@ recipress
+#: php/taxonomies.php:79
+msgid "Update Course"
+msgstr "Posodobi obrok"
+
+#@ recipress
+#: php/taxonomies.php:80
+msgid "Add New Course"
+msgstr "Dodaj nov obrok"
+
+#@ recipress
+#: php/taxonomies.php:81
+msgid "New Course Name"
+msgstr "Ime novega obroka"
+
+#@ recipress
+#: php/taxonomies.php:82
+msgid "Add or remove courses"
+msgstr "Dodaj ali odstrani obrok"
+
+#@ recipress
+#: php/taxonomies.php:83
+msgctxt "taxonomy menu name"
+msgid "Courses"
+msgstr "Obroki"
+
+#@ recipress
+#: php/taxonomies.php:102
+msgctxt "taxonomy general name"
+msgid "Skill Levels"
+msgstr "Zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:103
+msgctxt "taxonomy singular name"
+msgid "Skill Level"
+msgstr "Zahtevnost"
+
+#@ recipress
+#: php/taxonomies.php:104
+msgid "Search Skill Levels"
+msgstr "Poišči po zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:105
+msgid "Popular Skill Levels"
+msgstr "Popularne zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:106
+msgid "All Skill Levels"
+msgstr "Vse stopnje zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:107
+msgid "Parent Skill Level"
+msgstr "Osnovna zahtevnost"
+
+#@ recipress
+#: php/taxonomies.php:108
+msgid "Parent Skill Level:"
+msgstr "Osnovna zahtevnost:"
+
+#@ recipress
+#: php/taxonomies.php:109
+msgid "Edit Skill Level"
+msgstr "Uredi stopnje zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:110
+msgid "Update Skill Level"
+msgstr "Posodobi stopnje zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:111
+msgid "Add New Skill Level"
+msgstr "Dodaj novo stopnjo zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:112
+msgid "New Skill Level Name"
+msgstr "Ime stopnje zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:113
+msgid "Add or remove skill levels"
+msgstr "Dodaj ali odstrani stopnjo zahtevnosti"
+
+#@ recipress
+#: php/taxonomies.php:114
+msgctxt "taxonomy menu name"
+msgid "Skill Levels"
+msgstr "Zahtevnost"
+
+#@ recipress
+#: php/taxonomies.php:137
+msgid "beef"
+msgstr "govedina"
+
+#@ recipress
+#: php/taxonomies.php:138
+msgid "bell pepper"
+msgstr "paprika"
+
+#@ recipress
+#: php/taxonomies.php:139
+msgid "bread"
+msgstr "kruh"
+
+#@ recipress
+#: php/taxonomies.php:140
+msgid "cheese"
+msgstr "sir"
+
+#@ recipress
+#: php/taxonomies.php:141
+msgid "chicken"
+msgstr "piščanec"
+
+#@ recipress
+#: php/taxonomies.php:142
+msgid "eggs"
+msgstr "jajca"
+
+#@ recipress
+#: php/taxonomies.php:143
+msgid "fish"
+msgstr "ribe"
+
+#@ recipress
+#: php/taxonomies.php:144
+msgid "flour"
+msgstr "moka"
+
+#@ recipress
+#: php/taxonomies.php:145
+msgid "garlic"
+msgstr "česen"
+
+#@ recipress
+#: php/taxonomies.php:146
+msgid "milk"
+msgstr "mleko"
+
+#@ recipress
+#: php/taxonomies.php:147
+msgid "nutmeg"
+msgstr "muškatni orešček"
+
+#@ recipress
+#: php/taxonomies.php:148
+msgid "onion"
+msgstr "čebula"
+
+#@ recipress
+#: php/taxonomies.php:149
+msgid "pasta"
+msgstr "testenine"
+
+#@ recipress
+#: php/taxonomies.php:150
+msgid "potatoes"
+msgstr "krompir"
+
+#@ recipress
+#: php/taxonomies.php:151
+msgid "shrimp"
+msgstr "kozice"
+
+#@ recipress
+#: php/taxonomies.php:152
+msgid "spinach"
+msgstr "špinača"
+
+#@ recipress
+#: php/taxonomies.php:153
+msgid "strawberries"
+msgstr "jagode"
+
+#@ recipress
+#: php/taxonomies.php:154
+msgid "tomatoes"
+msgstr "paradižnik"
+
+#@ recipress
+#: php/taxonomies.php:156
+msgid "American"
+msgstr "Ameriška"
+
+#@ recipress
+#: php/taxonomies.php:157
+msgid "Chinese"
+msgstr "Kitajska"
+
+#@ recipress
+#: php/taxonomies.php:158
+msgid "Indian"
+msgstr "Indijska"
+
+#@ recipress
+#: php/taxonomies.php:159
+msgid "Italian"
+msgstr "Italijanska"
+
+#@ recipress
+#: php/taxonomies.php:160
+msgid "French"
+msgstr "Francoska"
+
+#@ recipress
+#: php/taxonomies.php:161
+msgid "Japanese"
+msgstr "Japonska"
+
+#@ recipress
+#: php/taxonomies.php:162
+msgid "Mediterrarean"
+msgstr "Mediteranska"
+
+#@ recipress
+#: php/taxonomies.php:163
+msgid "Mexican"
+msgstr "Meksiška"
+
+#@ recipress
+#: php/taxonomies.php:164
+msgid "Seafood"
+msgstr "Morska hrana"
+
+#@ recipress
+#: php/taxonomies.php:166
+msgid "Appetizer"
+msgstr "Predjed"
+
+#@ recipress
+#: php/taxonomies.php:167
+msgid "Breakfast"
+msgstr "Zajtrk"
+
+#@ recipress
+#: php/taxonomies.php:168
+msgid "Entrée"
+msgstr "Začetna jed"
+
+#@ recipress
+#: php/taxonomies.php:169
+msgid "Dessert"
+msgstr "Sladica"
+
+#@ recipress
+#: php/taxonomies.php:170
+msgid "Salad"
+msgstr "Solata"
+
+#@ recipress
+#: php/taxonomies.php:171
+msgid "Side Dish"
+msgstr "Priloga"
+
+#@ recipress
+#: php/taxonomies.php:172
+msgid "Snack"
+msgstr "Prigrizek"
+
+#@ recipress
+#: php/taxonomies.php:173
+msgid "Soup"
+msgstr "Juha"
+
+#@ recipress
+#: php/taxonomies.php:175
+msgid "Advanced"
+msgstr "Napreden"
+
+#@ recipress
+#: php/taxonomies.php:176
+msgid "Beginner"
+msgstr "Začetnik"
+
+#@ recipress
+#: php/taxonomies.php:177
+msgid "Child Friendly"
+msgstr "Otrokom prijazno"
+
+#@ recipress
+#: php/taxonomies.php:178
+msgid "Easy"
+msgstr "Enostavno"
+
+#@ recipress
+#: php/taxonomies.php:179
+msgid "Moderate"
+msgstr "Zmerno"
+
+#@ recipress
+#: php/widgets.php:22
+msgid "Recipress Terms"
+msgstr "Recipress pogoji"
+
+#@ recipress
+#: php/widgets.php:22
+msgid "Output a list or cloud of recipe terms"
+msgstr "Prikaži seznam pogojev uporabe"
+
+#@ recipress
+#: php/widgets.php:76
+#: php/widgets.php:172
+msgid "Title:"
+msgstr "Naslov:"
+
+#@ recipress
+#: php/widgets.php:80
+msgid "Taxonomy:"
+msgstr "Razvrstitve:"
+
+#@ recipress
+#: php/widgets.php:88
+msgid "Output Type:"
+msgstr "Način izpisa:"
+
+#@ recipress
+#: php/widgets.php:89
+msgid "List"
+msgstr "Spisek"
+
+#@ recipress
+#: php/widgets.php:90
+msgid "Cloud"
+msgstr "Oznaka"
+
+#@ recipress
+#: php/widgets.php:119
+msgid "No recipes found."
+msgstr "Receptov ni moč najti."
+
+#@ recipress
+#: php/widgets.php:133
+#: php/widgets.php:142
+msgid "Recent Recipes"
+msgstr "Nedavni recepti"
+
+#@ recipress
+#: php/widgets.php:133
+msgid "Output a list of recent recipe posts"
+msgstr "Spisek zadnjih receptov"
+
+#@ recipress
+#: php/widgets.php:176
+msgid "Number of Posts:"
+msgstr "Število Prispevkov:"
+
+#@ recipress
+#: php/widgets.php:180
+msgid "Recipe Thumbnail"
+msgstr "Slikice receptov"
+
+#@ recipress
+#: recipress.php:78
+msgid "Use this Image"
+msgstr "Uporabi to sliko"
+

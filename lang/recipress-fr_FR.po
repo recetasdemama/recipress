@@ -1,0 +1,1019 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: php/functions.php:92
+#@ recipress
+msgid "hrs"
+msgstr "hrs"
+
+#: php/functions.php:93
+#@ recipress
+msgid "mins"
+msgstr "mins"
+
+#: php/functions.php:94
+#@ recipress
+msgid "hr"
+msgstr "hr"
+
+#: php/functions.php:95
+#@ recipress
+msgid "min"
+msgstr "min"
+
+#: php/functions.php:112
+#: php/meta_box.php:9
+#@ recipress
+msgid "Recipe"
+msgstr "Recette"
+
+#: php/functions.php:140
+#: php/meta_box.php:104
+#: php/options.php:135
+#@ recipress
+msgid "Cuisine"
+msgstr "Cuisine"
+
+#: php/functions.php:146
+#@ recipress
+msgid "Course:"
+msgstr "Type de plat:"
+
+#: php/functions.php:152
+#: php/meta_box.php:106
+#: php/options.php:145
+#@ recipress
+msgid "Skill Level"
+msgstr "Niveau de difficulté"
+
+#: php/functions.php:183
+#: php/functions.php:184
+#: php/meta_box.php:40
+#@ recipress
+msgid "Servings"
+msgstr "Portions"
+
+#: php/meta_box.php:16
+#@ recipress
+msgid "Recipe Title"
+msgstr "Titre de la Recette"
+
+#: php/meta_box.php:17
+#@ recipress
+msgid "Do you want to give the recipe a different title from the post?"
+msgstr "Voulez-vous donner à la recette un titre différent de l'article ?"
+
+#: php/meta_box.php:24
+#@ recipress
+msgid "Recipe Summary"
+msgstr "Résumé de la recette"
+
+#: php/meta_box.php:25
+#@ recipress
+msgid "A small summary of the recipe"
+msgstr "Un petit résumé de la recette"
+
+#: php/meta_box.php:32
+#@ recipress
+msgid "Yield"
+msgstr "Produit"
+
+#: php/meta_box.php:33
+#@ recipress
+msgid "How much/many does this recipe produce?"
+msgstr "Nombre de produits"
+
+#: php/meta_box.php:34
+#@ recipress
+msgid "e.g., 1 loaf, 2 cups"
+msgstr "Ex.: 1 plat, 2 tasses"
+
+#: php/meta_box.php:41
+#@ recipress
+msgid "How many servings?"
+msgstr "Combien de portions ?"
+
+#: php/meta_box.php:48
+#@ recipress
+msgid "Prep Time"
+msgstr "Temps de préparation"
+
+#: php/meta_box.php:49
+#: php/meta_box.php:57
+#@ recipress
+msgid "How many minutes? (60+ minutes will output as hours)"
+msgstr "Combien de minutes? (>60 minutes va afficher que les heures)"
+
+#: php/meta_box.php:56
+#@ recipress
+msgid "Cook Time"
+msgstr "Temps de cuisson"
+
+#: php/meta_box.php:64
+#: php/options.php:10
+#: php/output.php:29
+#@ recipress
+msgid "Ingredients"
+msgstr "Ingrédients"
+
+#: php/meta_box.php:65
+#@ recipress
+msgid "Click the plus icon to add another ingredient. %1$sManage Ingedients%2$s"
+msgstr "Cliquez sur l'icône plus pour ajouter un nouvel ingrédient. %1$sGérer les Ingrédients%2$s"
+
+#: php/meta_box.php:70
+#: php/output.php:31
+#@ recipress
+msgid "Instructions"
+msgstr "Instructions"
+
+#: php/meta_box.php:71
+#@ recipress
+msgid "Click the plus icon to add another instruction."
+msgstr "Cliquez sur l'icône plus pour ajouter une autre instruction."
+
+#: php/meta_box.php:91
+#@ recipress
+msgid "Photo"
+msgstr "Photo"
+
+#: php/meta_box.php:92
+#@ recipress
+msgid "Add a photo of your completed recipe"
+msgstr "Ajoutez une photo de votre recette terminée"
+
+#: php/meta_box.php:105
+#: php/options.php:140
+#@ recipress
+msgid "Course"
+msgstr "Type de Plat"
+
+#: php/meta_box.php:124
+#@ recipress
+msgid "Cost"
+msgstr "Prix"
+
+#: php/meta_box.php:125
+#@ recipress
+msgid "What does it cost to make this recipe?"
+msgstr "QUel est le coût de cette recette ?"
+
+#: php/meta_box.php:126
+#@ recipress
+msgid "$0.00"
+msgstr "$0,00"
+
+#: php/meta_box.php:138
+#@ recipress
+msgid "Add a Recipe to this post?"
+msgstr "Ajouter une recette à cet article ?"
+
+#: php/meta_box.php:167
+#@ recipress
+msgid "Select One"
+msgstr "Choisissez-en un"
+
+#: php/meta_box.php:177
+#@ recipress
+msgid "Manage"
+msgstr "Gérer les"
+
+#: php/meta_box.php:186
+#@ recipress
+msgid "Amount"
+msgstr "Montant"
+
+#: php/meta_box.php:187
+#@ recipress
+msgid "Measurement"
+msgstr "Mesures"
+
+#: php/meta_box.php:188
+#@ recipress
+msgid "Ingredient"
+msgstr "Ingrédients"
+
+#: php/meta_box.php:189
+#@ recipress
+msgid "Notes"
+msgstr "Notes"
+
+#: php/meta_box.php:228
+#@ recipress
+msgid "Description"
+msgstr "Description"
+
+#: php/meta_box.php:229
+#@ recipress
+msgid "Image"
+msgstr "Image"
+
+#: php/meta_box.php:241
+#: php/meta_box.php:255
+#@ recipress
+msgid "Describe this step in the recipe"
+msgstr "Décrivez cette étape de la recette"
+
+#: php/meta_box.php:244
+#: php/meta_box.php:258
+#: php/meta_box.php:289
+#@ recipress
+msgid "Upload Image"
+msgstr "Ajouter une image"
+
+#: php/meta_box.php:245
+#: php/meta_box.php:259
+#: php/meta_box.php:290
+#@ recipress
+msgid "Remove Image"
+msgstr "Retirer l'image"
+
+#: php/options.php:8
+#: php/options.php:9
+#: php/options.php:224
+#@ recipress
+msgid "ReciPress Options"
+msgstr "Options de ReciPress"
+
+#: php/options.php:8
+#: php/options.php:118
+#@ recipress
+msgid "ReciPress"
+msgstr "ReciPress"
+
+#: php/options.php:13
+#@ recipress
+msgid "Cuisines"
+msgstr "Cuisines"
+
+#: php/options.php:15
+#@ recipress
+msgid "Courses"
+msgstr "Types de Plat"
+
+#: php/options.php:17
+#@ recipress
+msgid "Skill Levels"
+msgstr "Niveaux de difficulté"
+
+#: php/options.php:54
+#@ recipress
+msgid "Recipe Output"
+msgstr "Publication de la recette"
+
+#: php/options.php:58
+#@ recipress
+msgid "Automatically Output Recipe"
+msgstr "Publication automatique de la recette"
+
+#: php/options.php:63
+#: php/options.php:157
+#: php/options.php:205
+#@ recipress
+msgid "Yes"
+msgstr "Oui"
+
+#: php/options.php:65
+#@ recipress
+msgid "Recipe will output after the post content"
+msgstr "La recette sera publiée après le contenu du message"
+
+#: php/options.php:69
+#: php/options.php:162
+#: php/options.php:211
+#@ recipress
+msgid "No"
+msgstr "Non"
+
+#: php/options.php:71
+#@ recipress
+msgid "Use the <code>[recipe]</code> shortcode to output the recipe"
+msgstr "Utilisez le shortcode <code>[recipe]</code> pour publier la recette"
+
+#: php/options.php:76
+#@ recipress
+msgid "Output Recipe On"
+msgstr "Publication de la recette activée"
+
+#: php/options.php:81
+#@ recipress
+msgid "Home Page/Latest Posts Page"
+msgstr "Page d'accueil / Dernière page des articles"
+
+#: php/options.php:85
+#@ recipress
+msgid "Single Post Page"
+msgstr "Page d'un article seul"
+
+#: php/options.php:90
+#@ recipress
+msgid "Archive and Category Pages"
+msgstr "Pages des archives et des catégories"
+
+#: php/options.php:94
+#@ recipress
+msgid "Search Result Page"
+msgstr "Page des résultats de la recherche"
+
+#: php/options.php:100
+#@ recipress
+msgid "Recipe Theme"
+msgstr "Thème de la recette"
+
+#: php/options.php:105
+#@ recipress
+msgid "Light"
+msgstr "Léger"
+
+#: php/options.php:108
+#@ recipress
+msgid "For use with light themes"
+msgstr "Pour une utilisation avec des thèmes légers"
+
+#: php/options.php:112
+#@ recipress
+msgid "Dark"
+msgstr "Sombre"
+
+#: php/options.php:115
+#@ recipress
+msgid "For use with dark themes"
+msgstr "Pour une utilisation avec des thèmes sombres"
+
+#: php/options.php:121
+#@ recipress
+msgid "Custom textured design"
+msgstr "Design customisé"
+
+#: php/options.php:126
+#@ recipress
+msgid "Recipe Input"
+msgstr "Saisie de la Recette"
+
+#: php/options.php:130
+#@ recipress
+msgid "Use Taxonomies"
+msgstr "Utilisez taxonomies"
+
+#: php/options.php:152
+#@ recipress
+msgid "Cost of Recipe Field"
+msgstr "Coût de la recette"
+
+#: php/options.php:159
+#@ recipress
+msgid "An input for the total cost to make the recipe will be available"
+msgstr "Un champ de saisie pour le coût total pour faire la recette sera disponible"
+
+#: php/options.php:164
+#@ recipress
+msgid "This field will be omitted when creating recipes"
+msgstr "Ce champ sera omis lors de la création de recettes"
+
+#: php/options.php:170
+#@ recipress
+msgid "Say Thanks"
+msgstr "Dites Merci"
+
+#: php/options.php:174
+#@ recipress
+msgid "Plugin Credit"
+msgstr ""
+
+#: php/options.php:177
+#@ recipress
+msgid "Add a credit link to the recipe box."
+msgstr "Ajouter un lien de crédit à la boîte de recette."
+
+#: php/options.php:181
+#@ recipress
+msgid "Buy me a latte!"
+msgstr "Achetez-moi un café au lait!"
+
+#: php/options.php:200
+#@ recipress
+msgid "Use Featured Image"
+msgstr "Utiliser l'image en vedette"
+
+#: php/options.php:207
+#@ recipress
+msgid "Recipe photo will be the same as the post&rsquo;s featured image"
+msgstr "La photo de la recette sera la même que l'image en vedette de l'article"
+
+#: php/options.php:213
+#@ recipress
+msgid "Use a different image for the recipe"
+msgstr "Utiliser une image différente pour la recette"
+
+#: php/options.php:227
+#@ recipress
+msgid "Options saved"
+msgstr "Options enregistrées"
+
+#: php/options.php:366
+#@ recipress
+msgid "Do you find this plugin useful and want to say thanks?"
+msgstr "Pensez-vous que ce plugin est utile et que vous voulez dire merci?"
+
+#: php/options.php:367
+#@ recipress
+msgid "Donate"
+msgstr "Donner"
+
+#: php/options.php:377
+#@ recipress
+msgid "Save Options"
+msgstr "Enregister les options"
+
+#: php/output.php:12
+#@ recipress
+msgid "By"
+msgstr "Par"
+
+#: php/output.php:13
+#@ recipress
+msgid "Published:"
+msgstr "Publié:"
+
+#: php/output.php:16
+#@ recipress
+msgid "Yield:"
+msgstr "Produit:"
+
+#: php/output.php:18
+#@ recipress
+msgid "Cost:"
+msgstr "Prix:"
+
+#: php/output.php:22
+#@ recipress
+msgid "Prep:"
+msgstr "Préparation:"
+
+#: php/output.php:24
+#@ recipress
+msgid "Cook:"
+msgstr "Cuisine:"
+
+#: php/output.php:26
+#@ recipress
+msgid "Ready In:"
+msgstr "Prêt dans:"
+
+#: php/taxonomies.php:9
+#@ recipress
+msgctxt "taxonomy general name"
+msgid "Ingredients"
+msgstr "Ingrédients"
+
+#: php/taxonomies.php:10
+#@ recipress
+msgctxt "taxonomy singular name"
+msgid "Ingredient"
+msgstr "Ingrédients"
+
+#: php/taxonomies.php:11
+#@ recipress
+msgid "Search Ingredients"
+msgstr "Recherchez des ingrédients"
+
+#: php/taxonomies.php:12
+#@ recipress
+msgid "Popular Ingredients"
+msgstr "Ingrédients populaires"
+
+#: php/taxonomies.php:13
+#@ recipress
+msgid "All Ingredients"
+msgstr "Tous les ingrédients"
+
+#: php/taxonomies.php:14
+#@ recipress
+msgid "Parent Ingredient"
+msgstr "Ingrédients parent"
+
+#: php/taxonomies.php:15
+#@ recipress
+msgid "Parent Ingredient:"
+msgstr "Ingrédients parent:"
+
+#: php/taxonomies.php:16
+#@ recipress
+msgid "Edit Ingredient"
+msgstr "Editer l'ingrédient"
+
+#: php/taxonomies.php:17
+#@ recipress
+msgid "Update Ingredient"
+msgstr "Mettre à jour l'ingrédients"
+
+#: php/taxonomies.php:18
+#@ recipress
+msgid "Add New Ingredient"
+msgstr "Ajouter un nouvel ingrédient"
+
+#: php/taxonomies.php:19
+#@ recipress
+msgid "New Ingredient Name"
+msgstr "Nom du nouvel ingrédient"
+
+#: php/taxonomies.php:20
+#@ recipress
+msgid "Add or remove ingredients"
+msgstr "Ajouter ou retirer des ingrédients"
+
+#: php/taxonomies.php:21
+#@ recipress
+msgctxt "taxonomy menu name"
+msgid "Ingredients"
+msgstr "Ingrédients"
+
+#: php/taxonomies.php:40
+#@ recipress
+msgctxt "taxonomy general name"
+msgid "Cuisines"
+msgstr "Cuisines"
+
+#: php/taxonomies.php:41
+#@ recipress
+msgctxt "taxonomy singular name"
+msgid "Cuisine"
+msgstr "Cuisine"
+
+#: php/taxonomies.php:42
+#@ recipress
+msgid "Search Cuisines"
+msgstr "Rechercher des cuisines"
+
+#: php/taxonomies.php:43
+#@ recipress
+msgid "Popular Cuisines"
+msgstr "Cuisines populaires"
+
+#: php/taxonomies.php:44
+#@ recipress
+msgid "All Cuisines"
+msgstr "Toutes les cuisines"
+
+#: php/taxonomies.php:45
+#@ recipress
+msgid "Parent Cuisine"
+msgstr "Cusine parent"
+
+#: php/taxonomies.php:46
+#@ recipress
+msgid "Parent Cuisine:"
+msgstr "Cusine parent:"
+
+#: php/taxonomies.php:47
+#@ recipress
+msgid "Edit Cuisine"
+msgstr "Eiter la cuisine"
+
+#: php/taxonomies.php:48
+#@ recipress
+msgid "Update Cuisine"
+msgstr "Mettre à jour la Cuisine"
+
+#: php/taxonomies.php:49
+#@ recipress
+msgid "Add New Cuisine"
+msgstr "Ajouter une Nouvelle Cuisine"
+
+#: php/taxonomies.php:50
+#@ recipress
+msgid "New Cuisine Name"
+msgstr "Nom de la Nouvelle Cuisine"
+
+#: php/taxonomies.php:51
+#@ recipress
+msgid "Add or remove cuisines"
+msgstr "Ajouter ou Retirer des Cuisines"
+
+#: php/taxonomies.php:52
+#@ recipress
+msgctxt "taxonomy menu name"
+msgid "Cuisines"
+msgstr "Cuisines"
+
+#: php/taxonomies.php:71
+#@ recipress
+msgctxt "taxonomy general name"
+msgid "Courses"
+msgstr "Types de Plat"
+
+#: php/taxonomies.php:72
+#@ recipress
+msgctxt "taxonomy singular name"
+msgid "Course"
+msgstr "Type de Plat"
+
+#: php/taxonomies.php:73
+#@ recipress
+msgid "Search Courses"
+msgstr "Rechercher des Types de Plat"
+
+#: php/taxonomies.php:74
+#@ recipress
+msgid "Popular Courses"
+msgstr "Types de Plat Populaires"
+
+#: php/taxonomies.php:75
+#@ recipress
+msgid "All Courses"
+msgstr "Tous les Types de Plat"
+
+#: php/taxonomies.php:76
+#@ recipress
+msgid "Parent Course"
+msgstr "Type de Plat Parent"
+
+#: php/taxonomies.php:77
+#@ recipress
+msgid "Parent Course:"
+msgstr "Type de Plat Prent:"
+
+#: php/taxonomies.php:78
+#@ recipress
+msgid "Edit Course"
+msgstr "Editer le Type de Plat"
+
+#: php/taxonomies.php:79
+#@ recipress
+msgid "Update Course"
+msgstr "Mettre à jour le Type de Plat"
+
+#: php/taxonomies.php:80
+#@ recipress
+msgid "Add New Course"
+msgstr "Ajouter un nouveau Type de Plat"
+
+#: php/taxonomies.php:81
+#@ recipress
+msgid "New Course Name"
+msgstr "Nom du Nouveau Type de Plat"
+
+#: php/taxonomies.php:82
+#@ recipress
+msgid "Add or remove courses"
+msgstr "Ajouter ou Retirer des Types de Plat"
+
+#: php/taxonomies.php:83
+#@ recipress
+msgctxt "taxonomy menu name"
+msgid "Courses"
+msgstr "Types de Plat"
+
+#: php/taxonomies.php:102
+#@ recipress
+msgctxt "taxonomy general name"
+msgid "Skill Levels"
+msgstr "Niveaux de Difficulté"
+
+#: php/taxonomies.php:103
+#@ recipress
+msgctxt "taxonomy singular name"
+msgid "Skill Level"
+msgstr "Niveau de Difficulté"
+
+#: php/taxonomies.php:104
+#@ recipress
+msgid "Search Skill Levels"
+msgstr "Rechercher des Niveaux de Difficulté"
+
+#: php/taxonomies.php:105
+#@ recipress
+msgid "Popular Skill Levels"
+msgstr "Niveaux de Difficulté Populaires"
+
+#: php/taxonomies.php:106
+#@ recipress
+msgid "All Skill Levels"
+msgstr "Tous les Niveaux de Difficulté"
+
+#: php/taxonomies.php:107
+#@ recipress
+msgid "Parent Skill Level"
+msgstr "Niveau de Difficulté Parent"
+
+#: php/taxonomies.php:108
+#@ recipress
+msgid "Parent Skill Level:"
+msgstr "Niveau de Difficulté Parent:"
+
+#: php/taxonomies.php:109
+#@ recipress
+msgid "Edit Skill Level"
+msgstr "Editer le Niveau de Difficulté"
+
+#: php/taxonomies.php:110
+#@ recipress
+msgid "Update Skill Level"
+msgstr "Mettre à Jour le Niveau de Difficulté"
+
+#: php/taxonomies.php:111
+#@ recipress
+msgid "Add New Skill Level"
+msgstr "Ajouter un Nouveau Niveau de Difficulté"
+
+#: php/taxonomies.php:112
+#@ recipress
+msgid "New Skill Level Name"
+msgstr "Nom du Nouveau Niveau de Difficulté"
+
+#: php/taxonomies.php:113
+#@ recipress
+msgid "Add or remove skill levels"
+msgstr "Ajouter ou Retirer des Niveaux de Difficulté"
+
+#: php/taxonomies.php:114
+#@ recipress
+msgctxt "taxonomy menu name"
+msgid "Skill Levels"
+msgstr "Niveaux de Difficulté"
+
+#: php/taxonomies.php:137
+#@ recipress
+msgid "beef"
+msgstr "boeuf"
+
+#: php/taxonomies.php:138
+#@ recipress
+msgid "bell pepper"
+msgstr "poivron"
+
+#: php/taxonomies.php:139
+#@ recipress
+msgid "bread"
+msgstr "pain"
+
+#: php/taxonomies.php:140
+#@ recipress
+msgid "cheese"
+msgstr "fromage"
+
+#: php/taxonomies.php:141
+#@ recipress
+msgid "chicken"
+msgstr "poulet"
+
+#: php/taxonomies.php:142
+#@ recipress
+msgid "eggs"
+msgstr "oeufs"
+
+#: php/taxonomies.php:143
+#@ recipress
+msgid "fish"
+msgstr "poisson"
+
+#: php/taxonomies.php:144
+#@ recipress
+msgid "flour"
+msgstr "farine"
+
+#: php/taxonomies.php:145
+#@ recipress
+msgid "garlic"
+msgstr "ail"
+
+#: php/taxonomies.php:146
+#@ recipress
+msgid "milk"
+msgstr "lait"
+
+#: php/taxonomies.php:147
+#@ recipress
+msgid "nutmeg"
+msgstr "noix de muscade"
+
+#: php/taxonomies.php:148
+#@ recipress
+msgid "onion"
+msgstr "oignon"
+
+#: php/taxonomies.php:149
+#@ recipress
+msgid "pasta"
+msgstr "pâtes"
+
+#: php/taxonomies.php:150
+#@ recipress
+msgid "potatoes"
+msgstr "pommes de terre"
+
+#: php/taxonomies.php:151
+#@ recipress
+msgid "shrimp"
+msgstr "crevettes"
+
+#: php/taxonomies.php:152
+#@ recipress
+msgid "spinach"
+msgstr "épinards"
+
+#: php/taxonomies.php:153
+#@ recipress
+msgid "strawberries"
+msgstr "fraises"
+
+#: php/taxonomies.php:154
+#@ recipress
+msgid "tomatoes"
+msgstr "tomates"
+
+#: php/taxonomies.php:156
+#@ recipress
+msgid "American"
+msgstr "Américaine"
+
+#: php/taxonomies.php:157
+#@ recipress
+msgid "Chinese"
+msgstr "Chinoise"
+
+#: php/taxonomies.php:158
+#@ recipress
+msgid "Indian"
+msgstr "Indienne"
+
+#: php/taxonomies.php:159
+#@ recipress
+msgid "Italian"
+msgstr "Italienne"
+
+#: php/taxonomies.php:160
+#@ recipress
+msgid "French"
+msgstr "Française"
+
+#: php/taxonomies.php:161
+#@ recipress
+msgid "Japanese"
+msgstr "Japonnaise"
+
+#: php/taxonomies.php:162
+#@ recipress
+msgid "Mediterrarean"
+msgstr "Méditerranéenne"
+
+#: php/taxonomies.php:163
+#@ recipress
+msgid "Mexican"
+msgstr "Méxicaine"
+
+#: php/taxonomies.php:164
+#@ recipress
+msgid "Seafood"
+msgstr "Fruits de Mer"
+
+#: php/taxonomies.php:166
+#@ recipress
+msgid "Appetizer"
+msgstr "Apéritif"
+
+#: php/taxonomies.php:167
+#@ recipress
+msgid "Breakfast"
+msgstr "Petit Déjeuner"
+
+#: php/taxonomies.php:168
+#@ recipress
+msgid "Entrée"
+msgstr "Entrée"
+
+#: php/taxonomies.php:169
+#@ recipress
+msgid "Dessert"
+msgstr "Dessert"
+
+#: php/taxonomies.php:170
+#@ recipress
+msgid "Salad"
+msgstr "Salade"
+
+#: php/taxonomies.php:171
+#@ recipress
+msgid "Side Dish"
+msgstr "Garbiture"
+
+#: php/taxonomies.php:172
+#@ recipress
+msgid "Snack"
+msgstr "Casse-Croûte"
+
+#: php/taxonomies.php:173
+#@ recipress
+msgid "Soup"
+msgstr "Soupe"
+
+#: php/taxonomies.php:175
+#@ recipress
+msgid "Advanced"
+msgstr "Avancé"
+
+#: php/taxonomies.php:176
+#@ recipress
+msgid "Beginner"
+msgstr "Débuttant"
+
+#: php/taxonomies.php:177
+#@ recipress
+msgid "Child Friendly"
+msgstr "Enfants bienvenus"
+
+#: php/taxonomies.php:178
+#@ recipress
+msgid "Easy"
+msgstr "Facile"
+
+#: php/taxonomies.php:179
+#@ recipress
+msgid "Moderate"
+msgstr "Modéré"
+
+#: php/widgets.php:22
+#@ recipress
+msgid "Recipress Terms"
+msgstr "Conditions de Recipress"
+
+#: php/widgets.php:22
+#@ recipress
+msgid "Output a list or cloud of recipe terms"
+msgstr "Sortie d'une liste ou d'un nuage de termes de recettes"
+
+#: php/widgets.php:76
+#: php/widgets.php:172
+#@ recipress
+msgid "Title:"
+msgstr "Titre:"
+
+#: php/widgets.php:80
+#@ recipress
+msgid "Taxonomy:"
+msgstr "Taxonomie"
+
+#: php/widgets.php:88
+#@ recipress
+msgid "Output Type:"
+msgstr "Type de sortie:"
+
+#: php/widgets.php:89
+#@ recipress
+msgid "List"
+msgstr "Liste"
+
+#: php/widgets.php:90
+#@ recipress
+msgid "Cloud"
+msgstr "Nuage"
+
+#: php/widgets.php:119
+#@ recipress
+msgid "No recipes found."
+msgstr "Pas de recettes trouvées"
+
+#: php/widgets.php:133
+#: php/widgets.php:142
+#@ recipress
+msgid "Recent Recipes"
+msgstr "Recettes Récentes"
+
+#: php/widgets.php:133
+#@ recipress
+msgid "Output a list of recent recipe posts"
+msgstr "Sortie d'une liste d'articles de recettes ces dernières"
+
+#: php/widgets.php:176
+#@ recipress
+msgid "Number of Posts:"
+msgstr "Nombre d'articles:"
+
+#: php/widgets.php:180
+#@ recipress
+msgid "Recipe Thumbnail"
+msgstr "Vignette de la Eecette"
+
+#: recipress.php:78
+#@ recipress
+msgid "Use this Image"
+msgstr "Utiliser cette Image"
+

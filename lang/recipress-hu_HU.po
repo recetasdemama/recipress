@@ -1,0 +1,1013 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ recipress
+#: php/functions.php:92
+msgid "hrs"
+msgstr "óra"
+
+#@ recipress
+#: php/functions.php:93
+msgid "mins"
+msgstr "perc"
+
+#@ recipress
+#: php/functions.php:94
+msgid "hr"
+msgstr "óra"
+
+#@ recipress
+#: php/functions.php:95
+msgid "min"
+msgstr "perc"
+
+#@ recipress
+#: php/functions.php:112
+#: php/meta_box.php:9
+msgid "Recipe"
+msgstr "recept"
+
+#@ recipress
+#: php/functions.php:140
+#: php/meta_box.php:104
+#: php/options.php:135
+msgid "Cuisine"
+msgstr "konyha"
+
+#@ recipress
+#: php/functions.php:146
+msgid "Course:"
+msgstr "kategória:"
+
+#@ recipress
+#: php/functions.php:152
+#: php/meta_box.php:106
+#: php/options.php:145
+msgid "Skill Level"
+msgstr "Nehézség"
+
+#@ recipress
+#: php/functions.php:183
+#: php/functions.php:184
+#: php/meta_box.php:40
+msgid "Servings"
+msgstr "Adag"
+
+#@ recipress
+#: php/meta_box.php:16
+msgid "Recipe Title"
+msgstr "Recept cím"
+
+#@ recipress
+#: php/meta_box.php:17
+msgid "Do you want to give the recipe a different title from the post?"
+msgstr "Szeretne a bejegyzéstől eltérő címet adni a receptnek?"
+
+#@ recipress
+#: php/meta_box.php:24
+msgid "Recipe Summary"
+msgstr "Recept összefoglalója"
+
+#@ recipress
+#: php/meta_box.php:25
+msgid "A small summary of the recipe"
+msgstr "A recept rövid összefoglalója"
+
+#@ recipress
+#: php/meta_box.php:32
+msgid "Yield"
+msgstr "Mennyiség"
+
+#@ recipress
+#: php/meta_box.php:33
+msgid "How much/many does this recipe produce?"
+msgstr "Az étel mennyisége"
+
+#@ recipress
+#: php/meta_box.php:34
+msgid "e.g., 1 loaf, 2 cups"
+msgstr "például 1 csipet, 2 kanál"
+
+#@ recipress
+#: php/meta_box.php:41
+msgid "How many servings?"
+msgstr "Hány főre?"
+
+#@ recipress
+#: php/meta_box.php:48
+msgid "Prep Time"
+msgstr "Előkészítési idő"
+
+#@ recipress
+#: php/meta_box.php:49
+#: php/meta_box.php:57
+msgid "How many minutes? (60+ minutes will output as hours)"
+msgstr "Hány perc?"
+
+#@ recipress
+#: php/meta_box.php:56
+msgid "Cook Time"
+msgstr "Főzési idő"
+
+#@ recipress
+#: php/meta_box.php:64
+#: php/options.php:10
+#: php/output.php:29
+msgid "Ingredients"
+msgstr "Hozzávalók"
+
+#@ recipress
+#: php/meta_box.php:70
+#: php/output.php:31
+msgid "Instructions"
+msgstr "Elkészítés"
+
+#@ recipress
+#: php/meta_box.php:71
+msgid "Click the plus icon to add another instruction."
+msgstr "Klikk a plusz ikonra további lépések hozzáadásához"
+
+#@ recipress
+#: php/meta_box.php:91
+msgid "Photo"
+msgstr "Fénykép"
+
+#@ recipress
+#: php/meta_box.php:92
+msgid "Add a photo of your completed recipe"
+msgstr "Fénykép hozzáadása a recepthez"
+
+#@ recipress
+#: php/meta_box.php:105
+#: php/options.php:140
+msgid "Course"
+msgstr "Kategória"
+
+#@ recipress
+#: php/meta_box.php:124
+msgid "Cost"
+msgstr "Költség"
+
+#@ recipress
+#: php/meta_box.php:125
+msgid "What does it cost to make this recipe?"
+msgstr "Recept elkészítésének költsége"
+
+#@ recipress
+#: php/meta_box.php:126
+msgid "$0.00"
+msgstr "0 Ft"
+
+#@ recipress
+#: php/meta_box.php:138
+msgid "Add a Recipe to this post?"
+msgstr "Recept hozzáadása a bejegyzéshez"
+
+#@ recipress
+#: php/meta_box.php:167
+msgid "Select One"
+msgstr "Válassz egyet"
+
+#@ recipress
+#: php/meta_box.php:177
+msgid "Manage"
+msgstr "Szerkeszt"
+
+#@ recipress
+#: php/meta_box.php:186
+msgid "Amount"
+msgstr "Mennyiség"
+
+#@ recipress
+#: php/meta_box.php:187
+msgid "Measurement"
+msgstr "Mértékegység"
+
+#@ recipress
+#: php/meta_box.php:188
+msgid "Ingredient"
+msgstr "Hozzávaló"
+
+#@ recipress
+#: php/meta_box.php:189
+msgid "Notes"
+msgstr "Jegyzetek"
+
+#@ recipress
+#: php/meta_box.php:228
+msgid "Description"
+msgstr "Leírás"
+
+#@ recipress
+#: php/meta_box.php:229
+msgid "Image"
+msgstr "Fénykép"
+
+#@ recipress
+#: php/meta_box.php:241
+#: php/meta_box.php:255
+msgid "Describe this step in the recipe"
+msgstr "Írd le ezt a lépést a receptben"
+
+#@ recipress
+#: php/meta_box.php:244
+#: php/meta_box.php:258
+#: php/meta_box.php:289
+msgid "Upload Image"
+msgstr "Kép feltöltése"
+
+#@ recipress
+#: php/meta_box.php:245
+#: php/meta_box.php:259
+#: php/meta_box.php:290
+msgid "Remove Image"
+msgstr "Kép eltávolítása"
+
+#@ recipress
+#: php/options.php:8
+#: php/options.php:9
+#: php/options.php:224
+msgid "ReciPress Options"
+msgstr "Beállítások"
+
+#@ recipress
+#: php/options.php:8
+#: php/options.php:118
+msgid "ReciPress"
+msgstr "ReciPress"
+
+#@ recipress
+#: php/options.php:13
+msgid "Cuisines"
+msgstr "Konyhák"
+
+#@ recipress
+#: php/options.php:15
+msgid "Courses"
+msgstr "Kategóriák"
+
+#@ recipress
+#: php/options.php:17
+msgid "Skill Levels"
+msgstr "Nehézségi szintek"
+
+#@ recipress
+#: php/options.php:54
+msgid "Recipe Output"
+msgstr "Recept megjelenés"
+
+#@ recipress
+#: php/options.php:58
+msgid "Automatically Output Recipe"
+msgstr "Automatikus recept megjelenés"
+
+#@ recipress
+#: php/options.php:63
+#: php/options.php:157
+#: php/options.php:205
+msgid "Yes"
+msgstr "Igen"
+
+#@ recipress
+#: php/options.php:65
+msgid "Recipe will output after the post content"
+msgstr "A recept a bejegyzés tartalma után jelenik meg"
+
+#@ recipress
+#: php/options.php:69
+#: php/options.php:162
+#: php/options.php:211
+msgid "No"
+msgstr "Nem"
+
+#@ recipress
+#: php/options.php:71
+msgid "Use the <code>[recipe]</code> shortcode to output the recipe"
+msgstr "Használd a <code>[recept]</code> rövidítést a recept megjelenítéséhez"
+
+#@ recipress
+#: php/options.php:76
+msgid "Output Recipe On"
+msgstr "Recept megjelenítés bekapcsolva"
+
+#@ recipress
+#: php/options.php:81
+msgid "Home Page/Latest Posts Page"
+msgstr "Főoldal/Legutóbbi bejegyzés"
+
+#@ recipress
+#: php/options.php:85
+msgid "Single Post Page"
+msgstr "Egyedi bejegyzés oldal"
+
+#@ recipress
+#: php/options.php:90
+msgid "Archive and Category Pages"
+msgstr "Archiv és Kategória oldalak"
+
+#@ recipress
+#: php/options.php:94
+msgid "Search Result Page"
+msgstr "Eredmény oldal keresése"
+
+#@ recipress
+#: php/options.php:100
+msgid "Recipe Theme"
+msgstr "Recept téma"
+
+#@ recipress
+#: php/options.php:105
+msgid "Light"
+msgstr "Világos"
+
+#@ recipress
+#: php/options.php:108
+msgid "For use with light themes"
+msgstr "Világos témákhoz"
+
+#@ recipress
+#: php/options.php:112
+msgid "Dark"
+msgstr "Sötét"
+
+#@ recipress
+#: php/options.php:115
+msgid "For use with dark themes"
+msgstr "Sötét témákhoz"
+
+#@ recipress
+#: php/options.php:121
+msgid "Custom textured design"
+msgstr "Txtúrás megjelenés testre szabása"
+
+#@ recipress
+#: php/options.php:126
+msgid "Recipe Input"
+msgstr "Recept input"
+
+#@ recipress
+#: php/options.php:130
+msgid "Use Taxonomies"
+msgstr "Osztályozás alkalmazása"
+
+#@ recipress
+#: php/options.php:152
+msgid "Cost of Recipe Field"
+msgstr "Recept mező költsége"
+
+#@ recipress
+#: php/options.php:159
+msgid "An input for the total cost to make the recipe will be available"
+msgstr "A teljes költség a részösszegekből áll össze"
+
+#@ recipress
+#: php/options.php:164
+msgid "This field will be omitted when creating recipes"
+msgstr "Ez a mező nem aktív recept létrehozásakor"
+
+#@ recipress
+#: php/options.php:170
+msgid "Say Thanks"
+msgstr "Köszönetnyilvánítás"
+
+#@ recipress
+#: php/options.php:174
+msgid "Plugin Credit"
+msgstr "Credit"
+
+#@ recipress
+#: php/options.php:177
+msgid "Add a credit link to the recipe box."
+msgstr "Credit link hozzáadása a recept dobozhoz"
+
+#@ recipress
+#: php/options.php:181
+msgid "Buy me a latte!"
+msgstr "Hívj meg egy kávéra!"
+
+#@ recipress
+#: php/options.php:200
+msgid "Use Featured Image"
+msgstr "Kiemelt kép használata"
+
+#@ recipress
+#: php/options.php:207
+msgid "Recipe photo will be the same as the post&rsquo;s featured image"
+msgstr "A recept fotója legyen a bejegyzés kiemelt képe"
+
+#@ recipress
+#: php/options.php:213
+msgid "Use a different image for the recipe"
+msgstr "Más kép használata a recepthez"
+
+#@ recipress
+#: php/options.php:227
+msgid "Options saved"
+msgstr "Beállítások mentve"
+
+#@ recipress
+#: php/options.php:366
+msgid "Do you find this plugin useful and want to say thanks?"
+msgstr "Hasznosnak találod ezt a plugint és szeretnél köszönetet mondani?"
+
+#@ recipress
+#: php/options.php:367
+msgid "Donate"
+msgstr "Támogatás"
+
+#@ recipress
+#: php/options.php:377
+msgid "Save Options"
+msgstr "Beállítások mentése"
+
+#@ recipress
+#: php/output.php:12
+msgid "By"
+msgstr "Készítette"
+
+#@ recipress
+#: php/output.php:13
+msgid "Published:"
+msgstr "Közzétéve:"
+
+#@ recipress
+#: php/output.php:16
+msgid "Yeild:"
+msgstr "Mennyiség:"
+
+#@ recipress
+#: php/output.php:18
+msgid "Cost:"
+msgstr "Költség:"
+
+#@ recipress
+#: php/output.php:22
+msgid "Prep:"
+msgstr "Előkészítés:"
+
+#@ recipress
+#: php/output.php:24
+msgid "Cook:"
+msgstr "Főzés:"
+
+#@ recipress
+#: php/output.php:26
+msgid "Ready In:"
+msgstr "Elkészítés:"
+
+#@ recipress
+#: php/taxonomies.php:9
+msgctxt "taxonomy general name"
+msgid "Ingredients"
+msgstr "Hozzávalók"
+
+#@ recipress
+#: php/taxonomies.php:10
+msgctxt "taxonomy singular name"
+msgid "Ingredient"
+msgstr "Hozzávaló"
+
+#@ recipress
+#: php/taxonomies.php:11
+msgid "Search Ingredients"
+msgstr "Hozzávalók keresése"
+
+#@ recipress
+#: php/taxonomies.php:12
+msgid "Popular Ingredients"
+msgstr "Népszerű hozzávalók"
+
+#@ recipress
+#: php/taxonomies.php:13
+msgid "All Ingredients"
+msgstr "Összes hozzávaló"
+
+#@ recipress
+#: php/taxonomies.php:14
+msgid "Parent Ingredient"
+msgstr "Fő hozzávaló"
+
+#@ recipress
+#: php/taxonomies.php:15
+msgid "Parent Ingredient:"
+msgstr "Fő hozzávaló:"
+
+#@ recipress
+#: php/taxonomies.php:16
+msgid "Edit Ingredient"
+msgstr "Hozzávaló szerkesztése"
+
+#@ recipress
+#: php/taxonomies.php:17
+msgid "Update Ingredient"
+msgstr "Hozzávaló frissítése"
+
+#@ recipress
+#: php/taxonomies.php:18
+msgid "Add New Ingredient"
+msgstr "Új hozzávaló hozzáadása"
+
+#@ recipress
+#: php/taxonomies.php:19
+msgid "New Ingredient Name"
+msgstr "Új hozzávaló neve"
+
+#@ recipress
+#: php/taxonomies.php:20
+msgid "Add or remove ingredients"
+msgstr "Hozzávaló hozzáadása vagy eltávolítása"
+
+#@ recipress
+#: php/taxonomies.php:21
+msgctxt "taxonomy menu name"
+msgid "Ingredients"
+msgstr "Hozzávalók"
+
+#@ recipress
+#: php/taxonomies.php:40
+msgctxt "taxonomy general name"
+msgid "Cuisines"
+msgstr "Konyhák"
+
+#@ recipress
+#: php/taxonomies.php:41
+msgctxt "taxonomy singular name"
+msgid "Cuisine"
+msgstr "Konyha"
+
+#@ recipress
+#: php/taxonomies.php:42
+msgid "Search Cuisines"
+msgstr "Konyhák keresése"
+
+#@ recipress
+#: php/taxonomies.php:43
+msgid "Popular Cuisines"
+msgstr "Népszerű konyhák"
+
+#@ recipress
+#: php/taxonomies.php:44
+msgid "All Cuisines"
+msgstr "Összes konyha"
+
+#@ recipress
+#: php/taxonomies.php:45
+msgid "Parent Cuisine"
+msgstr "Fő konyha"
+
+#@ recipress
+#: php/taxonomies.php:46
+msgid "Parent Cuisine:"
+msgstr "Fő konyha:"
+
+#@ recipress
+#: php/taxonomies.php:47
+msgid "Edit Cuisine"
+msgstr "Konyha szerkesztése"
+
+#@ recipress
+#: php/taxonomies.php:48
+msgid "Update Cuisine"
+msgstr "Konyha szerkesztése"
+
+#@ recipress
+#: php/taxonomies.php:49
+msgid "Add New Cuisine"
+msgstr "Új konyha hozzáadása"
+
+#@ recipress
+#: php/taxonomies.php:50
+msgid "New Cuisine Name"
+msgstr "Új konyha neve"
+
+#@ recipress
+#: php/taxonomies.php:51
+msgid "Add or remove cuisines"
+msgstr "Konyha hozzáadáas és eltávolítása"
+
+#@ recipress
+#: php/taxonomies.php:52
+msgctxt "taxonomy menu name"
+msgid "Cuisines"
+msgstr "Konyhák"
+
+#@ recipress
+#: php/taxonomies.php:71
+msgctxt "taxonomy general name"
+msgid "Courses"
+msgstr "Kategóriák"
+
+#@ recipress
+#: php/taxonomies.php:72
+msgctxt "taxonomy singular name"
+msgid "Course"
+msgstr "Kategória"
+
+#@ recipress
+#: php/taxonomies.php:73
+msgid "Search Courses"
+msgstr "Kategóriák keresése"
+
+#@ recipress
+#: php/taxonomies.php:74
+msgid "Popular Courses"
+msgstr "Népszerű kategóriák"
+
+#@ recipress
+#: php/taxonomies.php:75
+msgid "All Courses"
+msgstr "Összes kategória"
+
+#@ recipress
+#: php/taxonomies.php:76
+msgid "Parent Course"
+msgstr "Fő kategória"
+
+#@ recipress
+#: php/taxonomies.php:77
+msgid "Parent Course:"
+msgstr "Fő kategória:"
+
+#@ recipress
+#: php/taxonomies.php:78
+msgid "Edit Course"
+msgstr "Kategória szerkesztése"
+
+#@ recipress
+#: php/taxonomies.php:79
+msgid "Update Course"
+msgstr "Kategória frissítése"
+
+#@ recipress
+#: php/taxonomies.php:80
+msgid "Add New Course"
+msgstr "Új kategória hozzáadása"
+
+#@ recipress
+#: php/taxonomies.php:81
+msgid "New Course Name"
+msgstr "Új kategória neve"
+
+#@ recipress
+#: php/taxonomies.php:82
+msgid "Add or remove courses"
+msgstr "Kategóriák hozzáadása és eltávolítása"
+
+#@ recipress
+#: php/taxonomies.php:83
+msgctxt "taxonomy menu name"
+msgid "Courses"
+msgstr "Kategóriák"
+
+#@ recipress
+#: php/taxonomies.php:102
+msgctxt "taxonomy general name"
+msgid "Skill Levels"
+msgstr "Nehézségi szintek"
+
+#@ recipress
+#: php/taxonomies.php:103
+msgctxt "taxonomy singular name"
+msgid "Skill Level"
+msgstr "Nehézségi szint"
+
+#@ recipress
+#: php/taxonomies.php:104
+msgid "Search Skill Levels"
+msgstr "Nehézségi szintek keresése"
+
+#@ recipress
+#: php/taxonomies.php:105
+msgid "Popular Skill Levels"
+msgstr "népszerű nehézségi szintek"
+
+#@ recipress
+#: php/taxonomies.php:106
+msgid "All Skill Levels"
+msgstr "minden nehézségi szint"
+
+#@ recipress
+#: php/taxonomies.php:107
+msgid "Parent Skill Level"
+msgstr "Fő nehézségi szint"
+
+#@ recipress
+#: php/taxonomies.php:108
+msgid "Parent Skill Level:"
+msgstr "Fő nehézségi szint:"
+
+#@ recipress
+#: php/taxonomies.php:109
+msgid "Edit Skill Level"
+msgstr "Nehézségi szint szerkesztése"
+
+#@ recipress
+#: php/taxonomies.php:110
+msgid "Update Skill Level"
+msgstr "Nehézségi szint frissítése"
+
+#@ recipress
+#: php/taxonomies.php:111
+msgid "Add New Skill Level"
+msgstr "Új nehézségi szint hozzáadása"
+
+#@ recipress
+#: php/taxonomies.php:112
+msgid "New Skill Level Name"
+msgstr "Új nehézségi szint neve"
+
+#@ recipress
+#: php/taxonomies.php:113
+msgid "Add or remove skill levels"
+msgstr "Nehézségi szintek hozzáadása és eltávolítása"
+
+#@ recipress
+#: php/taxonomies.php:114
+msgctxt "taxonomy menu name"
+msgid "Skill Levels"
+msgstr "Nehézségi szintek"
+
+#@ recipress
+#: php/taxonomies.php:137
+msgid "beef"
+msgstr "marhahós"
+
+#@ recipress
+#: php/taxonomies.php:138
+msgid "bell pepper"
+msgstr "étkezési paprika"
+
+#@ recipress
+#: php/taxonomies.php:139
+msgid "bread"
+msgstr "kenyér"
+
+#@ recipress
+#: php/taxonomies.php:140
+msgid "cheese"
+msgstr "sajt"
+
+#@ recipress
+#: php/taxonomies.php:141
+msgid "chicken"
+msgstr "csirke"
+
+#@ recipress
+#: php/taxonomies.php:142
+msgid "eggs"
+msgstr "tojás"
+
+#@ recipress
+#: php/taxonomies.php:143
+msgid "fish"
+msgstr "hal"
+
+#@ recipress
+#: php/taxonomies.php:144
+msgid "flour"
+msgstr "liszt"
+
+#@ recipress
+#: php/taxonomies.php:145
+msgid "garlic"
+msgstr "fokhagyma"
+
+#@ recipress
+#: php/taxonomies.php:146
+msgid "milk"
+msgstr "tej"
+
+#@ recipress
+#: php/taxonomies.php:147
+msgid "nutmeg"
+msgstr "szerecsendió"
+
+#@ recipress
+#: php/taxonomies.php:148
+msgid "onion"
+msgstr "hagyma"
+
+#@ recipress
+#: php/taxonomies.php:149
+msgid "pasta"
+msgstr "tészta"
+
+#@ recipress
+#: php/taxonomies.php:150
+msgid "potatoes"
+msgstr "burgonya"
+
+#@ recipress
+#: php/taxonomies.php:151
+msgid "shrimp"
+msgstr "garnélarák"
+
+#@ recipress
+#: php/taxonomies.php:152
+msgid "spinach"
+msgstr "spenót"
+
+#@ recipress
+#: php/taxonomies.php:153
+msgid "strawberries"
+msgstr "eper"
+
+#@ recipress
+#: php/taxonomies.php:154
+msgid "tomatoes"
+msgstr "paradicsom"
+
+#@ recipress
+#: php/taxonomies.php:156
+msgid "American"
+msgstr "Amerikai"
+
+#@ recipress
+#: php/taxonomies.php:157
+msgid "Chinese"
+msgstr "Kínai"
+
+#@ recipress
+#: php/taxonomies.php:158
+msgid "Indian"
+msgstr "Indiai"
+
+#@ recipress
+#: php/taxonomies.php:159
+msgid "Italian"
+msgstr "Olasz"
+
+#@ recipress
+#: php/taxonomies.php:160
+msgid "French"
+msgstr "Francia"
+
+#@ recipress
+#: php/taxonomies.php:161
+msgid "Japanese"
+msgstr "Japán"
+
+#@ recipress
+#: php/taxonomies.php:162
+msgid "Mediterrarean"
+msgstr "Mediterrán"
+
+#@ recipress
+#: php/taxonomies.php:163
+msgid "Mexican"
+msgstr "Mexikói"
+
+#@ recipress
+#: php/taxonomies.php:164
+msgid "Seafood"
+msgstr "Tengeri"
+
+#@ recipress
+#: php/taxonomies.php:166
+msgid "Appetizer"
+msgstr "Étvágygerjesztő"
+
+#@ recipress
+#: php/taxonomies.php:167
+msgid "Breakfast"
+msgstr "Reggeli"
+
+#@ recipress
+#: php/taxonomies.php:168
+msgid "Entrée"
+msgstr "Előétel"
+
+#@ recipress
+#: php/taxonomies.php:169
+msgid "Dessert"
+msgstr "Desszert"
+
+#@ recipress
+#: php/taxonomies.php:170
+msgid "Salad"
+msgstr "Saláta"
+
+#@ recipress
+#: php/taxonomies.php:171
+msgid "Side Dish"
+msgstr "Köret"
+
+#@ recipress
+#: php/taxonomies.php:172
+msgid "Snack"
+msgstr "Snack"
+
+#@ recipress
+#: php/taxonomies.php:173
+msgid "Soup"
+msgstr "Leves"
+
+#@ recipress
+#: php/taxonomies.php:175
+msgid "Advanced"
+msgstr "Haladó"
+
+#@ recipress
+#: php/taxonomies.php:176
+msgid "Beginner"
+msgstr "Kezdő"
+
+#@ recipress
+#: php/taxonomies.php:177
+msgid "Child Friendly"
+msgstr "Gyermekbarát"
+
+#@ recipress
+#: php/taxonomies.php:178
+msgid "Easy"
+msgstr "Könnyű"
+
+#@ recipress
+#: php/taxonomies.php:179
+msgid "Moderate"
+msgstr "Közepes"
+
+#@ recipress
+#: php/widgets.php:22
+msgid "Recipress Terms"
+msgstr "Recipress feltételek"
+
+#@ recipress
+#: php/widgets.php:22
+msgid "Output a list or cloud of recipe terms"
+msgstr "Lista vagy felhő megjelenítése a recept feltételeiről"
+
+#@ recipress
+#: php/widgets.php:76
+#: php/widgets.php:172
+msgid "Title:"
+msgstr "Cím:"
+
+#@ recipress
+#: php/widgets.php:80
+msgid "Taxonomy:"
+msgstr "Osztály:"
+
+#@ recipress
+#: php/widgets.php:88
+msgid "Output Type:"
+msgstr "Megjelenítés típusa:"
+
+#@ recipress
+#: php/widgets.php:89
+msgid "List"
+msgstr "Lista"
+
+#@ recipress
+#: php/widgets.php:90
+msgid "Cloud"
+msgstr "Felhő"
+
+#@ recipress
+#: php/widgets.php:119
+msgid "No recipes found."
+msgstr "Nincs ilyen recept."
+
+#@ recipress
+#: php/widgets.php:133
+#: php/widgets.php:142
+msgid "Recent Recipes"
+msgstr "Legutóbbi receptek"
+
+#@ recipress
+#: php/widgets.php:133
+msgid "Output a list of recent recipe posts"
+msgstr "Lista megjelenítése a legutóbbi recept bejegyzésekrről"
+
+#@ recipress
+#: php/widgets.php:176
+msgid "Number of Posts:"
+msgstr "Bejegyzések száma:"
+
+#@ recipress
+#: php/widgets.php:180
+msgid "Recipe Thumbnail"
+msgstr "Recept bélyegkép"
+
+#@ recipress
+#: recipress.php:78
+msgid "Use this Image"
+msgstr "Kép használata"
+

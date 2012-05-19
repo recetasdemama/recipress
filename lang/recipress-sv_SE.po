@@ -1,0 +1,1039 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ReciPress v1.8\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-02-03 09:54+0100\n"
+"Last-Translator: Lars Ivarsson <lars@lectrodata.se>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ recipress
+#: php/functions.php:92
+msgid "hrs"
+msgstr "tim"
+
+#@ recipress
+#: php/functions.php:93
+msgid "mins"
+msgstr "min"
+
+#@ recipress
+#: php/functions.php:94
+msgid "hr"
+msgstr "tim"
+
+#@ recipress
+#: php/functions.php:95
+msgid "min"
+msgstr "min"
+
+#@ recipress
+#: php/functions.php:112
+#: php/meta_box.php:9
+msgid "Recipe"
+msgstr "Recept"
+
+#@ recipress
+#: php/functions.php:140
+#: php/meta_box.php:104
+#: php/options.php:159
+msgid "Cuisine"
+msgstr "Kök"
+
+#@ recipress
+#: php/functions.php:146
+msgid "Course:"
+msgstr "Maträtt:"
+
+#@ recipress
+#: php/functions.php:152
+#: php/meta_box.php:106
+#: php/options.php:169
+msgid "Skill Level"
+msgstr "Svårighetsgrad"
+
+#@ recipress
+#: php/functions.php:183
+#: php/functions.php:184
+#: php/meta_box.php:40
+msgid "Servings"
+msgstr "Portioner"
+
+#@ recipress
+#: php/meta_box.php:16
+msgid "Recipe Title"
+msgstr "Recepttitel"
+
+#@ recipress
+#: php/meta_box.php:17
+msgid "Do you want to give the recipe a different title from the post?"
+msgstr "Vill du ha ett annat namn på receptet än på inlägget?"
+
+#@ recipress
+#: php/meta_box.php:24
+msgid "Recipe Summary"
+msgstr "Sammanfattning"
+
+#@ recipress
+#: php/meta_box.php:25
+msgid "A small summary of the recipe"
+msgstr "Sammanfattning av receptet"
+
+#@ recipress
+#: php/meta_box.php:32
+msgid "Yield"
+msgstr "Receptet ger"
+
+#@ recipress
+#: php/meta_box.php:33
+msgid "How much/many does this recipe produce?"
+msgstr "Hur mycket ger detta recept?"
+
+#@ recipress
+#: php/meta_box.php:34
+msgid "e.g., 1 loaf, 2 cups"
+msgstr "t ex 1 limpa, 2 dl"
+
+#@ recipress
+#: php/meta_box.php:41
+msgid "How many servings?"
+msgstr "Hur många portioner?"
+
+#@ recipress
+#: php/meta_box.php:48
+msgid "Prep Time"
+msgstr "Förberedelsetid"
+
+#@ recipress
+#: php/meta_box.php:49
+#: php/meta_box.php:57
+msgid "How many minutes? (60+ minutes will output as hours)"
+msgstr "Hur många minuter? (60+ minuter visas som timmar)"
+
+#@ recipress
+#: php/meta_box.php:56
+msgid "Cook Time"
+msgstr "Tillagningstid"
+
+#@ recipress
+#: php/meta_box.php:64
+#: php/options.php:10
+#: php/output.php:29
+msgid "Ingredients"
+msgstr "Ingredienser"
+
+#@ recipress
+#: php/meta_box.php:70
+#: php/output.php:31
+msgid "Instructions"
+msgstr "Tillagning"
+
+#@ recipress
+#: php/meta_box.php:71
+msgid "Click the plus icon to add another instruction."
+msgstr "Klicka på plusikonen för att lägga till en ytterligare instruktion."
+
+#@ recipress
+#: php/meta_box.php:91
+msgid "Photo"
+msgstr "Foto"
+
+#@ recipress
+#: php/meta_box.php:92
+msgid "Add a photo of your completed recipe"
+msgstr "Lägg till ett foto för det kompletta receptet"
+
+#@ recipress
+#: php/meta_box.php:105
+#: php/options.php:164
+msgid "Course"
+msgstr "Maträtt"
+
+#@ recipress
+#: php/meta_box.php:124
+msgid "Cost"
+msgstr "Kostnad"
+
+#@ recipress
+#: php/meta_box.php:125
+msgid "What does it cost to make this recipe?"
+msgstr "Hur mycket kostar det att tillaga maträtten?"
+
+#@ recipress
+#: php/meta_box.php:126
+msgid "$0.00"
+msgstr "0 kr"
+
+#@ recipress
+#: php/meta_box.php:138
+msgid "Add a Recipe to this post?"
+msgstr "Lägg till ett recept i detta inlägg."
+
+#@ recipress
+#: php/meta_box.php:167
+msgid "Select One"
+msgstr "Välj ett alternativ"
+
+#@ recipress
+#: php/meta_box.php:177
+msgid "Manage"
+msgstr "Administrera"
+
+#@ recipress
+#: php/meta_box.php:186
+msgid "Amount"
+msgstr "Mängd"
+
+#@ recipress
+#: php/meta_box.php:187
+msgid "Measurement"
+msgstr "Måttenhet"
+
+#@ recipress
+#: php/meta_box.php:188
+msgid "Ingredient"
+msgstr "Ingrediens"
+
+#@ recipress
+#: php/meta_box.php:189
+msgid "Notes"
+msgstr "Anmärkning"
+
+#@ recipress
+#: php/meta_box.php:228
+msgid "Description"
+msgstr "Beskrivning"
+
+#@ recipress
+#: php/meta_box.php:229
+msgid "Image"
+msgstr "Bild"
+
+#@ recipress
+#: php/meta_box.php:241
+#: php/meta_box.php:255
+msgid "Describe this step in the recipe"
+msgstr "Beskriv detta tillagningssteg"
+
+#@ recipress
+#: php/meta_box.php:244
+#: php/meta_box.php:258
+#: php/meta_box.php:289
+msgid "Upload Image"
+msgstr "Ladda upp bild"
+
+#@ recipress
+#: php/meta_box.php:245
+#: php/meta_box.php:259
+#: php/meta_box.php:290
+msgid "Remove Image"
+msgstr "Ta bort bild"
+
+#@ recipress
+#: php/options.php:8
+#: php/options.php:9
+#: php/options.php:248
+msgid "ReciPress Options"
+msgstr "ReciPress inställningar"
+
+#@ recipress
+#: php/options.php:8
+#: php/options.php:118
+msgid "ReciPress"
+msgstr "ReciPress"
+
+#@ recipress
+#: php/options.php:13
+msgid "Cuisines"
+msgstr "Kök"
+
+#@ recipress
+#: php/options.php:15
+msgid "Courses"
+msgstr "Maträtter"
+
+#@ recipress
+#: php/options.php:17
+msgid "Skill Levels"
+msgstr "Svårighetsgrader"
+
+#@ recipress
+#: php/options.php:54
+msgid "Recipe Output"
+msgstr "Receptvisning"
+
+#@ recipress
+#: php/options.php:58
+msgid "Automatically Output Recipe"
+msgstr "Visa recept automatiskt"
+
+#@ recipress
+#: php/options.php:63
+#: php/options.php:181
+#: php/options.php:229
+msgid "Yes"
+msgstr "Ja"
+
+#@ recipress
+#: php/options.php:65
+msgid "Recipe will output after the post content"
+msgstr "Receptet visas efter inläggets innehåll"
+
+#@ recipress
+#: php/options.php:69
+#: php/options.php:186
+#: php/options.php:235
+msgid "No"
+msgstr "Nej"
+
+#@ recipress
+#: php/options.php:71
+msgid "Use the <code>[recipe]</code> shortcode to output the recipe"
+msgstr "Använd kortkoden <code>[recipe]</code> för att ange var receptet ska visas"
+
+#@ recipress
+#: php/options.php:76
+msgid "Output Recipe On"
+msgstr "Visa recept på"
+
+#@ recipress
+#: php/options.php:81
+msgid "Home Page/Latest Posts Page"
+msgstr "Startsida/Senaste inlägg"
+
+#@ recipress
+#: php/options.php:85
+msgid "Single Post Page"
+msgstr "Inlägg"
+
+#@ recipress
+#: php/options.php:90
+msgid "Archive and Category Pages"
+msgstr "Arkiv- och kategorisidor"
+
+#@ recipress
+#: php/options.php:94
+msgid "Search Result Page"
+msgstr "Sökresultatsidor"
+
+#@ recipress
+#: php/options.php:100
+msgid "Recipe Theme"
+msgstr "Recepttema"
+
+#@ recipress
+#: php/options.php:105
+msgid "Light"
+msgstr "Ljust"
+
+#@ recipress
+#: php/options.php:108
+msgid "For use with light themes"
+msgstr "Passar till ljusa teman"
+
+#@ recipress
+#: php/options.php:112
+msgid "Dark"
+msgstr "Mörkt"
+
+#@ recipress
+#: php/options.php:115
+msgid "For use with dark themes"
+msgstr "Passar till mörka teman"
+
+#@ recipress
+#: php/options.php:121
+msgid "Custom textured design"
+msgstr "Med anpassad bakgrund"
+
+#@ recipress
+#: php/options.php:150
+msgid "Recipe Input"
+msgstr "Receptinmatning"
+
+#@ recipress
+#: php/options.php:154
+msgid "Use Taxonomies"
+msgstr "Använd klassificeringar"
+
+#@ recipress
+#: php/options.php:176
+msgid "Cost of Recipe Field"
+msgstr "Visa tillagningskostnad"
+
+#@ recipress
+#: php/options.php:183
+msgid "An input for the total cost to make the recipe will be available"
+msgstr "Möjlighet att mata in tillagningskostnaden kommer att finnas"
+
+#@ recipress
+#: php/options.php:188
+msgid "This field will be omitted when creating recipes"
+msgstr "Detta fält kommer inte att synas"
+
+#@ recipress
+#: php/options.php:194
+msgid "Say Thanks"
+msgstr "Säg tack"
+
+#@ recipress
+#: php/options.php:198
+msgid "Plugin Credit"
+msgstr "Länk till upphovsman"
+
+#@ recipress
+#: php/options.php:201
+msgid "Add a credit link to the recipe box."
+msgstr "Lägg till en länk till tilläggets upphovsman i receptrutan."
+
+#@ recipress
+#: php/options.php:205
+msgid "Buy me a latte!"
+msgstr "Köp mig en latte!"
+
+#@ recipress
+#: php/options.php:224
+msgid "Use Featured Image"
+msgstr "Använd utvald bild"
+
+#@ recipress
+#: php/options.php:231
+msgid "Recipe photo will be the same as the post&rsquo;s featured image"
+msgstr "Receptbilden blir samma som inläggets utvalda bild"
+
+#@ recipress
+#: php/options.php:237
+msgid "Use a different image for the recipe"
+msgstr "Använd en annan bild för receptet"
+
+#@ recipress
+#: php/options.php:251
+msgid "Options saved"
+msgstr "Inställningarna sparade"
+
+#@ recipress
+#: php/options.php:390
+msgid "Do you find this plugin useful and want to say thanks?"
+msgstr "Om du tycker att detta tillägg är bra och vill säga tack."
+
+#@ recipress
+#: php/options.php:391
+msgid "Donate"
+msgstr "Donera"
+
+#@ recipress
+#: php/options.php:401
+msgid "Save Options"
+msgstr "Spara inställningar"
+
+#@ recipress
+#: php/output.php:12
+msgid "By"
+msgstr "Av"
+
+#@ recipress
+#: php/output.php:13
+msgid "Published:"
+msgstr "Publicerat:"
+
+#@ recipress
+#: php/output.php:16
+msgid "Yield:"
+msgstr "Receptet ger:"
+
+#@ recipress
+#: php/output.php:18
+msgid "Cost:"
+msgstr "Kostnad:"
+
+#@ recipress
+#: php/output.php:22
+msgid "Prep:"
+msgstr "Förberedelse:"
+
+#@ recipress
+#: php/output.php:24
+msgid "Cook:"
+msgstr "Tillagning:"
+
+#@ recipress
+#: php/output.php:26
+msgid "Ready In:"
+msgstr "Färdig på:"
+
+#@ recipress
+#: php/taxonomies.php:9
+msgctxt "taxonomy general name"
+msgid "Ingredients"
+msgstr "Ingredienser"
+
+#@ recipress
+#: php/taxonomies.php:10
+msgctxt "taxonomy singular name"
+msgid "Ingredient"
+msgstr "Ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:11
+msgid "Search Ingredients"
+msgstr "Sök ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:12
+msgid "Popular Ingredients"
+msgstr "Populära ingredienser"
+
+#@ recipress
+#: php/taxonomies.php:13
+msgid "All Ingredients"
+msgstr "Alla ingredienser"
+
+#@ recipress
+#: php/taxonomies.php:14
+msgid "Parent Ingredient"
+msgstr "Överordnad ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:15
+msgid "Parent Ingredient:"
+msgstr "Överordnad ingrediens:"
+
+#@ recipress
+#: php/taxonomies.php:16
+msgid "Edit Ingredient"
+msgstr "Redigera ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:17
+msgid "Update Ingredient"
+msgstr "Uppdatera ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:18
+msgid "Add New Ingredient"
+msgstr "Lägg till ny ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:19
+msgid "New Ingredient Name"
+msgstr "Namn på ny ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:20
+msgid "Add or remove ingredients"
+msgstr "Lägg till eller ta bort ingrediens"
+
+#@ recipress
+#: php/taxonomies.php:21
+msgctxt "taxonomy menu name"
+msgid "Ingredients"
+msgstr "Ingredienser"
+
+#@ recipress
+#: php/taxonomies.php:40
+msgctxt "taxonomy general name"
+msgid "Cuisines"
+msgstr "Kök"
+
+#@ recipress
+#: php/taxonomies.php:41
+msgctxt "taxonomy singular name"
+msgid "Cuisine"
+msgstr "Kök"
+
+#@ recipress
+#: php/taxonomies.php:42
+msgid "Search Cuisines"
+msgstr "Sök kök"
+
+#@ recipress
+#: php/taxonomies.php:43
+msgid "Popular Cuisines"
+msgstr "Populära kök"
+
+#@ recipress
+#: php/taxonomies.php:44
+msgid "All Cuisines"
+msgstr "Alla kök"
+
+#@ recipress
+#: php/taxonomies.php:45
+msgid "Parent Cuisine"
+msgstr "Överordnat kök"
+
+#@ recipress
+#: php/taxonomies.php:46
+msgid "Parent Cuisine:"
+msgstr "Överordnat kök:"
+
+#@ recipress
+#: php/taxonomies.php:47
+msgid "Edit Cuisine"
+msgstr "Redigera kök"
+
+#@ recipress
+#: php/taxonomies.php:48
+msgid "Update Cuisine"
+msgstr "Uppdatera kök"
+
+#@ recipress
+#: php/taxonomies.php:49
+msgid "Add New Cuisine"
+msgstr "Lägg till kök"
+
+#@ recipress
+#: php/taxonomies.php:50
+msgid "New Cuisine Name"
+msgstr "Nya kökets namn"
+
+#@ recipress
+#: php/taxonomies.php:51
+msgid "Add or remove cuisines"
+msgstr "Lägg till eller ta bort kök"
+
+#@ recipress
+#: php/taxonomies.php:52
+msgctxt "taxonomy menu name"
+msgid "Cuisines"
+msgstr "Kök"
+
+#@ recipress
+#: php/taxonomies.php:71
+msgctxt "taxonomy general name"
+msgid "Courses"
+msgstr "Maträtter"
+
+#@ recipress
+#: php/taxonomies.php:72
+msgctxt "taxonomy singular name"
+msgid "Course"
+msgstr "Maträtt"
+
+#@ recipress
+#: php/taxonomies.php:73
+msgid "Search Courses"
+msgstr "Sök maträtter"
+
+#@ recipress
+#: php/taxonomies.php:74
+msgid "Popular Courses"
+msgstr "Populära maträtter"
+
+#@ recipress
+#: php/taxonomies.php:75
+msgid "All Courses"
+msgstr "Alla maträtter"
+
+#@ recipress
+#: php/taxonomies.php:76
+msgid "Parent Course"
+msgstr "Överordnad maträtt"
+
+#@ recipress
+#: php/taxonomies.php:77
+msgid "Parent Course:"
+msgstr "Överordnad maträtt:"
+
+#@ recipress
+#: php/taxonomies.php:78
+msgid "Edit Course"
+msgstr "Redigera maträtter"
+
+#@ recipress
+#: php/taxonomies.php:79
+msgid "Update Course"
+msgstr "Uppdatera maträtt"
+
+#@ recipress
+#: php/taxonomies.php:80
+msgid "Add New Course"
+msgstr "Lägg till maträtt"
+
+#@ recipress
+#: php/taxonomies.php:81
+msgid "New Course Name"
+msgstr "Namn på ny maträtt"
+
+#@ recipress
+#: php/taxonomies.php:82
+msgid "Add or remove courses"
+msgstr "Lägg till eller ta bort maträtt"
+
+#@ recipress
+#: php/taxonomies.php:83
+msgctxt "taxonomy menu name"
+msgid "Courses"
+msgstr "Maträtter"
+
+#@ recipress
+#: php/taxonomies.php:102
+msgctxt "taxonomy general name"
+msgid "Skill Levels"
+msgstr "Svårighetsgrader"
+
+#@ recipress
+#: php/taxonomies.php:103
+msgctxt "taxonomy singular name"
+msgid "Skill Level"
+msgstr "Svårighetsgrad"
+
+#@ recipress
+#: php/taxonomies.php:104
+msgid "Search Skill Levels"
+msgstr "Sök svårighetsgrad"
+
+#@ recipress
+#: php/taxonomies.php:105
+msgid "Popular Skill Levels"
+msgstr "Populära svårighetsgrader"
+
+#@ recipress
+#: php/taxonomies.php:106
+msgid "All Skill Levels"
+msgstr "Alla svårighetsgrader"
+
+#@ recipress
+#: php/taxonomies.php:107
+msgid "Parent Skill Level"
+msgstr "Överordnad svårighetsgrad"
+
+#@ recipress
+#: php/taxonomies.php:108
+msgid "Parent Skill Level:"
+msgstr "Överordnad svårighetsgrad:"
+
+#@ recipress
+#: php/taxonomies.php:109
+msgid "Edit Skill Level"
+msgstr "Redigera svårighetsgrad"
+
+#@ recipress
+#: php/taxonomies.php:110
+msgid "Update Skill Level"
+msgstr "Uppdatera svårighetsgrad"
+
+#@ recipress
+#: php/taxonomies.php:111
+msgid "Add New Skill Level"
+msgstr "Lägg till svårighetsgrad"
+
+#@ recipress
+#: php/taxonomies.php:112
+msgid "New Skill Level Name"
+msgstr "Namn på ny svårighetsgrad"
+
+#@ recipress
+#: php/taxonomies.php:113
+msgid "Add or remove skill levels"
+msgstr "Lägg till eller ta bort svårighetsgrader"
+
+#@ recipress
+#: php/taxonomies.php:114
+msgctxt "taxonomy menu name"
+msgid "Skill Levels"
+msgstr "Svårighetsgrader"
+
+#@ recipress
+#: php/taxonomies.php:137
+msgid "beef"
+msgstr "nötkött"
+
+#@ recipress
+#: php/taxonomies.php:138
+msgid "bell pepper"
+msgstr "paprika"
+
+#@ recipress
+#: php/taxonomies.php:139
+msgid "bread"
+msgstr "bröd"
+
+#@ recipress
+#: php/taxonomies.php:140
+msgid "cheese"
+msgstr "ost"
+
+#@ recipress
+#: php/taxonomies.php:141
+msgid "chicken"
+msgstr "kyckling"
+
+#@ recipress
+#: php/taxonomies.php:142
+msgid "eggs"
+msgstr "ägg"
+
+#@ recipress
+#: php/taxonomies.php:143
+msgid "fish"
+msgstr "fisk"
+
+#@ recipress
+#: php/taxonomies.php:144
+msgid "flour"
+msgstr "mjöl"
+
+#@ recipress
+#: php/taxonomies.php:145
+msgid "garlic"
+msgstr "vitlök"
+
+#@ recipress
+#: php/taxonomies.php:146
+msgid "milk"
+msgstr "mjölk"
+
+#@ recipress
+#: php/taxonomies.php:147
+msgid "nutmeg"
+msgstr "muskot"
+
+#@ recipress
+#: php/taxonomies.php:148
+msgid "onion"
+msgstr "lök"
+
+#@ recipress
+#: php/taxonomies.php:149
+msgid "pasta"
+msgstr "pasta"
+
+#@ recipress
+#: php/taxonomies.php:150
+msgid "potatoes"
+msgstr "potatis"
+
+#@ recipress
+#: php/taxonomies.php:151
+msgid "shrimp"
+msgstr "räkor"
+
+#@ recipress
+#: php/taxonomies.php:152
+msgid "spinach"
+msgstr "spenat"
+
+#@ recipress
+#: php/taxonomies.php:153
+msgid "strawberries"
+msgstr "jordgubbar"
+
+#@ recipress
+#: php/taxonomies.php:154
+msgid "tomatoes"
+msgstr "tomater"
+
+#@ recipress
+#: php/taxonomies.php:156
+msgid "American"
+msgstr "Amerikansk"
+
+#@ recipress
+#: php/taxonomies.php:157
+msgid "Chinese"
+msgstr "Kinesisk"
+
+#@ recipress
+#: php/taxonomies.php:158
+msgid "Indian"
+msgstr "Indisk"
+
+#@ recipress
+#: php/taxonomies.php:159
+msgid "Italian"
+msgstr "Italiensk"
+
+#@ recipress
+#: php/taxonomies.php:160
+msgid "French"
+msgstr "Fransk"
+
+#@ recipress
+#: php/taxonomies.php:161
+msgid "Japanese"
+msgstr "Japansk"
+
+#@ recipress
+#: php/taxonomies.php:162
+msgid "Mediterrarean"
+msgstr "Medelhavsmat"
+
+#@ recipress
+#: php/taxonomies.php:163
+msgid "Mexican"
+msgstr "Mexikansk"
+
+#@ recipress
+#: php/taxonomies.php:164
+msgid "Seafood"
+msgstr "Fisk och skaldjur"
+
+#@ recipress
+#: php/taxonomies.php:166
+msgid "Appetizer"
+msgstr "Förrätt"
+
+#@ recipress
+#: php/taxonomies.php:167
+msgid "Breakfast"
+msgstr "Frukost"
+
+#@ recipress
+#: php/taxonomies.php:168
+msgid "Entrée"
+msgstr "Entrérätt"
+
+#@ recipress
+#: php/taxonomies.php:169
+msgid "Dessert"
+msgstr "Efterrätt"
+
+#@ recipress
+#: php/taxonomies.php:170
+msgid "Salad"
+msgstr "Sallad"
+
+#@ recipress
+#: php/taxonomies.php:171
+msgid "Side Dish"
+msgstr "Tillbehör"
+
+#@ recipress
+#: php/taxonomies.php:172
+msgid "Snack"
+msgstr "Snack"
+
+#@ recipress
+#: php/taxonomies.php:173
+msgid "Soup"
+msgstr "Soppa"
+
+#@ recipress
+#: php/taxonomies.php:175
+msgid "Advanced"
+msgstr "Avancerad"
+
+#@ recipress
+#: php/taxonomies.php:176
+msgid "Beginner"
+msgstr "Nybörjare"
+
+#@ recipress
+#: php/taxonomies.php:177
+msgid "Child Friendly"
+msgstr "Barnvänlig"
+
+#@ recipress
+#: php/taxonomies.php:178
+msgid "Easy"
+msgstr "Enkel"
+
+#@ recipress
+#: php/taxonomies.php:179
+msgid "Moderate"
+msgstr "Medelsvår"
+
+#@ recipress
+#: php/widgets.php:37
+msgid "Recipress Terms"
+msgstr "ReciPress termer"
+
+#@ recipress
+#: php/widgets.php:37
+msgid "Output a list or cloud of recipe terms"
+msgstr "Visa en lista eller ett moln med recepttermer"
+
+#@ recipress
+#: php/widgets.php:87
+#: php/widgets.php:183
+msgid "Title:"
+msgstr "Titel:"
+
+#@ recipress
+#: php/widgets.php:91
+msgid "Taxonomy:"
+msgstr "Klassificering:"
+
+#@ recipress
+#: php/widgets.php:99
+msgid "Output Type:"
+msgstr "Visningstyp:"
+
+#@ recipress
+#: php/widgets.php:100
+msgid "List"
+msgstr "Lista"
+
+#@ recipress
+#: php/widgets.php:101
+msgid "Cloud"
+msgstr "Moln"
+
+#@ recipress
+#: php/widgets.php:130
+msgid "No recipes found."
+msgstr "Inga recept tillgängliga."
+
+#@ recipress
+#: php/widgets.php:144
+#: php/widgets.php:153
+msgid "Recent Recipes"
+msgstr "Senaste recept"
+
+#@ recipress
+#: php/widgets.php:144
+msgid "Output a list of recent recipe posts"
+msgstr "Visa en lista med de senaste recepten"
+
+#@ recipress
+#: php/widgets.php:187
+msgid "Number of Posts:"
+msgstr "Antal inlägg:"
+
+#@ recipress
+#: php/widgets.php:191
+msgid "Recipe Thumbnail"
+msgstr "Receptminiatyr"
+
+#@ recipress
+#: php/meta_box.php:65
+#, php-format
+msgid "Click the plus icon to add another ingredient. %1$sManage Ingedients%2$s"
+msgstr "Klicka på plusikonen för att lägga till en ytterligare ingrediens. %1$sManage Ingedients%2$s"
+
+#@ recipress
+#: php/options.php:126
+msgid "Instruction Image Size"
+msgstr "Storlek på instruktionsbild"
+
+#@ recipress
+#: php/options.php:131
+msgid "Thumbnail"
+msgstr "Miniatyr"
+
+#@ recipress
+#: php/options.php:135
+msgid "Medium"
+msgstr "Medium"
+
+#@ recipress
+#: php/options.php:139
+msgid "Large"
+msgstr "Stor"
+
+#@ recipress
+#: php/options.php:144
+msgid "Full"
+msgstr "Full storlek"
+
