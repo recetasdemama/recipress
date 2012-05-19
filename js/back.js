@@ -17,7 +17,7 @@ jQuery(function(jQuery) {
 		formID = jQuery(this).attr('rel');
 		formfield = jQuery(this).siblings('.recipress_upload_image');
 		preview = jQuery(this).siblings('.recipress_preview_image');
-		tb_show('', 'media-upload.php?post_id='+formID+'&type=image&TB_iframe=true');
+		tb_show('Upload Image', 'media-upload.php?post_id='+formID+'&type=image&TB_iframe=1');
 		window.send_to_editor = function(html) {
 			img = jQuery('img',html);
 			imgurl = img.attr('src');
