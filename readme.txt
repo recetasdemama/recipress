@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammy
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
 Tested up to: 3.3
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 
 
 == Description ==
@@ -26,6 +26,15 @@ Create recipes in your posts with a clean interface and layout that are easy to 
 * hRecipe optimized for Search Engine Optimization
 * Complete plugin localization
 * [ReciPress.com](http://www.recipress.com) dedicated support, documentation, and demo.
+
+= Languages Available =
+* English (Supported by Author)
+* German
+* French
+* Japanese
+* Slovenian
+* Hungarian
+* Italian
 
 == Installation ==
 
@@ -66,6 +75,16 @@ See our [Documentation](http://recipress.com/docs) for more information.
 5. ReciPress Options
 
 == Changelog ==
+
+= 1.9.2 (May 19, 2012) =
+* fixed error for adding widgets after ReciPress taxononmy widgets
+* fixed Quick Edit error of removing hasRecipe
+* fixed recipress_recent count
+* made the_recipe() filterable
+* removed all HTML from recipress_recipe
+* added shortcode [recipress_recent]
+* updated English language file
+* added new translations: French, Japanese, Slovenian, Hungarian, & Italian
 
 = 1.9.1 (February 2, 2012) =
 * fixed load_plugin_textdomain
