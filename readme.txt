@@ -76,6 +76,9 @@ See our [Documentation](http://recipress.com/docs) for more information.
 
 == Changelog ==
 
+= 1.9.3 (May 30, 2012) =
+* Cleaned up meta_fields array and added intelligence to inserting new fields
+
 = 1.9.2 (May 19, 2012) =
 * fixed error for adding widgets after ReciPress taxononmy widgets
 * fixed Quick Edit error of removing hasRecipe
