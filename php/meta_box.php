@@ -9,133 +9,163 @@ function recipe_add_box() {
     add_meta_box('recipress', __('Recipe', 'recipress'), 'recipe_show_box', 'post', 'normal', 'high');
 }
 
+
 /* Custom Fields
 ------------------------------------------------------------------------- */
-$meta_fields = array(
-	array(
-		'name'	=> __('Recipe Title', 'recipress'),
-		'desc'	=> __('Do you want to give the recipe a different title from the post?', 'recipress'),
-		'place'	=> '',
-		'size'	=> 'large',
-		'id'	=> 'title',
-		'type'	=> 'text'
-	),
-	array(
-		'name'	=> __('Recipe Summary', 'recipress'),
-		'desc'	=> __('A small summary of the recipe', 'recipress'),
-		'place'	=> '',
-		'size'	=> 'small',
-		'id'	=> 'summary',
-		'type'	=> 'textarea'
-	),
-	array(
-		'name'	=> __('Yield', 'recipress'),
-		'desc'	=> __('How much/many does this recipe produce?', 'recipress'),
-		'place'	=> __('e.g., 1 loaf, 2 cups', 'recipress'),
-		'size'	=> 'medium',
-		'id'	=> 'yield',
-		'type'	=> 'text'
-	),
-	array(
-		'name'	=> __('Servings', 'recipress'),
-		'desc'	=> __('How many servings?', 'recipress'),
-		'place'	=> '00',
-		'size'	=> 'small',
-		'id'	=> 'servings',
-		'type'	=> 'text'
-	),
-	array(
-		'name'	=> __('Prep Time', 'recipress'),
-		'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
-		'place'	=> '00',
-		'size'	=> 'small',
-		'id'	=> 'prep_time',
-		'type'	=> 'text'
-	),
-	array(
-		'name'	=> __('Cook Time', 'recipress'),
-		'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
-		'place'	=> '00',
-		'size'	=> 'small',
-		'id'	=> 'cook_time',
-		'type'	=> 'text'
-	),
-	array(
-		'name'	=> __('Ingredients', 'recipress'),
-		'desc'	=> sprintf( __( 'Click the plus icon to add another ingredient. %1$sManage Ingedients%2$s', 'recipress' ), '<a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=ingredient">', '</a>' ),
-		'id'	=> 'ingredient',
-		'type'	=> 'ingredient'
-	),
-	array(
-		'name'	=> __('Instructions', 'recipress'),
-		'desc'	=> __('Click the plus icon to add another instruction.', 'recipress'),
-		'id'	=> 'instruction',
-		'type'	=> 'instruction'
-	)
-);
-
-function meta_fields() {
-	global $meta_fields;
-	return $meta_fields;
+function recipress_fields() {
+	$meta_fields['title'] =
+		array(
+			'name'	=> __('Recipe Title', 'recipress'),
+			'desc'	=> __('Do you want to give the recipe a different title from the post?', 'recipress'),
+			'place'	=> '',
+			'size'	=> 'large',
+			'id'	=> 'title',
+			'type'	=> 'text'
+		);
+	$meta_fields['summary'] =
+		array(
+			'name'	=> __('Recipe Summary', 'recipress'),
+			'desc'	=> __('A small summary of the recipe', 'recipress'),
+			'place'	=> '',
+			'size'	=> 'small',
+			'id'	=> 'summary',
+			'type'	=> 'textarea'
+		);
+	$meta_fields['yield'] =
+		array(
+			'name'	=> __('Yield', 'recipress'),
+			'desc'	=> __('How much/many does this recipe produce?', 'recipress'),
+			'place'	=> __('e.g., 1 loaf, 2 cups', 'recipress'),
+			'size'	=> 'medium',
+			'id'	=> 'yield',
+			'type'	=> 'text'
+		);
+	$meta_fields['servings'] =
+		array(
+			'name'	=> __('Servings', 'recipress'),
+			'desc'	=> __('How many servings?', 'recipress'),
+			'place'	=> '00',
+			'size'	=> 'small',
+			'id'	=> 'servings',
+			'type'	=> 'text'
+		);
+	$meta_fields['prep_time'] =
+		array(
+			'name'	=> __('Prep Time', 'recipress'),
+			'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
+			'place'	=> '00',
+			'size'	=> 'small',
+			'id'	=> 'prep_time',
+			'type'	=> 'text'
+		);
+	$meta_fields['cook_time'] =
+		array(
+			'name'	=> __('Cook Time', 'recipress'),
+			'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
+			'place'	=> '00',
+			'size'	=> 'small',
+			'id'	=> 'cook_time',
+			'type'	=> 'text'
+		);
+	$meta_fields['ingredient'] =
+		array(
+			'name'	=> __('Ingredients', 'recipress'),
+			'desc'	=> sprintf( __( 'Click the plus icon to add another ingredient. %1$sManage Ingedients%2$s', 'recipress' ), '<a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=ingredient">', '</a>' ),
+			'id'	=> 'ingredient',
+			'type'	=> 'ingredient'
+		);
+	$meta_fields['instruction'] =
+		array(
+			'name'	=> __('Instructions', 'recipress'),
+			'desc'	=> __('Click the plus icon to add another instruction.', 'recipress'),
+			'id'	=> 'instruction',
+			'type'	=> 'instruction'
+		);
+	
+	return apply_filters('meta_fields',$meta_fields);
 }
 
-/* The Callback
-------------------------------------------------------------------------- */
-function recipe_show_box() {
-    global $post, $measurements_singular, $measurements_plural;
-	$meta_fields = meta_fields();
-	// if post-thumbnails aren't supported, add a recipe photo
-	if(recipress_add_photo()) 
-		array_unshift($meta_fields,
-		array(
+// if post-thumbnails aren't supported, add a recipe photo
+function recipress_insert_photo($meta_fields) {
+	$photo = array(
+		'photo' => array(
 			'name'	=> __('Photo', 'recipress'),
 			'desc'	=> __('Add a photo of your completed recipe', 'recipress'),
 			'id'	=> 'photo',
 			'type'	=> 'image'
-			));
-	// get set taxonomies
+		)
+	);
+	
+	if(recipress_add_photo()) 
+    	return recipress_array_insert($meta_fields, 'title', $photo, true);
+	else
+		return $meta_fields;
+}
+add_filter('meta_fields', 'recipress_insert_photo');
+
+// add taxonomies
+function recipress_insert_taxonomies($meta_fields) {
 	$taxonomies = recipress_use_taxonomies();
-	if(!isset($taxonomies)) $taxonomies = array('cuisine', 'course', 'skill_level');
+	if(!isset($taxonomies)) 
+		$taxonomies = array('cuisine', 'course', 'skill_level');
 	if($taxonomies != '') {
-		$splice = 2;
-		if(recipress_add_photo()) $splice = 3;
 		foreach ($taxonomies as $taxonomy) {
 			$tax_name = '';
 			if($taxonomy == 'cuisine') $tax_name = __('Cuisine', 'recipress');
 			if($taxonomy == 'course') $tax_name = __('Course', 'recipress');
 			if($taxonomy == 'skill_level') $tax_name = __('Skill Level', 'recipress');
 			
-			array_splice($meta_fields, $splice++, 0,
-				array(array(
+			$add_taxonomies[$taxonomy] = array(
 					'name'	=> $tax_name,
 					'id'	=> $taxonomy,
 					'type'	=> 'tax_select'
-				))
 			);
 		}
 	}
-	// if cost of recipe field is on
-	if(recipress_options('cost_field') == 'yes') {
-		$taxonomies = count($taxonomies);
-		$splice = $taxonomies + 2;
-		if(recipress_add_photo()) $splice++;
-		array_splice($meta_fields, $splice, 0,
-			array(array(
-				'name'	=> __('Cost', 'recipress'),
-				'desc'	=> __('What does it cost to make this recipe?', 'recipress'),
-				'place'	=> __('$0.00', 'recipress'),
-				'size'	=> 'medium',
-				'id'	=> 'cost',
-				'type'	=> 'text'
-			))
-		);
-	}
+	
+	if($add_taxonomies) 
+    	return recipress_array_insert($meta_fields, 'summary', $add_taxonomies);
+	else
+		return $meta_fields;
+}
+add_filter('meta_fields', 'recipress_insert_taxonomies');
+
+// add cost field
+function recipress_insert_cost($meta_fields) {	
+	$cost = array(
+		'cost' => array(
+			'name'	=> __('Cost', 'recipress'),
+			'desc'	=> __('What does it cost to make this recipe?', 'recipress'),
+			'place'	=> __('$0.00', 'recipress'),
+			'size'	=> 'medium',
+			'id'	=> 'cost',
+			'type'	=> 'text'
+		)
+	);
+	
+	if(recipress_options('cost_field') == 'yes')
+    	return recipress_array_insert($meta_fields, 'yield', $cost, true);
+	else
+		return $meta_fields;
+}
+add_filter('meta_fields', 'recipress_insert_cost');
+
+
+/* The Callback
+------------------------------------------------------------------------- */
+function recipe_show_box() {
+    global $post, $measurements_singular, $measurements_plural;
+	$meta_fields = recipress_fields();
+	
     // Use nonce for verification
     echo '<input type="hidden" name="recipe_meta_box_nonce" value="', wp_create_nonce(basename(__FILE__)), '" />';
+	
 	$hasRecipe_check = '';
 	$hasRecipe = get_post_meta($post->ID, 'hasRecipe', true);
-	if($hasRecipe == 'Yes') $hasRecipe_check = ' checked="checked"';
+	if($hasRecipe == 'Yes')
+		$hasRecipe_check = ' checked="checked"';
 	echo '<p id="hasRecipe_box"><input type="checkbox"'.$hasRecipe_check.' id="hasRecipe" name="hasRecipe" value="Yes" /><label for="hasRecipe">'.__('Add a Recipe to this post?', 'recipress').'</label></p>';
+	
     echo '<div id="recipress_table"><table class="form-table">';
     foreach ($meta_fields as $field) {
 		if ($field['type'] == 'section') {
@@ -147,12 +177,18 @@ function recipe_show_box() {
 		}
 		else {
         // get current post meta data
-		$name = $field['name'];
-		$desc = $field['desc'];
-		$place = $field['place'];
-		$size = $field['size'];
-		$id = $field['id'];
-		$type = $field['type'];
+		if ($field['name'])
+			$name = $field['name'];
+		if ($field['desc'])
+			$desc = $field['desc'];
+		if ($field['place'])
+			$place = $field['place'];
+		if ($field['size'])
+			$size = $field['size'];
+		if ($field['id'])
+			$id = $field['id'];
+		if ($field['type'])
+			$type = $field['type'];
         $meta = get_post_meta($post->ID, $id, true);
         echo '<tr>',
                 '<th style="width:20%"><label for="'.$id.'">'.$name.'</label></th>',
@@ -304,28 +340,16 @@ function recipe_show_box() {
 add_action('save_post', 'recipe_save_data');
 // Save data from meta box
 function recipe_save_data($post_id) {
-    $meta_fields = meta_fields();
-	// if post-thumbnails aren't supported, add a recipe photo
-	if(!current_theme_supports('post-thumbnails') || (current_theme_supports('post-thumbnails') && recipress_options('use_photo') == 'no')) 
-		array_unshift($meta_fields,
-		array(
-			'id'	=> 'photo'
-			));
-	// if cost of recipe field is on
-	if(recipress_options('cost_field') == 'yes') {
-		$taxonomies = recipress_use_taxonomies();
-		$taxonomies = count($taxonomies);
-		$splice = 2;
-		if(recipress_add_photo()) $splice++;
-		array_splice($meta_fields, $splice, 0,
-			array(array(
-				'id'	=> 'cost'
-			))
-		);
-	}
+    $meta_fields = recipress_fields();
+	
 	// set the value of hasRecipe
 	$hasRecipe_old = get_post_meta($post_id, 'hasRecipe', true);
 	$hasRecipe_new = $_POST['hasRecipe'];
+		if ($hasRecipe_new && $hasRecipe_new != $hasRecipe_old) {
+			update_post_meta($post_id, 'hasRecipe', $hasRecipe_new);
+		} elseif ('' == $hasRecipe_new && $hasRecipe_old) {
+			delete_post_meta($post_id, 'hasRecipe', $hasRecipe_old);
+		}
 	// determine if a recipe was added
 	if ($hasRecipe_new == 'Yes') {
 		// verify nonce
@@ -340,11 +364,6 @@ function recipe_save_data($post_id) {
 				return $post_id;
 		} elseif (!current_user_can('edit_post', $post_id)) {
 			return $post_id;
-		}
-		if ($hasRecipe_new && $hasRecipe_new != $hasRecipe_old) {
-			update_post_meta($post_id, 'hasRecipe', $hasRecipe_new);
-		} elseif ('' == $hasRecipe_new && $hasRecipe_old) {
-			delete_post_meta($post_id, 'hasRecipe', $hasRecipe_old);
 		}
 		foreach ($meta_fields as $field) {
 			if($field['type'] == 'tax_select') continue;
