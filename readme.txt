@@ -3,8 +3,8 @@ Contributors: tammyhart
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammyhartdesigns%40gmail%2ecom&item_name=Recipe%20Box%20Plugin%20Latte%20Fund&no_shipping=0&no_note=1&tax=0&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
-Tested up to: 3.3
-Stable tag: 1.9.2
+Tested up to: 3.3.2
+Stable tag: 1.9.3
 
 
 == Description ==
@@ -76,8 +76,12 @@ See our [Documentation](http://recipress.com/docs) for more information.
 
 == Changelog ==
 
-= 1.9.3 (May 30, 2012) =
-* Cleaned up meta_fields array and added intelligence to inserting new fields
+= 1.9.3 (May 31, 2012) =
+* Added functions to add and remove items from arrays
+* Cleaned up recipress_fields array and changed the way items are added
+* Cleaned up recipress_options_fields array and changed the way items are added
+* Converted the output into a filterable array
+* Added default to recipress_recipe
 
 = 1.9.2 (May 19, 2012) =
 * fixed error for adding widgets after ReciPress taxononmy widgets
