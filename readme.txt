@@ -80,6 +80,8 @@ See our [Documentation](http://recipress.com/docs) for more information.
 * Added functions to add and remove items from arrays
 * Cleaned up recipress_fields array and changed the way items are added
 * Cleaned up recipress_options_fields array and changed the way items are added
+* Converted the output into a filterable array
+* Added default to recipress_recipe
 
 = 1.9.2 (May 19, 2012) =
 * fixed error for adding widgets after ReciPress taxononmy widgets
