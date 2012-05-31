@@ -1,5 +1,32 @@
 <?php
 
+// add to an array
+function recipress_array_insert($arr1, $key, $arr2, $before = FALSE) {
+	$index = array_search($key, array_keys($arr1));
+	
+	if($index === FALSE)
+		$index = count($arr1);
+	else
+		if(!$before)
+			$index++;
+
+	$end = array_splice($arr1, $index);
+	return array_merge($arr1, $arr2, $end);
+}
+
+// remove from an array
+function recipress_array_remove() { 
+    $args = func_get_args(); 
+    $array = $args[0]; 
+    $keys = array_slice($args,1); 
+     
+    foreach($array as $k=>$v) { 
+        if(in_array($k, $keys)) 
+            unset($array[$k]); 
+    } 
+    return $array; 
+} 
+
 // hasRecipe
 function has_recipress_recipe() {
 	global $post;

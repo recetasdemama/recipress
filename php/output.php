@@ -79,8 +79,9 @@ add_shortcode('recipe', 'the_recipe_shortcode');
 // auto add?
 function recipress_autoadd() {
 	$autoadd = recipress_options('autoadd');
-	if ( !isset($autoadd) || $autoadd == 'yes' )
+	if ( !isset($autoadd) || $autoadd == 'yes' ) {
 		add_action('the_content', 'the_recipe', 10);
+	}
 }
 add_action('template_redirect', 'recipress_autoadd');
 

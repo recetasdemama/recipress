@@ -82,10 +82,11 @@ function recipress_fields() {
 			'type'	=> 'instruction'
 		);
 	
-	return apply_filters('meta_fields',$meta_fields);
+	return apply_filters('recipress_fields',$meta_fields);
 }
 
 // if post-thumbnails aren't supported, add a recipe photo
+add_filter('recipress_fields', 'recipress_insert_photo');
 function recipress_insert_photo($meta_fields) {
 	$photo = array(
 		'photo' => array(
@@ -101,9 +102,9 @@ function recipress_insert_photo($meta_fields) {
 	else
 		return $meta_fields;
 }
-add_filter('meta_fields', 'recipress_insert_photo');
 
 // add taxonomies
+add_filter('recipress_fields', 'recipress_insert_taxonomies');
 function recipress_insert_taxonomies($meta_fields) {
 	$taxonomies = recipress_use_taxonomies();
 	if(!isset($taxonomies)) 
@@ -128,9 +129,9 @@ function recipress_insert_taxonomies($meta_fields) {
 	else
 		return $meta_fields;
 }
-add_filter('meta_fields', 'recipress_insert_taxonomies');
 
 // add cost field
+add_filter('recipress_fields', 'recipress_insert_cost');
 function recipress_insert_cost($meta_fields) {	
 	$cost = array(
 		'cost' => array(
@@ -148,7 +149,6 @@ function recipress_insert_cost($meta_fields) {
 	else
 		return $meta_fields;
 }
-add_filter('meta_fields', 'recipress_insert_cost');
 
 
 /* The Callback
