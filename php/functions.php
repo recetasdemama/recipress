@@ -236,6 +236,9 @@ function recipress_recipe($field, $attr = null) {
 			
 			return $output;
 		break;
+		
+		default:
+			return $meta[$field][0];
 	} // end switch
 	
 }
