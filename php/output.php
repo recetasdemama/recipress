@@ -15,13 +15,14 @@ function get_the_recipe() {
 		// details
 		$recipe['details_before'] = '<ul class="recipe-details">';
 		if(recipress_recipe('yield'))
-			$recipe['yield'] = '<li><b>'.__('Yield:', 'recipress').'</b> <span class="yield">'.recipress_recipe('yield').'</span></li>';
+			$recipe['yield'] = '<li id="yield"><b>'.__('Yield:', 'recipress').'</b> <span class="yield">'.recipress_recipe('yield').'</span></li>';
 		if(recipress_recipe('cost'))
 			$recipe['cost'] = '<li><b>'.__('Cost:', 'recipress').'</b> <span class="cost">'.recipress_recipe('cost').'</span></li>';
 		if(recipress_recipe('prep_time') && recipress_recipe('cook_time'))
-			$recipe['clear_items'] = '<li class="clear_items"></li>';
+			$recipe['clear_items'] = "</ul><ul class='recipe-details right'>";
+			/*$recipe['clear_items'] = '<li class="clear_items"></li>';*/
 		if(recipress_recipe('prep_time'))
-			$recipe['prep_time'] = '<li><b>'.__('Prep:', 'recipress').'</b> <span class="preptime"><span class="value-title" title="'.recipress_recipe('prep_time', 'iso').'"></span>'.recipress_recipe('prep_time','mins').'</span></li>';
+			$recipe['prep_time'] = '<li id="prep"><b>'.__('Prep:', 'recipress').'</b> <span class="preptime"><span class="value-title" title="'.recipress_recipe('prep_time', 'iso').'"></span>'.recipress_recipe('prep_time','mins').'</span></li>';
 		if(recipress_recipe('cook_time'))
 			$recipe['cook_time'] = '<li><b>'.__('Cook:', 'recipress').'</b> <span class="cooktime"><span class="value-title" title="'.recipress_recipe('cook_time','iso').'"></span>'.recipress_recipe('cook_time','mins').'</span></li>';
 		if(recipress_recipe('prep_time') && recipress_recipe('cook_time'))
