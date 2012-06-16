@@ -49,178 +49,182 @@ function recipress_init(){
 
 /* Create an array of option fields
 ------------------------------------------------------------------------- */
-$recipress_options_fields = array(
-	array(
-		'label' => __('Recipe Output', 'recipress'),
-		'type' 	=> 'section'
-	),
-	array(
-		'label' => __('Automatically Output Recipe', 'recipress'),
-		'id' 	=> 'autoadd',
-		'type' 	=> 'radio',
-		'options'=> array(
-			'yes'	=> array(
-				'label'	=> __('Yes', 'recipress'),
-				'value'	=> 'yes',
-				'desc'	=> __('Recipe will output after the post content', 'recipress'),
-				'default'=> true
-			),
-			'no'	=> array(
-				'label'	=> __('No', 'recipress'),
-				'value'	=> 'no',
-				'desc'	=> __('Use the <code>[recipe]</code> shortcode to output the recipe', 'recipress')
-			),
-		)
-	),
-	array(
-		'label' => __('Output Recipe On', 'recipress'),
-		'id' 	=> 'output',
-		'type' 	=> 'checkbox_group',
-		'options'=> array(
-			'home'	=> array(
-				'label'	=> __('Home Page/Latest Posts Page', 'recipress'),
-				'value'	=> 'home'
-			),
-			'single'	=> array(
-				'label'	=> __('Single Post Page', 'recipress'),
-				'value'	=> 'single',
-				'default'=> true
-			),
-			'archive'	=> array(
-				'label'	=> __('Archive and Category Pages', 'recipress'),
-				'value'	=> 'archive'
-			),
-			'search'	=> array(
-				'label'	=> __('Search Result Page', 'recipress'),
-				'value'	=> 'search'
-			),
-		)
-	),
-	array(
-		'label' => __('Recipe Theme', 'recipress'),
-		'id' 	=> 'theme',
-		'type' 	=> 'image_radio',
-		'options'=> array(
-			'recipress-light'	=> array(
-				'label'	=> __('Light', 'recipress'),
-				'value'	=> 'recipress-light',
-				'image'	=> 'theme-light.jpg',
-				'desc'	=> __('For use with light themes', 'recipress'),
-				'default' => true
-			),
-			'recipress-dark'	=> array(
-				'label'	=> __('Dark', 'recipress'),
-				'value'	=> 'recipress-dark',
-				'image'	=> 'theme-dark.jpg',
-				'desc'	=> __('For use with dark themes', 'recipress')
-			),
-			'recipress-recipress'	=> array(
-				'label'	=> __('ReciPress', 'recipress'),
-				'value'	=> 'recipress-recipress',
-				'image'	=> 'theme-recipress.jpg',
-				'desc'	=> __('Custom textured design', 'recipress')
-			)
-		)
-	),
-	array(
-		'label'	=> __('Instruction Image Size', 'recipress'),
-		'id' 	=> 'instruction_image_size',
-		'type' 	=> 'radio',
-		'options'=> array(
-			'thumbnail'	=> array(
-				'label'	=> __('Thumbnail', 'recipress'),
-				'value'	=> 'thumbnail'
-			),
-			'medium'	=> array(
-				'label'	=> __('Medium', 'recipress'),
-				'value'	=> 'medium'
-			),
-			'large'	=> array(
-				'label'	=> __('Large', 'recipress'),
-				'value'	=> 'large',
-				'default'=> true
-			),
-			'full'	=> array(
-				'label'	=> __('Full', 'recipress'),
-				'value'	=> 'full'
-			)
-		)
-	),
-	array(
-		'label' => __('Recipe Input', 'recipress'),
-		'type' 	=> 'section'
-	),
-	array(
-		'label' => __('Use Taxonomies', 'recipress'),
-		'id' 	=> 'taxonomies',
-		'type' 	=> 'checkbox_group',
-		'options'=> array(
-			'cuisine'	=> array(
-				'label'	=> __('Cuisine', 'recipress'),
-				'value'	=> 'cuisine',
-				'default'=> true
-			),
-			'course'	=> array(
-				'label'	=> __('Course', 'recipress'),
-				'value'	=> 'course',
-				'default'=> true
-			),
-			'skill_level'	=> array(
-				'label'	=> __('Skill Level', 'recipress'),
-				'value'	=> 'skill_level',
-				'default'=> true
-			)
-		)
-	),
-	array(
-		'label' => __('Cost of Recipe Field', 'recipress'),
-		'id' 	=> 'cost_field',
-		'type' 	=> 'radio',
-		'options'=> array(
-			'yes'	=> array(
-				'label'	=> __('Yes', 'recipress'),
-				'value'	=> 'yes',
-				'desc'	=> __('An input for the total cost to make the recipe will be available', 'recipress')
-			),
-			'no'	=> array(
-				'label'	=> __('No', 'recipress'),
-				'value'	=> 'no',
-				'desc'	=> __('This field will be omitted when creating recipes', 'recipress'),
-				'default'=> true
-			),
-		)
-	),
-	array(
-		'label' => __('Say Thanks', 'recipress'),
-		'type' 	=> 'section'
-	),
-	array(
-		'label'	=> __('Plugin Credit', 'recipress'),
-		'type'	=> 'checkbox',
-		'id'	=> 'credit',
-		'desc'	=> __('Add a credit link to the recipe box.', 'recipress'),
-		'checked' => ' checked="checked"'
-	),
-	array(
-		'label'	=> __('Buy me a latte!', 'recipress'),
-		'type'	=> 'paypal'
-	)
-		
-);
-
 function recipress_options_fields() {
-	global $recipress_options_fields;
-	return $recipress_options_fields;
+	$recipress_options_fields['outputSection'] =
+		array(
+			'label' => __('Recipe Output', 'recipress'),
+			'type' 	=> 'section'
+		);
+	$recipress_options_fields['autoadd'] =
+		array(
+			'label' => __('Automatically Output Recipe', 'recipress'),
+			'id' 	=> 'autoadd',
+			'type' 	=> 'radio',
+			'options'=> array(
+				'yes'	=> array(
+					'label'	=> __('Yes', 'recipress'),
+					'value'	=> 'yes',
+					'desc'	=> __('Recipe will output after the post content', 'recipress'),
+					'default'=> true
+				),
+				'no'	=> array(
+					'label'	=> __('No', 'recipress'),
+					'value'	=> 'no',
+					'desc'	=> __('Use the <code>[recipe]</code> shortcode to output the recipe', 'recipress')
+				),
+			)
+		);
+	$recipress_options_fields['output'] =
+		array(
+			'label' => __('Output Recipe On', 'recipress'),
+			'id' 	=> 'output',
+			'type' 	=> 'checkbox_group',
+			'options'=> array(
+				'home'	=> array(
+					'label'	=> __('Home Page/Latest Posts Page', 'recipress'),
+					'value'	=> 'home'
+				),
+				'single'	=> array(
+					'label'	=> __('Single Post Page', 'recipress'),
+					'value'	=> 'single',
+					'default'=> true
+				),
+				'archive'	=> array(
+					'label'	=> __('Archive and Category Pages', 'recipress'),
+					'value'	=> 'archive'
+				),
+				'search'	=> array(
+					'label'	=> __('Search Result Page', 'recipress'),
+					'value'	=> 'search'
+				),
+			)
+		);
+	$recipress_options_fields['theme'] =
+		array(
+			'label' => __('Recipe Theme', 'recipress'),
+			'id' 	=> 'theme',
+			'type' 	=> 'image_radio',
+			'options'=> array(
+				'recipress-light'	=> array(
+					'label'	=> __('Light', 'recipress'),
+					'value'	=> 'recipress-light',
+					'image'	=> 'theme-light.jpg',
+					'desc'	=> __('For use with light themes', 'recipress'),
+					'default' => true
+				),
+				'recipress-dark'	=> array(
+					'label'	=> __('Dark', 'recipress'),
+					'value'	=> 'recipress-dark',
+					'image'	=> 'theme-dark.jpg',
+					'desc'	=> __('For use with dark themes', 'recipress')
+				),
+				'recipress-recipress'	=> array(
+					'label'	=> __('ReciPress', 'recipress'),
+					'value'	=> 'recipress-recipress',
+					'image'	=> 'theme-recipress.jpg',
+					'desc'	=> __('Custom textured design', 'recipress')
+				)
+			)
+		);
+	$recipress_options_fields['instruction_image_size'] =
+		array(
+			'label'	=> __('Instruction Image Size', 'recipress'),
+			'id' 	=> 'instruction_image_size',
+			'type' 	=> 'radio',
+			'options'=> array(
+				'thumbnail'	=> array(
+					'label'	=> __('Thumbnail', 'recipress'),
+					'value'	=> 'thumbnail'
+				),
+				'medium'	=> array(
+					'label'	=> __('Medium', 'recipress'),
+					'value'	=> 'medium'
+				),
+				'large'	=> array(
+					'label'	=> __('Large', 'recipress'),
+					'value'	=> 'large',
+					'default'=> true
+				),
+				'full'	=> array(
+					'label'	=> __('Full', 'recipress'),
+					'value'	=> 'full'
+				)
+			)
+		);
+	$recipress_options_fields['inputSection'] =
+		array(
+			'label' => __('Recipe Input', 'recipress'),
+			'type' 	=> 'section'
+		);
+	$recipress_options_fields['taxonomies'] =
+		array(
+			'label' => __('Use Taxonomies', 'recipress'),
+			'id' 	=> 'taxonomies',
+			'type' 	=> 'checkbox_group',
+			'options'=> array(
+				'cuisine'	=> array(
+					'label'	=> __('Cuisine', 'recipress'),
+					'value'	=> 'cuisine',
+					'default'=> true
+				),
+				'course'	=> array(
+					'label'	=> __('Course', 'recipress'),
+					'value'	=> 'course',
+					'default'=> true
+				),
+				'skill_level'	=> array(
+					'label'	=> __('Skill Level', 'recipress'),
+					'value'	=> 'skill_level',
+					'default'=> true
+				)
+			)
+		);
+	$recipress_options_fields['cost_field'] =
+		array(
+			'label' => __('Cost of Recipe Field', 'recipress'),
+			'id' 	=> 'cost_field',
+			'type' 	=> 'radio',
+			'options'=> array(
+				'yes'	=> array(
+					'label'	=> __('Yes', 'recipress'),
+					'value'	=> 'yes',
+					'desc'	=> __('An input for the total cost to make the recipe will be available', 'recipress')
+				),
+				'no'	=> array(
+					'label'	=> __('No', 'recipress'),
+					'value'	=> 'no',
+					'desc'	=> __('This field will be omitted when creating recipes', 'recipress'),
+					'default'=> true
+				),
+			)
+		);
+	$recipress_options_fields['thanksSection'] =
+		array(
+			'label' => __('Say Thanks', 'recipress'),
+			'type' 	=> 'section'
+		);
+	$recipress_options_fields['credit'] =
+		array(
+			'label'	=> __('Plugin Credit', 'recipress'),
+			'type'	=> 'checkbox',
+			'id'	=> 'credit',
+			'desc'	=> __('Add a credit link to the recipe box.', 'recipress'),
+			'checked' => ' checked="checked"'
+		);
+	$recipress_options_fields['paypal'] =
+		array(
+			'label'	=> __('Buy me a latte!', 'recipress'),
+			'type'	=> 'paypal'
+		);
+
+	return apply_filters('recipress_option_fields', $recipress_options_fields);
 }
 
-/* Create the options page
-------------------------------------------------------------------------- */
-function recipress_do_page() {
-	$fields = recipress_options_fields();
-	// if post-thumbnails are supported, add a recipe photo
-	if(current_theme_supports('post-thumbnails')) 
-		array_splice($fields, 4, 0,
-		array(array(
+// post thumbnails
+add_filter('recipress_option_fields', 'recipress_insert_thumbnails');
+function recipress_insert_thumbnails($recipress_options_fields) {
+	$thumbnails = array(
+		'thumbnails' => array(
 			'label'	=> __('Use Featured Image', 'recipress'),
 			'id' 	=> 'use_photo',
 			'type' 	=> 'radio',
@@ -237,8 +241,19 @@ function recipress_do_page() {
 					'desc'	=> __('Use a different image for the recipe', 'recipress')
 				),
 			)
-		))
+		)
 	);
+	
+	if(current_theme_supports('post-thumbnails')) 
+    	return recipress_array_insert($recipress_options_fields, 'theme', $thumbnails);
+	else
+		return $recipress_options_fields;
+}
+
+/* Create the options page
+------------------------------------------------------------------------- */
+function recipress_do_page() {
+	$fields = recipress_options_fields();
 
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
@@ -258,13 +273,20 @@ function recipress_do_page() {
 			$sections = 0;
 			foreach ($fields as $field) {
 				// values
-				$label = $field['label'];
-				$desc = $field['desc'];
-				$id = $field['id'];
-				$type = $field['type'];
-				$value = $field['value'];
-				$f_options = $field['options'];
-				$meta = $options[$id];
+				if ($field['label'])
+					$label = $field['label'];
+				if ($field['desc'])
+					$desc = $field['desc'];
+				if ($field['id'])
+					$id = $field['id'];
+				if ($field['type'])
+					$type = $field['type'];
+				if ($field['value'])
+					$value = $field['value'];
+				if ($field['options'])
+					$f_options = $field['options'];
+				if ($field['id'])
+					$meta = $options[$id];
 			// section titles
 			if ($type == 'section') {
 				$sections++;
