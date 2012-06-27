@@ -3,8 +3,8 @@ Contributors: tammyhart
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=tammyhartdesigns%40gmail%2ecom&item_name=Recipe%20Box%20Plugin%20Latte%20Fund&no_shipping=0&no_note=1&tax=0&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
 Tags: recipe, hRecipe, ingredients, cuisine, course, skill level, taxonomy, widget
 Requires at least: 2.9
-Tested up to: 3.3.2
-Stable tag: 1.9.3
+Tested up to: 3.4
+Stable tag: 1.9.4
 
 
 == Description ==
