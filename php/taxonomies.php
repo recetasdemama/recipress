@@ -33,7 +33,7 @@ function register_recipress_taxonomies() {
 	'query_var' 		=> true
 	);
 
-	register_taxonomy( 'ingredient', 'post', $args );
+	register_taxonomy( 'ingredient', recipress_post_type(), $args );
 	
 	// cuisines
 	$labels = array( 
@@ -64,7 +64,7 @@ function register_recipress_taxonomies() {
 	'query_var' 		=> true
 	);
 
-	register_taxonomy( 'cuisine', 'post', $args );
+	register_taxonomy( 'cuisine', recipress_post_type(), $args );
 	
 	// courses
 	$labels = array( 
@@ -95,7 +95,7 @@ function register_recipress_taxonomies() {
 	'query_var' 		=> true
 	);
 
-	register_taxonomy( 'course', 'post', $args );
+	register_taxonomy( 'course', recipress_post_type(), $args );
 	
 	// skill_levels
 	$labels = array( 
@@ -126,7 +126,7 @@ function register_recipress_taxonomies() {
 	'query_var' 		=> true
 	);
 
-	register_taxonomy( 'skill_level', 'post', $args );
+	register_taxonomy( 'skill_level', recipress_post_type(), $args );
 }
 
 
@@ -183,10 +183,10 @@ function recipress_default_taxonomies() {
 /* Remove Taxonomy Boxes
    ------------------------------------------------------------------------- */
 function recipress_remove_taxonomy_boxes() {
-	remove_meta_box('tagsdiv-ingredient', 'post', 'side');
-	remove_meta_box('tagsdiv-cuisine', 'post', 'side');
-	remove_meta_box('tagsdiv-course', 'post', 'side');
-	remove_meta_box('tagsdiv-skill_level', 'post', 'side');
+	remove_meta_box('tagsdiv-ingredient', recipress_post_type(), 'side');
+	remove_meta_box('tagsdiv-cuisine', recipress_post_type(), 'side');
+	remove_meta_box('tagsdiv-course', recipress_post_type(), 'side');
+	remove_meta_box('tagsdiv-skill_level', recipress_post_type(), 'side');
 }
 add_action( 'admin_menu' , 'recipress_remove_taxonomy_boxes' );
 

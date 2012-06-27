@@ -1,7 +1,7 @@
 <?php
 
 // add to an array
-function recipress_array_insert($arr1, $key, $arr2, $before = FALSE) {
+function recipress_array_insert($arr1, $key, $arr2, $before = false) {
 	$index = array_search($key, array_keys($arr1));
 	
 	if($index === FALSE)
@@ -34,6 +34,13 @@ function has_recipress_recipe() {
 	$meta = get_post_meta($post->ID, 'hasRecipe', true);
 	if($meta == 'Yes') $hasRecipe = true;
 	return $hasRecipe;
+}
+
+// post type
+function recipress_post_type() {
+	$type = recipress_options('post_type') ? recipress_options('post_type') : 'post';
+	
+	return $type;
 }
 
 // output
@@ -195,7 +202,8 @@ function recipress_recipe($field, $attr = null) {
 		case 'ready_time':
 			$prep_time = $meta['prep_time'][0];
 			$cook_time = $meta['cook_time'][0];
-			$ready_time = $prep_time + $cook_time;
+			$other_time = $meta['other_time'][0];
+			$ready_time = $prep_time + $cook_time + $other_time;
 			$ready_time = recipress_time($ready_time, $attr);
 			return $ready_time;
 		break;

@@ -10,7 +10,7 @@ function get_the_recipe() {
 		$recipe['title'] = '<h2 class="fn">'.recipress_recipe('title').'</h2>';
 		$recipe['photo'] = recipress_recipe('photo', 'class=alignright photo recipress_thumb');
 		$recipe['meta'] = '<p class="seo_only">'.__('By', 'recipress').' <span class="author">'.get_the_author().'</span>
-							'.__('Published:', 'recipress').' <span class="published">'.get_the_date('F j, Y').'<span class="value-title" title="'.get_the_date('c').'"></span></span></p>';
+							'.__('Published:', 'recipress').' <span class="published updated">'.get_the_date('F j, Y').'<span class="value-title" title="'.get_the_date('c').'"></span></span></p>';
 							
 		// details
 		$recipe['details_before'] = '<ul class="recipe-details">';
@@ -48,7 +48,7 @@ function get_the_recipe() {
 		$recipe['cuisine'] = recipress_recipe('cuisine', '<li><b>'.__('Cuisine', 'recipress').':</b> ', ', ', '</li>');
 		$recipe['course'] = recipress_recipe('course', '<li><b>'.__('Course:', 'recipress').'</b> ', ', ', '</li>');
 		$recipe['skill_level'] = recipress_recipe('skill_level', '<li><b>'.__('Skill Level', 'recipress').':</b> ', ', ', '</li>');
-		$recipe['taxonomies_acter'] = '</ul>';
+		$recipe['taxonomies_after'] = '</ul>';
 		
 		// close
 		$recipe['credit'] = recipress_credit();
