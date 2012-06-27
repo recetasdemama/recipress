@@ -76,6 +76,13 @@ See our [Documentation](http://recipress.com/docs) for more information.
 
 == Changelog ==
 
+= 1.9.4 (June 26, 2012) =
+* changed "Upload Image" to a more suitable "Add Image"
+* made options and meta box field behave more similarly
+* added option to change post types
+* added an "other time" input for proper "ready time" calculation.
+* fixed Quick Edit error of removing hasRecipe
+
 = 1.9.3 (May 31, 2012) =
 * Added functions to add and remove items from arrays
 * Cleaned up recipress_fields array and changed the way items are added
@@ -85,7 +92,6 @@ See our [Documentation](http://recipress.com/docs) for more information.
 
 = 1.9.2 (May 19, 2012) =
 * fixed error for adding widgets after ReciPress taxononmy widgets
-* fixed Quick Edit error of removing hasRecipe
 * fixed recipress_recent count
 * made the_recipe() filterable
 * removed all HTML from recipress_recipe
@@ -120,7 +126,7 @@ See our [Documentation](http://recipress.com/docs) for more information.
 * Fixed missing ingredient error
 
 = 1.5 (December 12, 2011) =
-* Fixed upload image javascript
+* Fixed Add Image javascript
 * Fixed missing image field in new instructions
 
 = 1.4 (December 10, 2011) =
