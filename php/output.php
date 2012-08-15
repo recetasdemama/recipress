@@ -8,7 +8,7 @@ function get_the_recipe() {
 		// create the array
 		$recipe['before'] = '<div class="hrecipe '.recipress_theme().'" id="recipress_recipe">';
 		$recipe['title'] = '<h2 class="fn">'.recipress_recipe('title').'</h2>';
-		$recipe['photo'] = recipress_recipe('photo', 'class=alignright photo recipress_thumb');
+		$recipe['photo'] = recipress_recipe('photo', 'class=photo recipress_thumb');
 		$recipe['meta'] = '<p class="seo_only">'.__('By', 'recipress').' <span class="author">'.get_the_author().'</span>
 							'.__('Published:', 'recipress').' <span class="published">'.get_the_date('F j, Y').'<span class="value-title" title="'.get_the_date('c').'"></span></span></p>';
 							
