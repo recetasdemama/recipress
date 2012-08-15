@@ -145,10 +145,10 @@ function recipress_recipe($field, $attr = null) {
 		// photo
 		case 'photo':
 			if(current_theme_supports('post-thumbnails') && recipress_options('use_photo') != 'no') 
-				$photo = get_the_post_thumbnail($post->ID, 'thumbnail', $attr);
+				$photo = get_the_post_thumbnail($post->ID, 'full', $attr);
 			else {
 				$photo_id = $meta['photo'][0];
-				$photo = wp_get_attachment_image($photo_id, 'thumbnail', false, $attr);
+				$photo = wp_get_attachment_image($photo_id, 'full', false, $attr);
 			}
 			return $photo;
 		break;
