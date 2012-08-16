@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "POT-Creation-Date: 2012-08-15 16:38:55\n"
-"PO-Revision-Date: 2012-08-15 17:06+0100\n"
+"PO-Revision-Date: 2012-08-15 18:38+0100\n"
 "Last-Translator: Francisco de Juan <fjuan@recetasdemama.es>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -109,7 +109,7 @@ msgid "Ingredients"
 msgstr "Ingredientes"
 
 msgid "Instructions"
-msgstr "Instrucciones"
+msgstr "Preparación"
 
 msgid "Click the plus icon to add another instruction."
 msgstr "Pulsa en el icono + para añadir más instrucciones"
