@@ -43,13 +43,15 @@ function get_the_recipe() {
 		// instructions
 		$recipe['instructions_title'] = '<h3>'.__('Instructions', 'recipress').'</h3>';
 		$recipe['instructions'] = recipress_instructions_list();
-					
+    
 		// taxonomies
-		$recipe['taxonomies_before'] = '<ul class="recipe-taxes">';
-		$recipe['cuisine'] = recipress_recipe('cuisine', '<li><b>'.__('Cuisine', 'recipress').':</b> ', ', ', '</li>');
-		$recipe['course'] = recipress_recipe('course', '<li><b>'.__('Course:', 'recipress').'</b> ', ', ', '</li>');
-		$recipe['skill_level'] = recipress_recipe('skill_level', '<li><b>'.__('Skill Level', 'recipress').':</b> ', ', ', '</li>');
-		$recipe['taxonomies_acter'] = '</ul>';
+		if(recipress_recipe('cuisine') || recipress_recipe('course') || recipress_recipe('skill_level') ) {
+  		$recipe['taxonomies_before'] = '<ul class="recipe-taxes">';
+  		$recipe['cuisine'] = recipress_recipe('cuisine', '<li><b>'.__('Cuisine', 'recipress').':</b> ', ', ', '</li>');
+  		$recipe['course'] = recipress_recipe('course', '<li><b>'.__('Course:', 'recipress').'</b> ', ', ', '</li>');
+  		$recipe['skill_level'] = recipress_recipe('skill_level', '<li><b>'.__('Skill Level', 'recipress').':</b> ', ', ', '</li>');
+  		$recipe['taxonomies_acter'] = '</ul>';
+		}
 		
 		// close
 		$recipe['credit'] = recipress_credit();
