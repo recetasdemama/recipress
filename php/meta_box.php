@@ -6,7 +6,7 @@
 add_action('admin_menu', 'recipe_add_box');
 function recipe_add_box() {
     global $meta_fields;
-    add_meta_box('recipress', __('Recipe', 'recipress'), 'recipe_show_box', 'post', 'normal', 'high');
+    add_meta_box('recipress', __('Recipe', 'recipress'), 'recipe_show_box', recipress_post_type(), 'normal', 'high');
 }
 
 
@@ -15,7 +15,7 @@ function recipe_add_box() {
 function recipress_fields() {
 	$meta_fields['title'] =
 		array(
-			'name'	=> __('Recipe Title', 'recipress'),
+			'label'	=> __('Recipe Title', 'recipress'),
 			'desc'	=> __('Do you want to give the recipe a different title from the post?', 'recipress'),
 			'place'	=> '',
 			'size'	=> 'large',
@@ -24,7 +24,7 @@ function recipress_fields() {
 		);
 	$meta_fields['summary'] =
 		array(
-			'name'	=> __('Recipe Summary', 'recipress'),
+			'label'	=> __('Recipe Summary', 'recipress'),
 			'desc'	=> __('A small summary of the recipe', 'recipress'),
 			'place'	=> '',
 			'size'	=> 'small',
@@ -33,7 +33,7 @@ function recipress_fields() {
 		);
 	$meta_fields['yield'] =
 		array(
-			'name'	=> __('Yield', 'recipress'),
+			'label'	=> __('Yield', 'recipress'),
 			'desc'	=> __('How much/many does this recipe produce?', 'recipress'),
 			'place'	=> __('e.g., 1 loaf, 2 cups', 'recipress'),
 			'size'	=> 'medium',
@@ -42,7 +42,7 @@ function recipress_fields() {
 		);
 	$meta_fields['servings'] =
 		array(
-			'name'	=> __('Servings', 'recipress'),
+			'label'	=> __('Servings', 'recipress'),
 			'desc'	=> __('How many servings?', 'recipress'),
 			'place'	=> '00',
 			'size'	=> 'small',
@@ -51,7 +51,7 @@ function recipress_fields() {
 		);
 	$meta_fields['prep_time'] =
 		array(
-			'name'	=> __('Prep Time', 'recipress'),
+			'label'	=> __('Prep Time', 'recipress'),
 			'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
 			'place'	=> '00',
 			'size'	=> 'small',
@@ -60,23 +60,32 @@ function recipress_fields() {
 		);
 	$meta_fields['cook_time'] =
 		array(
-			'name'	=> __('Cook Time', 'recipress'),
+			'label'	=> __('Cook Time', 'recipress'),
 			'desc'	=> __('How many minutes? (60+ minutes will output as hours)', 'recipress'),
 			'place'	=> '00',
 			'size'	=> 'small',
 			'id'	=> 'cook_time',
 			'type'	=> 'text'
 		);
+	$meta_fields['other_time'] =
+		array(
+			'label'	=> __('Other Time', 'recipress'),
+			'desc'	=> __('For calculating a proper ready time. How many minutes? (60+ minutes will output as hours)', 'recipress'),
+			'place'	=> '00',
+			'size'	=> 'small',
+			'id'	=> 'other_time',
+			'type'	=> 'text'
+		);
 	$meta_fields['ingredient'] =
 		array(
-			'name'	=> __('Ingredients', 'recipress'),
+			'label'	=> __('Ingredients', 'recipress'),
 			'desc'	=> sprintf( __( 'Click the plus icon to add another ingredient. %1$sManage Ingedients%2$s', 'recipress' ), '<a href="'.get_bloginfo('home').'/wp-admin/edit-tags.php?taxonomy=ingredient">', '</a>' ),
 			'id'	=> 'ingredient',
 			'type'	=> 'ingredient'
 		);
 	$meta_fields['instruction'] =
 		array(
-			'name'	=> __('Instructions', 'recipress'),
+			'label'	=> __('Instructions', 'recipress'),
 			'desc'	=> __('Click the plus icon to add another instruction.', 'recipress'),
 			'id'	=> 'instruction',
 			'type'	=> 'instruction'
@@ -90,7 +99,7 @@ add_filter('recipress_fields', 'recipress_insert_photo');
 function recipress_insert_photo($meta_fields) {
 	$photo = array(
 		'photo' => array(
-			'name'	=> __('Photo', 'recipress'),
+			'label'	=> __('Photo', 'recipress'),
 			'desc'	=> __('Add a photo of your completed recipe', 'recipress'),
 			'id'	=> 'photo',
 			'type'	=> 'image'
@@ -135,7 +144,7 @@ add_filter('recipress_fields', 'recipress_insert_cost');
 function recipress_insert_cost($meta_fields) {	
 	$cost = array(
 		'cost' => array(
-			'name'	=> __('Cost', 'recipress'),
+			'label'	=> __('Cost', 'recipress'),
 			'desc'	=> __('What does it cost to make this recipe?', 'recipress'),
 			'place'	=> __('$0.00', 'recipress'),
 			'size'	=> 'medium',
@@ -154,7 +163,7 @@ function recipress_insert_cost($meta_fields) {
 /* The Callback
 ------------------------------------------------------------------------- */
 function recipe_show_box() {
-    global $post, $measurements_singular, $measurements_plural;
+    global $post;
 	$meta_fields = recipress_fields();
 	
     // Use nonce for verification
@@ -164,7 +173,7 @@ function recipe_show_box() {
 	$hasRecipe = get_post_meta($post->ID, 'hasRecipe', true);
 	if($hasRecipe == 'Yes')
 		$hasRecipe_check = ' checked="checked"';
-	echo '<p id="hasRecipe_box"><input type="checkbox"'.$hasRecipe_check.' id="hasRecipe" name="hasRecipe" value="Yes" /><label for="hasRecipe">'.__('Add a Recipe to this post?', 'recipress').'</label></p>';
+	echo '<p id="hasRecipe_box"><input type="checkbox"'.$hasRecipe_check.' id="hasRecipe" name="hasRecipe" value="Yes" /><label for="hasRecipe">'.__('Add a recipe?', 'recipress').'</label></p>';
 	
     echo '<div id="recipress_table"><table class="form-table">';
     foreach ($meta_fields as $field) {
@@ -176,22 +185,17 @@ function recipe_show_box() {
 				'</tr>';
 		}
 		else {
-        // get current post meta data
-		if ($field['name'])
-			$name = $field['name'];
-		if ($field['desc'])
-			$desc = $field['desc'];
-		if ($field['place'])
-			$place = $field['place'];
-		if ($field['size'])
-			$size = $field['size'];
-		if ($field['id'])
-			$id = $field['id'];
-		if ($field['type'])
-			$type = $field['type'];
+        // get current field data
+		$label = $field['label'] ? $field['label'] : '';
+		$desc = $field['desc'] ? '<span class="description">'.$field['desc'].'</span>' : '';
+		$place = $field['place'] ? $field['place'] : '';
+		$size = $field['size'] ? $field['size'] : '';
+		$id = $field['id'] ? $field['id'] : '';
+		$type = $field['type'] ? $field['type'] : '';
+		
         $meta = get_post_meta($post->ID, $id, true);
         echo '<tr>',
-                '<th style="width:20%"><label for="'.$id.'">'.$name.'</label></th>',
+                '<th style="width:20%"><label for="'.$id.'">'.$label.'</label></th>',
                 '<td>';
 				
         switch ($field['type']) {
@@ -252,7 +256,7 @@ function recipe_show_box() {
 						</ul>';
 				}
 				echo '</li></ul>
-					<span class="description">'.$desc.'</span>';
+					'.$desc;
             break;
 			// ----------------
 			// instruction
@@ -277,7 +281,7 @@ function recipe_show_box() {
 							<li class="td cell-description"><textarea placeholder="'.__('Describe this step in the recipe', 'recipress').'" class="instruction" name="instruction['.$i.'][description]" cols="40" rows="4" id="ingredient_description_'.$i.'">'.$row['description'].'</textarea></li>
 							<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="'.$row['image'].'" />
 										<img src="'.$image.'" class="recipress_preview_image" alt="" />
-										<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Upload Image', 'recipress').'" />
+										<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Add Image', 'recipress').'" />
 										<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
 							</li>
 							<li class="td"><a class="instruction_remove" href="#"></a></li>
@@ -291,7 +295,7 @@ function recipe_show_box() {
 							<li class="td cell-description"><textarea placeholder="'.__('Describe this step in the recipe', 'recipress').'" class="instruction" type="text" name="instruction['.$i.'][description]" cols="77" rows="4" id="ingredient_description_'.$i.'"></textarea></li>
 							<li class="td image"><input name="instruction['.$i.'][image]" type="hidden" class="recipress_upload_image instruction" value="" />
 										<img src="'.$image.'" class="recipress_preview_image" alt="" />
-										<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Upload Image', 'recipress').'" />
+										<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Add Image', 'recipress').'" />
 										<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
 							</li>
 							<li class="td"><a class="instruction_remove" href="#"></a></li>
@@ -299,20 +303,20 @@ function recipe_show_box() {
 						</ul>';
 				}
 				echo '</li></ul>
-					<div class="recipress-clear"></div><span class="description">'.$desc.'</span>';
+					<div class="recipress-clear"></div>'.$desc;
             break;
 			// ----------------
 			// text
 			// ----------------
             case 'text':
-                echo '<input type="text" name="'.$id.'" id="'.$id.'" value="'.$meta.'" class="text-'.$size.'" size="30" placeholder="'.$place.'" />&nbsp;&nbsp;<span class="description">'.$desc.'</span>';
+                echo '<input type="text" name="'.$id.'" id="'.$id.'" value="'.$meta.'" class="text-'.$size.'" size="30" placeholder="'.$place.'" />&nbsp;&nbsp;'.$desc;
             break;
 			// ----------------
 			// textarea
 			// ----------------
             case 'textarea':
                 echo '<textarea name="'.$id.'" id="'.$id.'" cols="60" rows="4" class="text-'.$size.'">'.$meta.'</textarea>', 
-						'&nbsp;&nbsp;<span class="description">'.$desc.'</span>';
+						'&nbsp;&nbsp;'.$desc;
             break;
 			// ----------------
 			// image
@@ -322,9 +326,9 @@ function recipe_show_box() {
 				if($meta)  { $image = wp_get_attachment_image_src($meta, 'medium');	$image = $image[0]; }				
 				echo	'<input name="'.$id.'" type="hidden" class="recipress_upload_image" value="'.$meta.'" />',
 							'<img src="'.$image.'" class="recipress_preview_image" alt="" />
-								<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Upload Image', 'recipress').'" /><br />
+								<input class="recipress_upload_image_button button" rel="'.$post->ID.'" type="button" value="'.__('Add Image', 'recipress').'" /><br />
 								<small>&nbsp;<a href="#" class="recipress_clear_image_button">'.__('Remove Image', 'recipress').'</a></small>
-								<br clear="all" /><span class="description">'.$desc.'</span>';
+								<br clear="all" />'.$desc;
 			break;
         }
         echo     '<td>
@@ -342,6 +346,20 @@ add_action('save_post', 'recipe_save_data');
 function recipe_save_data($post_id) {
     $meta_fields = recipress_fields();
 	
+	// verify nonce
+	if (!wp_verify_nonce($_POST['recipe_meta_box_nonce'], basename(__FILE__))) 
+		return $post_id;
+	// check autosave
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+		return $post_id;
+	// check permissions
+	if ('page' == $_POST['post_type']) {
+		if (!current_user_can('edit_page', $post_id))
+			return $post_id;
+	} elseif (!current_user_can('edit_post', $post_id)) {
+		return $post_id;
+	}
+	
 	// set the value of hasRecipe
 	$hasRecipe_old = get_post_meta($post_id, 'hasRecipe', true);
 	$hasRecipe_new = $_POST['hasRecipe'];
@@ -352,19 +370,6 @@ function recipe_save_data($post_id) {
 		}
 	// determine if a recipe was added
 	if ($hasRecipe_new == 'Yes') {
-		// verify nonce
-		if (!wp_verify_nonce($_POST['recipe_meta_box_nonce'], basename(__FILE__))) 
-			return $post_id;
-		// check autosave
-		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
-			return $post_id;
-		// check permissions
-		if ('page' == $_POST['post_type']) {
-			if (!current_user_can('edit_page', $post_id))
-				return $post_id;
-		} elseif (!current_user_can('edit_post', $post_id)) {
-			return $post_id;
-		}
 		foreach ($meta_fields as $field) {
 			if($field['type'] == 'tax_select') continue;
 			$old = get_post_meta($post_id, $field['id'], true);
@@ -380,7 +385,7 @@ function recipe_save_data($post_id) {
 		
 		// save taxonomies
 		$post = get_post($post_id);
-		if (($post->post_type == 'post')) { 
+		if (($post->post_type == recipress_post_type())) { 
 			$the_ingredients = $_POST['ingredient'];
 			foreach($the_ingredients as $the_ingredient) {
 					$ingredients[] = $the_ingredient['ingredient'];

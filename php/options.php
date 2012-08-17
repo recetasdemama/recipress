@@ -156,6 +156,15 @@ function recipress_options_fields() {
 			'label' => __('Recipe Input', 'recipress'),
 			'type' 	=> 'section'
 		);
+	$recipress_options_fields['post_type'] =
+		array(
+			'label'	=> __('Post Type', 'recipress'),
+			'desc'	=> __('Name of post type to add recipes to', 'recipress'),
+			'value'	=> 'post',
+			'size'	=> 'medium',
+			'id'	=> 'post_type',
+			'type'	=> 'text'
+		);
 	$recipress_options_fields['taxonomies'] =
 		array(
 			'label' => __('Use Taxonomies', 'recipress'),
@@ -273,18 +282,14 @@ function recipress_do_page() {
 			$sections = 0;
 			foreach ($fields as $field) {
 				// values
-				if ($field['label'])
-					$label = $field['label'];
-				if ($field['desc'])
-					$desc = $field['desc'];
-				if ($field['id'])
-					$id = $field['id'];
-				if ($field['type'])
-					$type = $field['type'];
-				if ($field['value'])
-					$value = $field['value'];
-				if ($field['options'])
-					$f_options = $field['options'];
+				$label = $field['label'] ? $field['label'] : '';
+				$desc = $field['desc'] ? '<span class="description">'.$field['desc'].'</span>' : '';
+				$id = $field['id'] ? $field['id'] : '';
+				$type = $field['type'] ? $field['type'] : '';
+				$value = $field['value'] ? $field['value'] : '';
+				$size = $field['size'] ? $field['size'] : '';
+				$f_options = $field['options'] ? $field['options'] : '';
+				
 				if ($field['id'])
 					$meta = $options[$id];
 			// section titles
@@ -307,7 +312,7 @@ function recipress_do_page() {
 						// text
 						// ----------------
 						case 'text':
-							echo '<input type="text" class="regular-text" name="recipress_options['.$id.']" id="'.$id.'" value="', $meta ? $meta : $value, '" size="30" /> <span class="description">'.$desc.'</span>';
+							echo '<input type="text" class="text-'.$size.'" name="recipress_options['.$id.']" id="'.$id.'" value="', $meta ? $meta : $value, '" size="30" /> '.$desc;
 						break;
 						// ----------------
 						// checkbox
@@ -331,7 +336,7 @@ function recipress_do_page() {
 								echo '<input id="'.$option['value'].'" name="recipress_options['.$id.'][]" type="checkbox" value="'.$option['value'].'"'.$checked.' />', 
 										' <label for="'.$option['value'].'">'.$option['label'].'</label><br />';
 							}
-							echo '<span class="description">'.$desc.'</span>';
+							echo $desc;
 						break;
 						// ----------------
 						// select
@@ -353,7 +358,7 @@ function recipress_do_page() {
 								echo $p . $r;
 							
 							echo '</select>
-								<span class="description">'.$desc.'</span>';
+								'.$desc;
 						break;
 						// ----------------
 						// radio
