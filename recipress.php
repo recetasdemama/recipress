@@ -49,11 +49,13 @@ function recipress_admin_enqueue() {
 	wp_enqueue_script('recipress_back', RECIPRESS_URL.'js/back.js', array('jquery', 'jquery-ui-sortable'));
 	wp_enqueue_style('recipress_back', RECIPRESS_URL.'css/back.css');
 }
-add_action('wp_enqueue_scripts', 'recipress_wp_enqueue');
-function recipress_wp_enqueue() {
-	wp_enqueue_script('jquery');
-	wp_enqueue_style('recipress_front', RECIPRESS_URL.'css/front.css');
-}
+/* Disabled front.css because it's merged with the theme stylesheet
+ *  add_action('wp_enqueue_scripts', 'recipress_wp_enqueue');
+ *  function recipress_wp_enqueue() {
+ *  	wp_enqueue_script('jquery');
+ *  	wp_enqueue_style('recipress_front', RECIPRESS_URL.'css/front.css');
+ *  }
+ */
 
 // Admin Head Script
 add_action('admin_head', 'add_recipress_script_config');
